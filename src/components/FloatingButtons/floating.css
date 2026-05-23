@@ -1,0 +1,74 @@
+.cs-floating_btns {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 999;
+}
+
+.cs-floating_btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+
+.cs-floating_btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.cs-whatsapp {
+  background-color: #05e457;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.cs-whatsapp:hover {
+  transform: scale(1.1);
+  background-color: #05e457;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cs-scroll_top {
+  background-color: #E60A06;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+.cs-scroll_top:hover {
+  transform: scale(1.2);
+  background-color: #E60A06;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cs-scroll_top.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 991px) {
+  .cs-floating_btns {
+    bottom: 20px;
+    right: 20px;
+  }
+  .cs-floating_btn {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+}
