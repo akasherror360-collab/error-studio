@@ -19,7 +19,8 @@ const takeRedirectPending = () => {
     return Number.isFinite(at) && Date.now() - at < REDIRECT_PENDING_MAX_AGE_MS;
   } catch (_) { return false; }
 };
-const EDITABLE_TEXT = 'h1,h2,h3,h4,h5,h6,p,li,span,a,button,label,blockquote';
+const EDITABLE_TEXT = 'h1,h2,h3,h4,h5,h6,p,li,span,a,button,label,blockquote,figcaption,small,strong,em';
+const hasOwnText = element => [...element.childNodes].some(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
 const pages = [
   ['Home','/'],['About','/about'],['Services','/service'],['Wedding photography','/service/wedding-photography'],
   ['Videography','/service/videography'],['Video editing','/service/video-editing'],['Commercial','/service/commercial'],
@@ -84,15 +85,20 @@ export default function AdminPanel() {
     const frameDoc = iframeRef.current?.contentDocument;
     if (!frameDoc) return;
     applyToFrame(frameDoc, draft);
-    frameDoc.querySelectorAll(`${EDITABLE_TEXT},img`).forEach(element => {
-      element.dataset.adminEditable = 'true';
-      element.addEventListener('click', selectElement, true);
+    frameDoc.querySelectorAll(`${EDITABLE_TEXT},img`).forEach(element => { element.dataset.adminEditable = 'true'; });
+    // Some site copy is rendered in plain divs by template components rather than p tags.
+    // Include only divs that own text, not layout wrappers, so every paragraph-like block
+    // can be edited without turning the whole section into one giant text field.
+    frameDoc.querySelectorAll('div').forEach(element => {
+      if (hasOwnText(element)) element.dataset.adminEditable = 'true';
     });
+    frameDoc.addEventListener('click', selectElement, true);
   };
 
   const selectElement = event => {
+    const element = event.target.closest?.('[data-admin-editable="true"]');
+    if (!element) return;
     event.preventDefault(); event.stopPropagation();
-    const element = event.currentTarget;
     const selector = selectorFor(element, iframeRef.current.contentDocument.body);
     const type = element.tagName === 'IMG' ? 'image' : 'text';
     const existing = draft[selector];
