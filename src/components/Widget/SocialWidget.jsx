@@ -8,7 +8,7 @@ export default function SocialWidget() {
       <a href='https://www.facebook.com/share/1BQxvdJGY8/?mibextid=wwXIfr' target='_blank' rel='noopener noreferrer' className="cs-center">
         <Icon icon="fa6-brands:facebook" />
       </a>
-      <a href='https://www.instagram.com/errorstudio.official?igsh=MXExdHRrMDcweXlrNA%3D%3D&utm_source=qr' target='_blank' rel='noopener noreferrer' className="cs-center">
+      <a href='https://www.instagram.com/errorstudio.official/' target='_blank' rel='noopener noreferrer' className="cs-center">
         <Icon icon="fa6-brands:instagram" />               
       </a>
       <a href='https://youtube.com/@errorstuido?si=69wiTCukQpkVg9dG' target='_blank' rel='noopener noreferrer' className="cs-center">
