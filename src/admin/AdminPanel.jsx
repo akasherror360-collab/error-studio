@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
+import { GoogleAuthProvider, getRedirectResult, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut } from 'firebase/auth';
 import { deleteDoc, doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 import { routeKey, selectorFor } from '../content/contentManager';
@@ -14,6 +14,13 @@ const pages = [
   ['Portfolio','/portfolio'],['Blog','/blog'],['Contact','/contact'],['Team','/team'],['FAQ','/faq']
 ];
 
+const friendlyAuthError = error => {
+  if (error?.code === 'auth/popup-closed-by-user' || error?.code === 'auth/cancelled-popup-request') return 'The Google window was closed before sign-in finished. Please try again.';
+  if (error?.code === 'auth/network-request-failed') return 'The network interrupted Google sign-in. Check your connection and try again.';
+  if (error?.code === 'auth/unauthorized-domain') return 'This website is not authorized for Google sign-in. Please contact support.';
+  return error?.message || 'Please try again.';
+};
+
 export default function AdminPanel() {
   const [user, setUser] = useState(undefined);
   const [path, setPath] = useState('/');
@@ -25,7 +32,26 @@ export default function AdminPanel() {
   const iframeRef = useRef(null);
   const key = useMemo(() => routeKey(path), [path]);
 
-  useEffect(() => onAuthStateChanged(auth, current => setUser(current)), []);
+  useEffect(() => {
+    let active = true;
+    const unsubscribe = onAuthStateChanged(auth, current => {
+      if (active) setUser(current);
+    });
+
+    getRedirectResult(auth).then(async result => {
+      if (!active || !result?.user) return;
+      if (result.user.email !== OWNER_EMAIL) {
+        await signOut(auth);
+        if (active) setStatus('This Google account is not authorized. Sign in with akasherror360@gmail.com.');
+      } else if (active) {
+        setStatus('Signed in successfully.');
+      }
+    }).catch(error => {
+      if (active) setStatus(`Google sign-in failed: ${friendlyAuthError(error)}`);
+    });
+
+    return () => { active = false; unsubscribe(); };
+  }, []);
   useEffect(() => {
     if (user?.email !== OWNER_EMAIL) return;
     (async () => {
@@ -118,8 +144,45 @@ export default function AdminPanel() {
     setPendingImage(null);
   };
 
+  const signIn = async () => {
+    setBusy(true);
+    setStatus('Opening secure Google sign-in…');
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+    const mobileBrowser = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.matchMedia('(pointer: coarse) and (max-width: 900px)').matches;
+
+    try {
+      if (mobileBrowser) {
+        setStatus('Taking you to Google sign-in. You will return here automatically.');
+        await signInWithRedirect(auth, provider);
+        return;
+      }
+
+      const result = await signInWithPopup(auth, provider);
+      if (result.user.email !== OWNER_EMAIL) {
+        await signOut(auth);
+        setStatus('This Google account is not authorized. Sign in with akasherror360@gmail.com.');
+      }
+    } catch (error) {
+      const redirectable = ['auth/popup-blocked', 'auth/operation-not-supported-in-this-environment', 'auth/web-storage-unsupported'].includes(error.code);
+      if (redirectable) {
+        setStatus('The sign-in popup was blocked. Switching to full-page Google sign-in…');
+        try {
+          await signInWithRedirect(auth, provider);
+          return;
+        } catch (redirectError) {
+          setStatus(`Google sign-in failed: ${friendlyAuthError(redirectError)}`);
+        }
+      } else {
+        setStatus(`Google sign-in failed: ${friendlyAuthError(error)}`);
+      }
+    } finally {
+      setBusy(false);
+    }
+  };
+
   if (user === undefined) return <main className="admin-login">Loading secure admin…</main>;
-  if (!user || user.email !== OWNER_EMAIL) return <main className="admin-login" data-admin-ui><section><h1>Error Studio Admin</h1><p>Sign in with the owner Google account to edit the website.</p><button onClick={async () => { const result = await signInWithPopup(auth, new GoogleAuthProvider()); if (result.user.email !== OWNER_EMAIL) { await signOut(auth); setStatus('This Google account is not authorized.'); } }}>Sign in with Google</button>{status && <p role="alert">{status}</p>}</section></main>;
+  if (!user || user.email !== OWNER_EMAIL) return <main className="admin-login" data-admin-ui><section><h1>Error Studio Admin</h1><p>Sign in with the owner Google account to edit the website.</p><button disabled={busy} onClick={signIn}>{busy ? 'Opening Google sign-in…' : 'Sign in with Google'}</button>{status && <p role="alert">{status}</p>}<small>On phones, sign-in opens as a full page and returns here automatically.</small></section></main>;
 
   return <main className="admin-shell" data-admin-ui>
     <header><div><strong>Error Studio Admin</strong><small>{user.email}</small></div><nav><a href={path} target="_blank" rel="noreferrer">Open public page</a><button onClick={() => signOut(auth)}>Sign out</button></nav></header>
