@@ -1,6 +1,6 @@
 {
-  "short_name": "Arino",
-  "name": "Creative Agency React Template",
+  "short_name": "Error Studio",
+  "name": "Error Studio | Quality Matters",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#ffffff",
   "background_color": "#181818"
