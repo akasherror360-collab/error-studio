@@ -3,6 +3,7 @@ import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from
 import { deleteDoc, doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 import { routeKey, selectorFor } from '../content/contentManager';
+import { compressImage, formatBytes } from './imageCompression';
 import './admin.css';
 
 const OWNER_EMAIL = 'akasherror360@gmail.com';
@@ -20,6 +21,7 @@ export default function AdminPanel() {
   const [selected, setSelected] = useState(null);
   const [status, setStatus] = useState('');
   const [busy, setBusy] = useState(false);
+  const [pendingImage, setPendingImage] = useState(null);
   const iframeRef = useRef(null);
   const key = useMemo(() => routeKey(path), [path]);
 
@@ -29,7 +31,7 @@ export default function AdminPanel() {
     (async () => {
       const snapshot = await getDoc(doc(db, 'draftPages', key));
       setDraft(snapshot.exists() ? snapshot.data().patches || {} : {});
-      setSelected(null);
+      setSelected(null); setPendingImage(null);
     })().catch(error => setStatus(`Could not load draft: ${error.message}`));
   }, [key, user]);
 
@@ -100,17 +102,20 @@ export default function AdminPanel() {
 
   const uploadImage = async event => {
     const file = event.target.files?.[0]; if (!file) return;
-    if (!/^image\/(jpeg|png|webp|gif)$/.test(file.type) || file.size > 700 * 1024) {
-      setStatus('Use a JPG, PNG, WebP or GIF up to 700 KB. Compress larger images first.'); return;
-    }
-    setBusy(true); setStatus('Adding image to draft…');
+    setBusy(true); setPendingImage(null); setStatus('Optimizing image for the website…');
     try {
-      const value = await new Promise((resolve, reject) => {
-        const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.onerror = reject; reader.readAsDataURL(file);
-      });
-      updateSelected({ ...selected, value }); setStatus('Image added to this draft. Publish when ready.');
-    } catch (error) { setStatus(`Image load failed: ${error.message}`); }
+      const result = await compressImage(file);
+      setPendingImage({ ...result, name: file.name, alt: selected.alt || '' });
+      setStatus(`Preview ready: ${formatBytes(result.originalBytes)} → ${formatBytes(result.compressedBytes)}. Review it, then use this image.`);
+    } catch (error) { setStatus(`Image optimization failed: ${error.message}`); }
     finally { setBusy(false); event.target.value = ''; }
+  };
+
+  const acceptPendingImage = () => {
+    if (!pendingImage) return;
+    updateSelected({ ...selected, value: pendingImage.dataUrl, alt: pendingImage.alt, deleted: false });
+    setStatus(`Image added to the draft at ${formatBytes(pendingImage.compressedBytes)}. Save draft or publish when ready.`);
+    setPendingImage(null);
   };
 
   if (user === undefined) return <main className="admin-login">Loading secure admin…</main>;
@@ -122,7 +127,7 @@ export default function AdminPanel() {
       <label>Page<select value={path} onChange={e => setPath(e.target.value)}>{pages.map(([name,url]) => <option key={url} value={url}>{name}</option>)}</select></label>
       <p className="hint">Click highlighted text or an image in the preview.</p>
       {selected ? <section className="editor"><h2>{selected.type === 'image' ? 'Edit image' : 'Edit text'}</h2><code>{selected.selector}</code>
-        {selected.type === 'text' ? <textarea rows="8" value={selected.value} onChange={e => updateSelected({ ...selected, value: e.target.value })}/> : <><img src={selected.value} alt="Selected preview"/><label>Replace image<input type="file" accept="image/jpeg,image/png,image/webp,image/gif" onChange={uploadImage}/></label><label>Alt text<input value={selected.alt} onChange={e => updateSelected({ ...selected, alt: e.target.value })}/></label><button className="secondary danger" onClick={() => updateSelected({ ...selected, deleted: !selected.deleted })}>{selected.deleted ? 'Restore image in draft' : 'Remove image from page'}</button></>}
+        {selected.type === 'text' ? <textarea rows="8" value={selected.value} onChange={e => updateSelected({ ...selected, value: e.target.value })}/> : <><img src={selected.value} alt="Selected preview"/><label>Replace image<input type="file" accept="image/jpeg,image/png,image/webp,image/gif" onChange={uploadImage}/></label>{pendingImage && <div className="image-review"><strong>Compressed preview</strong><img src={pendingImage.dataUrl} alt="Compressed upload preview"/><small>{pendingImage.width} × {pendingImage.height} · {formatBytes(pendingImage.originalBytes)} → {formatBytes(pendingImage.compressedBytes)}</small><label>Alt text<input value={pendingImage.alt} onChange={e => setPendingImage({ ...pendingImage, alt: e.target.value })}/></label><div><button onClick={acceptPendingImage}>Use this image</button><button className="secondary" onClick={() => setPendingImage(null)}>Cancel</button></div></div>}<label>Alt text<input value={selected.alt} onChange={e => updateSelected({ ...selected, alt: e.target.value })}/></label><button className="secondary danger" onClick={() => updateSelected({ ...selected, deleted: !selected.deleted })}>{selected.deleted ? 'Restore image in draft' : 'Remove image from page'}</button></>}
         <button className="secondary danger" onClick={removeChange}>Remove this draft change</button>
       </section> : <div className="empty">Nothing selected</div>}
       <div className="actions"><button disabled={busy} onClick={saveDraft}>Save draft</button><button disabled={busy} onClick={publish}>Publish</button><button className="secondary danger" disabled={busy} onClick={restore}>Restore bundled page</button></div>
