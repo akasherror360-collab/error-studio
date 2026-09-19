@@ -34,7 +34,7 @@ import cta_bg from '../../assets/images/cta_bg.jpeg';
 const heroSocialLinks = [
   {
     name: 'Instagram',
-    links: 'https://www.instagram.com/errorstudio.official?igsh=MXExdHRrMDcweXlrNA%3D%3D&utm_source=qr',
+    links: 'https://www.instagram.com/errorstudio.official/',
   },
   {
     name: 'Facebook',
