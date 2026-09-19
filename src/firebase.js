@@ -5,7 +5,7 @@ import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD2O-wQkrtXRZRl_Sxq6plTtYcidK7njaI",
-  authDomain: "error-studio-fd96c.firebaseapp.com",
+  authDomain: "www.errorstudio.in",
   projectId: "error-studio-fd96c",
   storageBucket: "error-studio-fd96c.appspot.com",
   messagingSenderId: "842939614969",

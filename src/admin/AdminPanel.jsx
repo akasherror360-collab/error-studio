@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { GoogleAuthProvider, getRedirectResult, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut } from 'firebase/auth';
+import { GoogleAuthProvider, browserLocalPersistence, getRedirectResult, onAuthStateChanged, setPersistence, signInWithPopup, signInWithRedirect, signOut } from 'firebase/auth';
 import { deleteDoc, doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 import { routeKey, selectorFor } from '../content/contentManager';
@@ -7,6 +7,18 @@ import { compressImage, formatBytes } from './imageCompression';
 import './admin.css';
 
 const OWNER_EMAIL = 'akasherror360@gmail.com';
+const REDIRECT_PENDING_KEY = 'esAdminGoogleRedirectPending';
+const REDIRECT_PENDING_MAX_AGE_MS = 10 * 60 * 1000;
+
+const markRedirectPending = () => { try { localStorage.setItem(REDIRECT_PENDING_KEY, String(Date.now())); } catch (_) {} };
+const takeRedirectPending = () => {
+  try {
+    const raw = localStorage.getItem(REDIRECT_PENDING_KEY);
+    localStorage.removeItem(REDIRECT_PENDING_KEY);
+    const at = Number(raw);
+    return Number.isFinite(at) && Date.now() - at < REDIRECT_PENDING_MAX_AGE_MS;
+  } catch (_) { return false; }
+};
 const EDITABLE_TEXT = 'h1,h2,h3,h4,h5,h6,p,li,span,a,button,label,blockquote';
 const pages = [
   ['Home','/'],['About','/about'],['Services','/service'],['Wedding photography','/service/wedding-photography'],
@@ -18,6 +30,8 @@ const friendlyAuthError = error => {
   if (error?.code === 'auth/popup-closed-by-user' || error?.code === 'auth/cancelled-popup-request') return 'The Google window was closed before sign-in finished. Please try again.';
   if (error?.code === 'auth/network-request-failed') return 'The network interrupted Google sign-in. Check your connection and try again.';
   if (error?.code === 'auth/unauthorized-domain') return 'This website is not authorized for Google sign-in. Please contact support.';
+  if (error?.code === 'auth/missing-or-invalid-nonce' || error?.code === 'auth/no-auth-event') return 'The secure sign-in response was not recognized. This happens when sign-in starts in one browser or app and finishes in another. Open https://www.errorstudio.in/admin directly in Chrome or Safari and try again.';
+  if (error?.code === 'auth/web-storage-unsupported' || error?.code === 'auth/operation-not-supported-in-this-environment') return 'This browser blocks the storage Google sign-in needs. Allow cookies and site data, or open https://www.errorstudio.in/admin directly in Chrome or Safari.';
   return error?.message || 'Please try again.';
 };
 
@@ -38,8 +52,13 @@ export default function AdminPanel() {
       if (active) setUser(current);
     });
 
+    const wasReturning = takeRedirectPending();
     getRedirectResult(auth).then(async result => {
-      if (!active || !result?.user) return;
+      if (!active) return;
+      if (!result?.user) {
+        if (wasReturning) setStatus('Google sign-in finished, but this browser did not keep the secure session. This happens when sign-in starts in one browser or app and finishes in another. Open https://www.errorstudio.in/admin directly in Chrome or Safari and sign in again.');
+        return;
+      }
       if (result.user.email !== OWNER_EMAIL) {
         await signOut(auth);
         if (active) setStatus('This Google account is not authorized. Sign in with akasherror360@gmail.com.');
@@ -154,6 +173,8 @@ export default function AdminPanel() {
     try {
       if (mobileBrowser) {
         setStatus('Taking you to Google sign-in. You will return here automatically.');
+        await setPersistence(auth, browserLocalPersistence);
+        markRedirectPending();
         await signInWithRedirect(auth, provider);
         return;
       }
@@ -168,6 +189,8 @@ export default function AdminPanel() {
       if (redirectable) {
         setStatus('The sign-in popup was blocked. Switching to full-page Google sign-in…');
         try {
+          await setPersistence(auth, browserLocalPersistence);
+          markRedirectPending();
           await signInWithRedirect(auth, provider);
           return;
         } catch (redirectError) {
