@@ -31,11 +31,15 @@ import CreativeSolutionHome from './components/Pages/CreativeSolutionHome';
 import PersonalPortfolioHome from './components/Pages/PersonalPortfolioHome';
 import VideoShowcaseHome from './components/Pages/VideoShowcaseHome';
 import FloatingButtons from './components/FloatingButtons';
+import AdminPanel from './admin/AdminPanel';
+import PublishedContent from './content/PublishedContent';
 
 function App() {
   return (
     <>
+      <PublishedContent />
       <Routes>
+        <Route path="/admin" element={<AdminPanel />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route
