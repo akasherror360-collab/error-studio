@@ -23,11 +23,12 @@ export function applyPatches(patches = {}) {
     try {
       const element = document.querySelector(selector);
       if (!element || element.closest('[data-admin-ui]')) return;
-      if (patch.type === 'text') element.textContent = patch.value ?? '';
+      if (patch.type === 'text' && element.textContent !== (patch.value ?? '')) element.textContent = patch.value ?? '';
       if (patch.type === 'image' && element.tagName === 'IMG') {
-        element.hidden = Boolean(patch.deleted);
-        if (patch.value) element.src = patch.value;
-        if (patch.alt !== undefined) element.alt = patch.alt;
+        const hidden = Boolean(patch.deleted);
+        if (element.hidden !== hidden) element.hidden = hidden;
+        if (patch.value && element.src !== patch.value) element.src = patch.value;
+        if (patch.alt !== undefined && element.alt !== patch.alt) element.alt = patch.alt;
       }
     } catch (error) { console.warn('Skipped invalid content selector', selector, error); }
   });
