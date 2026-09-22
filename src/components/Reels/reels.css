@@ -47,3 +47,21 @@
     margin-right: auto;
   }
 }
+
+.cs-reels_cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 42px;
+}
+.cs-reels_cta .cs-btn svg {
+  margin-left: 12px;
+}
+@media screen and (max-width: 575px) {
+  .cs-reels_cta {
+    margin-top: 32px;
+  }
+  .cs-reels_cta .cs-btn {
+    width: 100%;
+    max-width: 340px;
+  }
+}
