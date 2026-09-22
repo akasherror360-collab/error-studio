@@ -4,8 +4,8 @@ const siteUrl = 'https://www.errorstudio.in';
 const seoByTitle = {
   Home: {
     path: '/',
-    title: 'Wedding Photography, Videography & Editing | Error Studio',
-    description: 'Error Studio provides wedding photography, cinematic videography, creative editing and commercial visual services in Tamil Nadu.',
+    title: 'Error Studio | Wedding Photographer in Cuddalore, Tamil Nadu',
+    description: 'Error Studio is a wedding photographer in Cuddalore offering candid wedding photography, cinematic films, album design and event coverage across Tamil Nadu.',
   },
   About: {
     path: '/about',
