@@ -52,10 +52,25 @@ function ReelCard({ id }) {
 
 export default function Reels({ data }) {
   return (
-    <Div className="cs-reels_row">
-      {data.map(id => (
-        <ReelCard id={id} key={id} />
-      ))}
-    </Div>
+    <>
+      <Div className="cs-reels_row">
+        {data.map(id => (
+          <ReelCard id={id} key={id} />
+        ))}
+      </Div>
+      <Div className="cs-reels_cta">
+        <a
+          className="cs-btn cs-style1"
+          href="https://www.instagram.com/errorstudio.official"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Check More Reels on Instagram</span>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
+      </Div>
+    </>
   );
 }
