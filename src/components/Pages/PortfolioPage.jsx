@@ -54,12 +54,6 @@ import portfolio_8_5 from "../../assets/images/website/portfolio/8-(5).webp";
 import portfolio_9_5 from "../../assets/images/website/portfolio/9-(5).webp";
 
 // Portfolio images from assets/images/website/portfolio/12X36
-import portfolio_12x36_01 from "../../assets/images/website/portfolio/12X36/01.webp";
-import portfolio_12x36_02 from "../../assets/images/website/portfolio/12X36/02.webp";
-import portfolio_12x36_03 from "../../assets/images/website/portfolio/12X36/03.webp";
-import portfolio_12x36_15 from "../../assets/images/website/portfolio/12X36/15.webp";
-import portfolio_12x36_16 from "../../assets/images/website/portfolio/12X36/16.webp";
-import portfolio_12x36_17 from "../../assets/images/website/portfolio/12X36/17.webp";
 import portfolio_12x36_18 from "../../assets/images/website/portfolio/12X36/18.webp";
 import portfolio_12x36_19 from "../../assets/images/website/portfolio/12X36/19.webp";
 import portfolio_12x36_20 from "../../assets/images/website/portfolio/12X36/20.webp";
