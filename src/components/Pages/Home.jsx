@@ -279,12 +279,7 @@ export default function Home() {
         />
         <Spacing lg="60" md="40" />
         <Reels
-          data={[
-            'https://www.instagram.com/errorstudio.official/reel/DdNHcvTy11Y/',
-            'https://www.instagram.com/errorstudio.official/reel/Db3AW4dxZNt/',
-            'https://www.instagram.com/errorstudio.official/reel/DbWnfPLS1bg/',
-            'https://www.instagram.com/errorstudio.official/reel/DcWnXy6yBf3/',
-          ]}
+          data={['DdNHcvTy11Y', 'Db3AW4dxZNt', 'DbWnfPLS1bg', 'DcWnXy6yBf3']}
         />
       </Div>
       {/* End Reels Section */}
