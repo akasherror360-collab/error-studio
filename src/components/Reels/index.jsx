@@ -5,7 +5,7 @@ import './reels.css';
 // Extracts the shortcode from an Instagram reel URL like
 // https://www.instagram.com/reel/ABC123/ or https://www.instagram.com/p/ABC123/
 function reelEmbedSrc(url) {
-  const m = url.match(/instagram\.com\/(reel|reels|p)\/([A-Za-z0-9_-]+)/);
+  const m = url.match(/instagram\.com\/(?:[A-Za-z0-9_.]+\/)?(reel|reels|p)\/([A-Za-z0-9_-]+)/);
   return m ? `https://www.instagram.com/${m[1] === 'p' ? 'p' : 'reel'}/${m[2]}/embed` : null;
 }
 
