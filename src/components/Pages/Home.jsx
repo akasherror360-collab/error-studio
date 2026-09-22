@@ -11,11 +11,9 @@ import PortfolioSlider from '../Slider/PortfolioSlider';
 import PostSlider from '../Slider/PostSlider';
 import TestimonialSlider from '../Slider/TestimonialSlider';
 import TeamSlider from '../Slider/TeamSlider';
-import VideoModal from '../VideoModal';
 import TimelineSlider from '../Slider/TimelineSlider';
 import Reels from '../Reels';
 import { pageTitle } from '../../helper';
-import hero_bg from '../../assets/images/client-2026-09/hero-cherished.webp';
 import service_1 from '../../assets/images/client-2026-09/f07214dc.webp';
 import service_2 from '../../assets/images/client-2026-09/c347dc1d.webp';
 import service_3 from '../../assets/images/client-2026-09/e283b9f8.webp';
@@ -27,7 +25,6 @@ import portfolio_4 from '../../assets/images/client-2026-09/68828210.webp';
 import portfolio_5 from '../../assets/images/client-2026-09/6d1e3054.webp';
 import contact_side_img from '../../assets/images/website/Instagram Posters/11-(3).webp';
 
-import video_bg from '../../assets/images/website/Best Work/Best Album/12x36/22.webp';
 import cta_bg from '../../assets/images/cta_bg.jpeg';
 // Hero Social Links
 const heroSocialLinks = [
@@ -180,7 +177,6 @@ export default function Home() {
         btnLink="/contact"
         scrollDownId="#service"
         heroSocialLinks={heroSocialLinks}
-        bgImageUrl={hero_bg}
       />
       {/* End Hero Section */}
 
@@ -308,19 +304,7 @@ export default function Home() {
       </Div>
       {/* End Journey Section */}
 
-      {/* Start Video Block Section */}
-      <Spacing lg="130" md="70" />
-      <Div className="container">
-        <h2 className="cs-font_50 max-w-6xl mx-auto cs-m0 text-center cs-line_height_4">
-          Our agile process is ability to adapt and respond to change. 
-        </h2>
-        <Spacing lg="70" md="70" />
-        <VideoModal
-          videoSrc="https://youtu.be/6kZ7cwzcxic?si=3TZi7wuOZ2Yz1Hqf"
-          bgUrl={video_bg}
-        />
-      </Div>
-      {/* End Video Block Section */}
+      {/* Video block temporarily removed at the owner's request. The component and assets remain available for restoration. */}
 
       {/* Start Team Section */}
       <Spacing lg="145" md="80" />

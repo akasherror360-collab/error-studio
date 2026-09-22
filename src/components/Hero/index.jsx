@@ -11,7 +11,6 @@ import carousel1 from "../../assets/images/website/carousel/Banner-02.webp";
 import carousel2 from "../../assets/images/website/carousel/Banner.webp";
 import curatedHero from "../../assets/images/client-2026-09/hero-cherished.webp";
 
-import carousel4 from "../../assets/images/website/Best Work/Best Album/12x36/54.webp";
 import carousel5 from "../../assets/images/website/carousel/01.jpg";
 import carousel6 from "../../assets/images/website/carousel/02.jpg";
 
@@ -22,7 +21,7 @@ export default function Hero({
   btnLink,
   heroSocialLinks,
 }) {
-  const images = [curatedHero, carousel2, carousel1, carousel4, carousel5, carousel6];
+  const images = [curatedHero, carousel2, carousel1, carousel5, carousel6];
 
   return (
     <Div className="cs-hero cs-style1 cs-bg cs-fixed_bg cs-shape_wrap_1 relative overflow-hidden">
