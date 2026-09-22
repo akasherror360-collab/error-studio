@@ -13,6 +13,7 @@ import TestimonialSlider from '../Slider/TestimonialSlider';
 import TeamSlider from '../Slider/TeamSlider';
 import VideoModal from '../VideoModal';
 import TimelineSlider from '../Slider/TimelineSlider';
+import Reels from '../Reels';
 import { pageTitle } from '../../helper';
 import hero_bg from '../../assets/images/hero_bg.jpeg';
 import service_1 from '../../assets/images/website/Instagram Posters/5-(1).webp';
@@ -267,6 +268,26 @@ export default function Home() {
         <PortfolioSlider data={portfolioData} />
       </Div>
       {/* End Portfolio Section */}
+
+      {/* Start Reels Section */}
+      <Spacing lg="110" md="60" />
+      <Div className="container">
+        <SectionHeading
+          title="Watch our latest reels"
+          subtitle="From Our Instagram"
+          variant="cs-style1 text-center"
+        />
+        <Spacing lg="60" md="40" />
+        <Reels
+          data={[
+            'https://www.instagram.com/errorstudio.official/reel/DdNHcvTy11Y/',
+            'https://www.instagram.com/errorstudio.official/reel/Db3AW4dxZNt/',
+            'https://www.instagram.com/errorstudio.official/reel/DbWnfPLS1bg/',
+            'https://www.instagram.com/errorstudio.official/reel/DcWnXy6yBf3/',
+          ]}
+        />
+      </Div>
+      {/* End Reels Section */}
 
       {/* Start Journey Section */}
       <Spacing lg="150" md="80" />
