@@ -9,40 +9,29 @@ import Spacing from "../Spacing";
 import blogHeroBg from "../../assets/images/blog_hero_bg.jpeg";
 import post1 from "../../assets/images/website/Instagram Posters/0-(4).webp";
 import post2 from "../../assets/images/website/Instagram Posters/8-(2).webp";
-import post3 from "../../assets/images/website/Instagram Posters/11-(4).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
 const postData = [
   {
     thumb: post1,
-    title: "How to keep fear from ruining your art business with confident",
+    title: "Wedding venues in and around Cuddalore: a couple's guide",
     subtitle:
-      "Discover practical strategies to overcome fear and build confidence in your creative business. Learn how successful artists and photographers maintain their composure while growing their brand and connecting with clients.",
-    date: "07 Mar 2022",
-    category: "Business",
+      "Kalyana mandapams in town, beachside settings near Silver Beach, temple towns a short drive away and Pondicherry for a destination feel - how to choose the right venue and what to check before you book.",
+    date: "22 Sep 2026",
+    category: "Wedding Guide",
     categoryHref: "/blog",
-    href: "/blog/how-to-keep-fear-from-ruining-your-art-business-with-confident",
+    href: "/blog/wedding-venues-in-and-around-cuddalore",
   },
   {
     thumb: post2,
-    title: "Artistic mind will be great for creation anything",
+    title: "How to prepare for your wedding shoot: tips from our team",
     subtitle:
-      "Explore the power of creative thinking in photography and videography. Understanding how to harness your artistic vision can transform ordinary moments into extraordinary visual stories that resonate with your audience.",
-    date: "10 Feb 2022",
-    category: "Photography",
+      "Share your schedule early, plan outfits the night before, use the soft evening light for couple portraits and think about your album while you shoot - practical tips from weddings we cover across Tamil Nadu.",
+    date: "22 Sep 2026",
+    category: "Shoot Tips",
     categoryHref: "/blog",
-    href: "/blog/artistic-mind-will-be-great-for-creation-anything",
-  },
-  {
-    thumb: post3,
-    title: "A.I will take over all job for human within next year",
-    subtitle:
-      "An in-depth look at how artificial intelligence is reshaping the creative industry. Learn how photographers and videographers can adapt and leverage AI tools to enhance their workflow while maintaining their unique artistic voice.",
-    date: "05 Mar 2022",
-    category: "Tech",
-    categoryHref: "/blog",
-    href: "/blog/ai-will-take-over-all-job-for-human-within-next-year",
+    href: "/blog/how-to-prepare-for-your-wedding-shoot",
   },
 ];
 

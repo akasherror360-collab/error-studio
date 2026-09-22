@@ -1295,13 +1295,21 @@ label {
   }
 }
 .cs-rotate_img {
-  transform: rotate(45deg);
   overflow: hidden;
-  border-radius: 7px;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
 }
 
 .cs-rotate_img_in {
-  transform: rotate(-45deg) scale(1.4);
+  height: 100%;
+  width: 100%;
+}
+
+.cs-rotate_img_in img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .cs-half_screen {
@@ -1856,23 +1864,23 @@ label {
   margin-left: -20%;
 }
 .cs-slider.cs-style3 .cs-portfolio.cs-style1 {
-  padding: 50px 0;
+  padding: 0;
   transition: all 0.4s ease;
 }
 .cs-slider.cs-style3 .cs-portfolio.cs-style1 .cs-portfolio_info_bg {
-  left: -20px;
-  top: 20px;
-  opacity: 0;
+  left: 0;
+  top: 0;
+  opacity: 1;
   transition: all 0.4s ease;
 }
 .cs-slider.cs-style3 .cs-portfolio.cs-style1 .cs-portfolio_title {
-  opacity: 0;
-  left: 20px;
+  opacity: 1;
+  left: 0;
   transition: all 0.5s ease;
 }
 .cs-slider.cs-style3 .cs-portfolio.cs-style1 .cs-portfolio_subtitle {
-  opacity: 0;
-  left: 20px;
+  opacity: 1;
+  left: 0;
   transition: all 0.5s ease;
 }
 .cs-slider.cs-style3 .slick-center .cs-portfolio.cs-style1 {
@@ -2826,4 +2834,8 @@ label {
   .cs-portfolio.cs-style1 .cs-portfolio_info { padding: 20px; }
   .cs-portfolio.cs-style1 .cs-portfolio_title { font-size: 22px; line-height: 1.25; }
   .cs-contact_info, .cs-form_field { font-size: 16px; }
+}
+
+.cs-services_grid {
+  align-items: flex-start;
 }

@@ -2,13 +2,18 @@
   position: relative;
   border-radius: 15px;
   display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
 }
 .cs-card.cs-style1:hover {
   filter: drop-shadow(0px 0px 30px rgba(255, 74, 23, 0.5));
 }
 .cs-card.cs-style1 img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: inherit;
+  display: block;
 }
 .cs-card.cs-style1 .cs-card_overlay {
   position: absolute;
@@ -17,14 +22,19 @@
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  background: #000000;
-  opacity: 0.5;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.45) 32%,
+    rgba(0, 0, 0, 0.08) 60%
+  );
 }
 .cs-card.cs-style1 .cs-card_info {
   position: absolute;
-  padding: 45px 25px 0;
-  bottom: 15px;
+  padding: 20px;
+  bottom: 0;
   left: 0;
+  right: 0;
 }
 .cs-card.cs-style1 .cs-card_info span {
   display: block;
@@ -32,31 +42,31 @@
   width: 12px;
   border-radius: 50%;
   margin-bottom: 10px;
+  flex: none;
 }
 .cs-card.cs-style1 .cs-card_title {
-  font-size: 14px;
+  font-size: 18px;
   margin: 0;
-  line-height: 1.5em;
+  line-height: 1.35em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+  overflow-wrap: break-word;
 }
 
 @media screen and (max-width: 1400px) {
   .cs-card.cs-style1 .cs-card_title {
-    font-size: 20px;
-  }
-  .cs-card.cs-style1 .cs-card_info {
-    padding: 40px 18px 0;
+    font-size: 16px;
   }
 }
 @media screen and (max-width: 1199px) {
   .cs-card.cs-style1 .cs-card_title {
-    font-size: 24px;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .cs-card.cs-style1 .cs-card_title {
+    font-size: 15px;
   }
   .cs-card.cs-style1 .cs-card_info {
-    padding: 40px 30px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
+    padding: 14px;
   }
 }

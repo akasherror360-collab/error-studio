@@ -12,7 +12,7 @@ export default function Post({url, src, alt, date, title}) {
       </Link>
       <Div className="cs-post_info">
         <Div className="cs-posted_by">{date}</Div>
-        <h2 className="cs-post_title"><Link to="blog-details.html">{title}</Link></h2>
+        <h2 className="cs-post_title"><Link to={url}>{title}</Link></h2>
       </Div>
     </Div>
   )

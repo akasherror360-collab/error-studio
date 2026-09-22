@@ -7,8 +7,6 @@ import Div from '../Div';
 import SectionHeading from '../SectionHeading';
 import Spacing from '../Spacing';
 import Cta from '../Cta';
-import LogoList from '../LogoList';
-import MovingText from '../MovingText';
 import PortfolioSlider from '../Slider/PortfolioSlider';
 import PostSlider from '../Slider/PostSlider';
 import TestimonialSlider from '../Slider/TestimonialSlider';
@@ -211,24 +209,22 @@ export default function Home() {
               <Spacing lg="90" md="45" />
             </Div>
             <Div className="col-xl-8">
-              <Div className="row">
-                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
+              <Div className="row cs-services_grid">
                 <Div className="col-lg-3 col-sm-6">
                   <Card
                     title="Wedding Photography"
                     link="/service/wedding-photography"
                     src={service_1}
-                    alt="Service"
+                    alt="Wedding Photography"
                   />
                   <Spacing lg="0" md="30" />
                 </Div>
-                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
                 <Div className="col-lg-3 col-sm-6">
                   <Card
                     title="Cinematic Videography"
                     link="/service/videography"
                     src={service_2}
-                    alt="Service"
+                    alt="Cinematic Videography"
                   />
                   <Spacing lg="0" md="30" />
                 </Div>
@@ -237,21 +233,19 @@ export default function Home() {
                     title="Creative Editing"
                     link="/service/video-editing"
                     src={service_3}
-                    alt="Service"
+                    alt="Creative Editing"
                   />
                   <Spacing lg="0" md="30" />
                 </Div>
-                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
                 <Div className="col-lg-3 col-sm-6">
                   <Card
                     title="Brand & Commercial"
                     link="/service/commercial"
                     src={service_4}
-                    alt="Service"
+                    alt="Brand and Commercial"
                   />
                   <Spacing lg="0" md="30" />
                 </Div>
-                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
               </Div>
             </Div>
           </Div>
@@ -355,19 +349,6 @@ export default function Home() {
         </Div>
       </Div>
       {/* End Blog Section */}
-
-      {/* Start MovingText Section */}
-      <Spacing lg="125" md="70" />
-      <MovingText text="Our reputed world wide partners" />
-      <Spacing lg="105" md="70" />
-      {/* End MovingText Section */}
-
-      {/* Start LogoList Section */}
-      <Div className="container">
-        <LogoList />
-      </Div>
-      <Spacing lg="150" md="80" />
-      {/* End LogoList Section */}
 
       {/* Start Contact Section */}
       <Div className="container">

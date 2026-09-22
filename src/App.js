@@ -3,7 +3,6 @@ import AboutPage from './components/Pages/AboutPage';
 import BlogPage from './components/Pages/BlogPage';
 import BlogDetails1 from './components/Pages/BlogDetails1';
 import BlogDetails2 from './components/Pages/BlogDetails2';
-import BlogDetails3 from './components/Pages/BlogDetails3';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
 import Home from './components/Pages/Home';
@@ -71,16 +70,12 @@ function App() {
           />
           <Route path="blog" element={<BlogPage />} />
           <Route
-            path="blog/how-to-keep-fear-from-ruining-your-art-business-with-confident"
+            path="blog/wedding-venues-in-and-around-cuddalore"
             element={<BlogDetails1 />}
           />
           <Route
-            path="blog/artistic-mind-will-be-great-for-creation-anything"
+            path="blog/how-to-prepare-for-your-wedding-shoot"
             element={<BlogDetails2 />}
-          />
-          <Route
-            path="blog/ai-will-take-over-all-job-for-human-within-next-year"
-            element={<BlogDetails3 />}
           />
           <Route path="contact" element={<ContactPage />} />
           <Route path="team" element={<TeamPage />} />
