@@ -9,8 +9,6 @@ import Div from "../Div";
 import VerticalLinks from "../VerticalLinks";
 import carousel1 from "../../assets/images/website/carousel/Banner-02.webp";
 import carousel2 from "../../assets/images/website/carousel/Banner.webp";
-import curatedHero from "../../assets/images/client-2026-09/hero-cherished.webp";
-
 import carousel5 from "../../assets/images/website/carousel/01.jpg";
 
 export default function Hero({
@@ -20,7 +18,7 @@ export default function Hero({
   btnLink,
   heroSocialLinks,
 }) {
-  const images = [curatedHero, carousel2, carousel1, carousel5];
+  const images = [carousel2, carousel1, carousel5];
 
   return (
     <Div className="cs-hero cs-style1 cs-bg cs-fixed_bg cs-shape_wrap_1 relative overflow-hidden">
