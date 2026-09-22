@@ -8,10 +8,10 @@ import SectionHeading from '../SectionHeading'
 import TestimonialSlider from '../Slider/TestimonialSlider'
 import Spacing from '../Spacing'
 import serviceHeroBg from '../../assets/images/service_hero_bg.jpeg'
-import service_1 from '../../assets/images/website/Instagram Posters/5-(1).webp';
-import service_2 from '../../assets/images/website/Instagram Posters/16-(3).webp';
-import service_3 from '../../assets/images/website/Instagram Posters/00-(4).webp';
-import service_4 from '../../assets/images/website/Instagram Posters/14-(8).webp';
+import service_1 from '../../assets/images/client-2026-09/f07214dc.webp';
+import service_2 from '../../assets/images/client-2026-09/c347dc1d.webp';
+import service_3 from '../../assets/images/client-2026-09/e283b9f8.webp';
+import service_4 from '../../assets/images/client-2026-09/ca4c47af.webp';
 import ctaBg from '../../assets/images/cta_bg.jpeg'
 
 export default function ServicesPage() {

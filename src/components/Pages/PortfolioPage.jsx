@@ -9,6 +9,19 @@ import SectionHeading from "../SectionHeading";
 import Spacing from "../Spacing";
 import ImagePopup from "../ImagePopup/ImagePopup";
 import portfolio_hero_bg from "../../assets/images/portfolio_hero_bg.jpeg";
+import client_02a83c7d from "../../assets/images/client-2026-09/02a83c7d.webp";
+import client_11c32d9e from "../../assets/images/client-2026-09/11c32d9e.webp";
+import client_412bbcee from "../../assets/images/client-2026-09/412bbcee.webp";
+import client_68828210 from "../../assets/images/client-2026-09/68828210.webp";
+import client_6d1e3054 from "../../assets/images/client-2026-09/6d1e3054.webp";
+import client_7196946d from "../../assets/images/client-2026-09/7196946d.webp";
+import client_83b84cb3 from "../../assets/images/client-2026-09/83b84cb3.webp";
+import client_992275cb from "../../assets/images/client-2026-09/992275cb.webp";
+import client_ca15442e from "../../assets/images/client-2026-09/ca15442e.webp";
+import client_ecc79736 from "../../assets/images/client-2026-09/ecc79736.webp";
+import client_f029984b from "../../assets/images/client-2026-09/f029984b.webp";
+import client_0200bd0e from "../../assets/images/client-2026-09/0200bd0e.webp";
+import client_b3175fbd from "../../assets/images/client-2026-09/b3175fbd.webp";
 
 // Portfolio images from assets/images/website/portfolio
 import portfolio_0_2 from "../../assets/images/website/portfolio/0-(2).webp";
@@ -68,42 +81,42 @@ import {
 // Repeat pattern
 const portfolioData = [
   // Row 1: 3 images from portfolio folder
-  { src: portfolio_0_2, category: "wedding" },
-  { src: portfolio_00_2, category: "event" },
-  { src: portfolio_00_6, category: "commercial" },
+  { src: client_02a83c7d, category: "wedding" },
+  { src: client_11c32d9e, category: "event" },
+  { src: client_412bbcee, category: "commercial" },
 
   // Row 2: 1 portfolio + 1 12X36
 
-  { src: portfolio_12x36_01, category: "creative" },
-  { src: portfolio_1_1, category: "wedding" },
+  { src: client_68828210, category: "creative" },
+  { src: client_6d1e3054, category: "wedding" },
 
   // Row 3: 1 portfolio + 1 12X36
-  { src: portfolio_1_2, category: "event" },
-  { src: portfolio_12x36_02, category: "commercial" },
+  { src: client_7196946d, category: "event" },
+  { src: client_83b84cb3, category: "commercial" },
 
   // Row 4: 1 portfolio + 1 12X36
-  { src: portfolio_1_3, category: "wedding" },
-  { src: portfolio_12x36_03, category: "creative" },
+  { src: client_992275cb, category: "wedding" },
+  { src: client_ca15442e, category: "creative" },
 
   // Row 5: 3 images from portfolio folder
-  { src: portfolio_1_4, category: "event" },
-  { src: portfolio_1_6, category: "commercial" },
-  { src: portfolio_10_5, category: "wedding" },
+  { src: client_ecc79736, category: "event" },
+  { src: client_f029984b, category: "commercial" },
+  { src: client_0200bd0e, category: "wedding" },
 
   // Row 6: 1 portfolio + 1 12X36
-  { src: portfolio_12_1, category: "creative" },
-  { src: portfolio_12x36_15, category: "event" },
+  { src: client_b3175fbd, category: "creative" },
+  { src: client_02a83c7d, category: "event" },
 
   // Row 7: 1 portfolio + 1 12X36
-  { src: portfolio_12_3, category: "commercial" },
-  { src: portfolio_12x36_16, category: "wedding" },
+  { src: client_11c32d9e, category: "commercial" },
+  { src: client_412bbcee, category: "wedding" },
 
   // Row 8: 1 portfolio + 1 12X36
-  { src: portfolio_13_1, category: "creative" },
-  { src: portfolio_12x36_17, category: "event" },
+  { src: client_68828210, category: "creative" },
+  { src: client_6d1e3054, category: "event" },
 
   // Row 9: 3 images from portfolio folder
-  { src: portfolio_13_2, category: "commercial" },
+  { src: client_7196946d, category: "commercial" },
   { src: portfolio_13_7, category: "wedding" },
   { src: portfolio_14_1, category: "creative" },
 
