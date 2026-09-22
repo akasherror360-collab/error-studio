@@ -14,34 +14,34 @@ const testimonialData = [
   {
     testimonialThumb: testimonial1,
     testimonialText:
-      'Error Studio transformed our wedding video into a movie! The editing was surreal and the team was incredibly professional throughout the event.',
-    avatarName: 'Anjali & Vikram',
-    avatarDesignation: 'Newlyweds',
+      "I'm extremely happy with the outcome. The work is of the highest quality, and the service was excellent from start to finish.",
+    avatarName: 'Dharshini priya',
+    avatarDesignation: 'Google Review',
     ratings: '5',
   },
   {
     testimonialThumb: testimonial2,
     testimonialText:
-      'Professional, timely, and incredibly talented crew. They handled our corporate tech summit coverage flawlessly. Highly recommended.',
-    avatarName: 'Rajesh Kumar',
-    avatarDesignation: 'CEO, TechSolutions',
+      'Great experience from start to finish. The staff were friendly, patient, and delivered high-quality work on time. Highly satisfied.',
+    avatarName: 'Maha',
+    avatarDesignation: 'Google Review',
     ratings: '5',
   },
   {
     testimonialThumb: testimonial3,
     testimonialText:
-      'The maternity shoot was magical. They made me feel so comfortable and the photos came out looking like a fairytale.',
-    avatarName: 'Priya S.',
-    avatarDesignation: 'Happy Client',
-    ratings: '4.5',
+      'Very professional and creative team. The photos came out beautifully, and the editing was excellent. Thank you for capturing our memories so perfectly.',
+    avatarName: 'Jenani',
+    avatarDesignation: 'Google Review',
+    ratings: '5',
   },
   {
     testimonialThumb: testimonial4,
     testimonialText:
-      'Innovative and reliable. Their product photography significantly boosted our online sales. The attention to detail is unmatched.',
-    avatarName: 'Suresh',
-    avatarDesignation: 'E-commerce Manager',
-    ratings: '4.5',
+      'Good performance, good work. They give quality over quantity. They made that day blissful.',
+    avatarName: 'DK',
+    avatarDesignation: 'Google Review',
+    ratings: '5',
   },
 ];
 
