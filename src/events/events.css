@@ -1,0 +1,71 @@
+.esg-page{--esg-bg:#080808;--esg-card:#181818;--esg-red:#E60A06;--esg-gold:#F9A30A;--esg-text:#fefefe;--esg-muted:#a8a8a8;min-height:100vh;background:var(--esg-bg);color:var(--esg-text);font-family:"Open Sans",sans-serif;padding-bottom:24px}
+.esg-page h1,.esg-page h2{font-family:"Poppins",sans-serif;color:var(--esg-text);margin:0}
+.esg-center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:24px}
+.esg-center p{color:var(--esg-muted);max-width:420px}
+.esg-logo-lg{width:120px;height:120px;border-radius:50%}
+.esg-hero{text-align:center;padding:28px 18px 22px;background:radial-gradient(ellipse at top,rgba(230,10,6,.18),transparent 65%);border-bottom:1px solid #222}
+.esg-brand img{width:84px;height:84px;border-radius:50%;display:inline-block}
+.esg-kicker{color:var(--esg-gold);letter-spacing:.18em;text-transform:uppercase;font-size:12px;font-weight:600;margin:14px 0 6px}
+.esg-hero h1{font-size:clamp(26px,6vw,44px);line-height:1.15;font-weight:600}
+.esg-meta{color:var(--esg-muted);margin:8px 0 0;font-size:15px}
+.esg-message{max-width:560px;margin:12px auto 0;color:#dcdcdc;font-size:15px;line-height:1.6}
+.esg-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin-top:18px}
+.esg-count{font-size:14px;color:#dcdcdc}
+.esg-live{font-size:12px;color:var(--esg-gold);border:1px solid rgba(249,163,10,.5);border-radius:99px;padding:3px 10px}
+.esg-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:99px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:"Poppins",sans-serif;transition:opacity .2s}
+.esg-btn:disabled{opacity:.6;cursor:wait}
+.esg-btn-red{background:var(--esg-red);color:#fff}
+.esg-btn-gold{background:var(--esg-gold);color:#111}
+.esg-btn-ghost{background:transparent;color:var(--esg-text);border-color:#555}
+.esg-btn:hover{opacity:.9;color:inherit}
+.esg-btn-red:hover{color:#fff}
+.esg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;padding:4px}
+@media(min-width:640px){.esg-grid{grid-template-columns:repeat(3,1fr);gap:6px;padding:6px}}
+@media(min-width:1024px){.esg-grid{grid-template-columns:repeat(4,1fr);max-width:1400px;margin:0 auto}}
+.esg-tile{position:relative;display:block;padding:0;border:0;background:var(--esg-card);aspect-ratio:4/5;overflow:hidden;cursor:zoom-in;border-radius:4px}
+.esg-tile>img:first-child{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.esg-tile:hover>img:first-child{transform:scale(1.03)}
+.esg-wm{position:absolute;pointer-events:none;user-select:none;height:auto}
+.esg-sentinel{display:flex;justify-content:center;padding:24px}
+.esg-spinner{width:34px;height:34px;border-radius:50%;border:3px solid #333;border-top-color:var(--esg-red);animation:esg-spin 0.9s linear infinite}
+@keyframes esg-spin{to{transform:rotate(360deg)}}
+.esg-error,.esg-empty{text-align:center;color:var(--esg-muted);padding:30px 18px}
+.esg-error{color:#ff8a80}
+.esg-book{max-width:640px;margin:36px auto 0;padding:28px 20px;text-align:center;background:var(--esg-card);border-radius:18px;border:1px solid #262626}
+.esg-book-logo{width:64px;height:64px;border-radius:50%}
+.esg-book h2{font-size:clamp(20px,4.6vw,28px);margin-top:12px}
+.esg-book p{color:#cfcfcf;line-height:1.6;margin:10px 0 18px}
+.esg-book-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.esg-links{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:18px;font-size:14px}
+.esg-links a{color:var(--esg-gold);text-decoration:none}
+.esg-foot{text-align:center;color:#6f6f6f;font-size:12px;margin-top:26px}
+.esg-viewer{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.96);display:flex;flex-direction:column}
+.esg-viewer-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;color:#ddd;font-size:14px}
+.esg-viewer-bar>div{display:flex;gap:10px;align-items:center}
+.esg-icon{background:transparent;border:0;color:#fff;font-size:34px;line-height:1;width:44px;height:44px;cursor:pointer}
+.esg-viewer-stage{flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:0;padding:0 4px 12px}
+.esg-viewer-frame{position:relative;max-width:100%;max-height:100%;display:flex}
+.esg-viewer-frame>img:first-child{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;display:block}
+.esg-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;background:rgba(24,24,24,.6);color:#fff;border:0;width:44px;height:64px;font-size:34px;cursor:pointer;border-radius:8px}
+.esg-prev{left:6px}.esg-next{right:6px}
+@media(max-width:640px){.esg-nav{display:none}}
+.esg-viewer-msg{text-align:center;color:var(--esg-gold);font-size:13px;margin:0 0 12px}
+/* QR poster */
+.esg-poster-page{min-height:100vh;background:#2a2a2a;display:flex;flex-direction:column;align-items:center;padding:20px;gap:14px;font-family:"Open Sans",sans-serif}
+.esg-poster-tools{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.esg-poster{width:min(100%,148mm);aspect-ratio:148/210;background:#080808;color:#fff;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:9% 8% 7%;box-sizing:border-box;box-shadow:0 10px 40px rgba(0,0,0,.5);border-top:6px solid #E60A06}
+.esg-poster-logo{width:30%;border-radius:50%}
+.esg-poster h1{font-family:"Poppins",sans-serif;font-size:clamp(18px,5vw,30px);margin:0;color:#fff;line-height:1.2}
+.esg-poster-kicker{color:#F9A30A;letter-spacing:.2em;text-transform:uppercase;font-size:clamp(9px,2vw,12px);font-weight:700;margin:0}
+.esg-poster-qr{background:#fff;padding:4%;border-radius:12px;width:56%}
+.esg-poster-qr svg{display:block;width:100%;height:auto}
+.esg-poster-steps{font-size:clamp(11px,2.4vw,14px);color:#ddd;margin:0;line-height:1.6}
+.esg-poster-url{font-size:clamp(9px,2vw,12px);color:#aaa;word-break:break-all;margin:0}
+.esg-poster-foot{font-size:clamp(9px,2vw,12px);color:#F9A30A;margin:0}
+@media print{
+  @page{size:A5 portrait;margin:0}
+  body *{visibility:hidden}
+  .esg-poster,.esg-poster *{visibility:visible}
+  .esg-poster{position:fixed;left:0;top:0;width:148mm;height:210mm;border-radius:0;box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cs-floating_btns{display:none!important}
+}

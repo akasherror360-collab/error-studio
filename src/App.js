@@ -32,6 +32,8 @@ import VideoShowcaseHome from './components/Pages/VideoShowcaseHome';
 import FloatingButtons from './components/FloatingButtons';
 import AdminPanel from './admin/AdminPanel';
 import PublishedContent from './content/PublishedContent';
+import EventGallery from './events/EventGallery';
+import EventPoster from './events/EventPoster';
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
       <PublishedContent />
       <Routes>
         <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/events/:slug" element={<EventGallery />} />
+        <Route path="/events/:slug/qr" element={<EventPoster />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route

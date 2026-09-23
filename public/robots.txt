@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /events/
 Allow: /
 
 Sitemap: https://www.errorstudio.in/sitemap.xml
