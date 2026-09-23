@@ -69,3 +69,8 @@
   .esg-poster{position:fixed;left:0;top:0;width:148mm;height:210mm;border-radius:0;box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .cs-floating_btns{display:none!important}
 }
+/* Site-wide button resets override plain classes; pin the gallery button colours. */
+button.esg-btn.esg-btn-red,a.esg-btn.esg-btn-red{background-color:#E60A06!important;color:#fff!important}
+button.esg-btn.esg-btn-gold,a.esg-btn.esg-btn-gold{background-color:#F9A30A!important;color:#111!important}
+button.esg-btn.esg-btn-ghost,a.esg-btn.esg-btn-ghost{background-color:transparent!important;color:#fefefe!important;border:1px solid #555!important}
+button.esg-nav{background-color:rgba(24,24,24,.6)!important}
