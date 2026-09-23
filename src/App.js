@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import AboutPage from './components/Pages/AboutPage';
 import BlogPage from './components/Pages/BlogPage';
 import BlogDetails1 from './components/Pages/BlogDetails1';
@@ -12,9 +12,7 @@ import Videography from './components/Pages/Videography';
 import VideoEditing from './components/Pages/VideoEditing';
 import BrandCommercial from './components/Pages/BrandCommercial';
 import ServicesPage from './components/Pages/ServicesPage';
-import TeamPage from './components/Pages/TeamPage';
 import PortfolioPage from './components/Pages/PortfolioPage';
-import TeamDetails from './components/Pages/TeamDetails';
 import PhotographyAgencyHome from './components/Pages/PhotographyAgencyHome';
 import CreativePortfolioHome from './components/Pages/CreativePortfolioHome';
 import DigitalAgencyHome from './components/Pages/DigitalAgencyHome';
@@ -82,8 +80,8 @@ function App() {
             element={<BlogDetails2 />}
           />
           <Route path="contact" element={<ContactPage />} />
-          <Route path="team" element={<TeamPage />} />
-          <Route path="team/:teamDetails" element={<TeamDetails />} />
+          <Route path="team" element={<Navigate to="/about" replace />} />
+          <Route path="team/*" element={<Navigate to="/about" replace />} />
           <Route
             path="/case-study/:caseStudyDetailsId"
             element={<CaseStudyDetailsPage />}

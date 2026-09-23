@@ -52,11 +52,6 @@ const seoByTitle = {
     title: 'Contact Error Studio | Book a Shoot',
     description: 'Contact Error Studio to discuss photography, videography, editing or commercial visual projects.',
   },
-  Team: {
-    path: '/team',
-    title: 'Error Studio Team',
-    description: 'Meet the team behind Error Studio photography, videography and post-production work.',
-  },
   'Frequently Asked Questions': {
     path: '/faq',
     title: 'Frequently Asked Questions | Error Studio',

@@ -6,7 +6,6 @@ import Spacing from '../Spacing';
 import IconBoxStyle2 from '../IconBox/IconBoxStyle2';
 import FunFact from '../FunFact';
 import PortfolioSlider from '../Slider/PortfolioSlider';
-import TeamSlider from '../Slider/TeamSlider';
 import TestimonialSliderStyle2 from '../Slider/TestimonialSliderStyle2';
 import ContactInfoWidget from '../Widget/ContactInfoWidget';
 import { Icon } from '@iconify/react';
@@ -218,19 +217,7 @@ export default function ArchitectureAgencyHome() {
         <PortfolioSlider data={portfolioData} />
       </Div>
       {/* End Portfolio Section */}
-      {/* Start Team Section */}
-      <Spacing lg="145" md="80" />
-      <Div className="container">
-        <SectionHeading
-          title="Awesome team <br/>members"
-          subtitle="Our Team"
-          variant="cs-style1"
-        />
-        <Spacing lg="85" md="45" />
-        <TeamSlider />
-      </Div>
       <Spacing lg="150" md="80" />
-      {/* End Team Section */}
       {/* Start Testimonial Section */}
       <TestimonialSliderStyle2 />
       {/* End Testimonial Section */}

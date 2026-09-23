@@ -11,7 +11,6 @@ import Cta from '../Cta';
 import PortfolioSlider from '../Slider/PortfolioSlider';
 import PostSlider from '../Slider/PostSlider';
 import TestimonialSlider from '../Slider/TestimonialSlider';
-import TeamSlider from '../Slider/TeamSlider';
 import TimelineSlider from '../Slider/TimelineSlider';
 import Reels from '../Reels';
 import reelIds from '../Reels/reelsData';
@@ -314,19 +313,7 @@ export default function Home() {
 
       {/* Video block temporarily removed at the owner's request. The component and assets remain available for restoration. */}
 
-      {/* Start Team Section */}
-      <Spacing lg="145" md="80" />
-      <Div className="container">
-        <SectionHeading
-          title="Awesome team <br/>members"
-          subtitle="Our Team"
-          variant="cs-style1"
-        />
-        <Spacing lg="85" md="45" />
-        <TeamSlider />
-      </Div>
       <Spacing lg="150" md="80" />
-      {/* End Team Section */}
 
       {/* Start Testimonial Section */}
       <TestimonialSlider />

@@ -5,7 +5,6 @@ import FunFact from '../FunFact';
 import PageHeading from '../PageHeading';
 import Div from '../Div';
 import SectionHeading from '../SectionHeading';
-import TeamSlider from '../Slider/TeamSlider';
 import Spacing from '../Spacing';
 import aboutHeroBg from '../../assets/images/about_hero_bg.jpeg';
 import aboutImg1 from '../../assets/images/website/Instagram Posters/13-(1).webp';
@@ -144,18 +143,6 @@ export default function AboutPage() {
       </Div>
       {/* End Why Choose Section */}
 
-      {/* Start Team Section */}
-      <Spacing lg="145" md="80" />
-      <Div className="container">
-        <SectionHeading
-          title="Awesome team <br/>members"
-          subtitle="Our Team"
-          variant="cs-style1"
-        />
-        <Spacing lg="85" md="45" />
-        <TeamSlider />
-      </Div>
-      {/* End Team Section */}
 
       {/* Start CTA Section */}
       <Spacing lg="150" md="80" />

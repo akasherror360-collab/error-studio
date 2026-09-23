@@ -25,7 +25,7 @@ const hasOwnText = element => [...element.childNodes].some(node => node.nodeType
 const pages = [
   ['Home','/'],['About','/about'],['Services','/service'],['Wedding photography','/service/wedding-photography'],
   ['Videography','/service/videography'],['Video editing','/service/video-editing'],['Commercial','/service/commercial'],
-  ['Portfolio','/portfolio'],['Blog','/blog'],['Contact','/contact'],['Team','/team'],['FAQ','/faq']
+  ['Portfolio','/portfolio'],['Blog','/blog'],['Contact','/contact'],['FAQ','/faq']
 ];
 
 const friendlyAuthError = error => {
