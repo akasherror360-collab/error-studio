@@ -81,7 +81,7 @@ export default function CinematicTeasers() {
               <Div className="col-lg-6">
                 <Button btnLink='/contact' btnText='Get a Teaser' variant='cs-type2'/>
                 <Spacing lg='20' md='10'/>
-                <Button btnLink='/portfolio' btnText='Watch Reels' variant='cs-type2'/>
+                <Button btnLink='/portfolio?category=reels' btnText='Watch Reels' variant='cs-type2'/>
               </Div>
             </Div>
           </Div>

@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { pageTitle } from "../../helper";
@@ -64,6 +65,8 @@ import portfolio_12x36_44 from "../../assets/images/website/portfolio/12X36/44.w
 import portfolio_12x36_52 from "../../assets/images/website/portfolio/12X36/52.webp";
 import portfolio_12x36_53 from "../../assets/images/website/portfolio/12X36/53.webp";
 import PortfolioCardForPortfolioPage from "../Portfolio/PortfolioCardForPortfolioPage";
+import Reels from "../Reels";
+import reelIds from "../Reels/reelsData";
 import {
   ChevronsDownIcon,
   ChevronsUpIcon,
@@ -212,17 +215,37 @@ const categoryMenu = [
     title: "Creative Edits",
     category: "creative",
   },
+  {
+    title: "Reels",
+    category: "reels",
+  },
 ];
 
 export default function PortfolioPage() {
   pageTitle("Portfolio");
-  const [active, setActive] = useState("all");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requestedCategory = searchParams.get("category");
+  const active = categoryMenu.some((item) => item.category === requestedCategory)
+    ? requestedCategory
+    : "all";
+  const setActive = (category) => {
+    setSearchParams(category === "all" ? {} : { category }, { replace: true });
+  };
+  const filterRef = useRef(null);
+  const showReels = active === "reels";
   const [itemShow, setItemShow] = useState(19); // Show first 8 rows (approximately 20 images)
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (requestedCategory === "reels" && filterRef.current) {
+      const top =
+        filterRef.current.getBoundingClientRect().top + window.scrollY - 110;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+    // Run once on page load so deep links land on the Reels tab.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Transform portfolio data for ImagePopup component
@@ -259,7 +282,7 @@ export default function PortfolioPage() {
       />
       <Spacing lg="145" md="80" />
       <Div className="container">
-        <Div className="cs-portfolio_1_heading">
+        <div className="cs-portfolio_1_heading" id="reels" ref={filterRef}>
           <SectionHeading title="Some recent work" subtitle="Our Portfolio" />
           <Div className="cs-filter_menu cs-style1">
             <ul className="cs-mp0 cs-center">
@@ -278,9 +301,10 @@ export default function PortfolioPage() {
               ))}
             </ul>
           </Div>
-        </Div>
+        </div>
         <Spacing lg="90" md="45" />
-        <Div className="row">
+        {showReels && <Reels data={reelIds} />}
+        <Div className={`row${showReels ? " d-none" : ""}`}>
           <AnimatePresence mode="sync">
             {portfolioData.slice(0, itemShow).map((item, index) => (
               <motion.div
@@ -315,7 +339,7 @@ export default function PortfolioPage() {
         </Div>
 
         <Div className="text-center">
-          {portfolioData.length > 20 && (
+          {!showReels && portfolioData.length > 20 && (
             <>
               <Spacing lg="65" md="40" />
               <span

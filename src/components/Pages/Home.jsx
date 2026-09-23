@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 import Card from '../Card';
 import FunFact from '../FunFact';
 import Hero from '../Hero';
+import Button from '../Button';
 import Div from '../Div';
 import SectionHeading from '../SectionHeading';
 import Spacing from '../Spacing';
@@ -13,6 +14,7 @@ import TestimonialSlider from '../Slider/TestimonialSlider';
 import TeamSlider from '../Slider/TeamSlider';
 import TimelineSlider from '../Slider/TimelineSlider';
 import Reels from '../Reels';
+import reelIds from '../Reels/reelsData';
 import { pageTitle } from '../../helper';
 import service_1 from '../../assets/images/client-2026-09/f07214dc.webp';
 import service_2 from '../../assets/images/client-2026-09/c347dc1d.webp';
@@ -274,9 +276,15 @@ export default function Home() {
           variant="cs-style1 text-center"
         />
         <Spacing lg="60" md="40" />
-        <Reels
-          data={['DdNHcvTy11Y', 'Db3AW4dxZNt', 'DbWnfPLS1bg', 'DcWnXy6yBf3']}
-        />
+        <Reels data={reelIds} />
+        <Spacing lg="30" md="20" />
+        <Div className="text-center">
+          <Button
+            btnLink="/portfolio?category=reels"
+            btnText="View All Reels"
+            variant="cs-type2"
+          />
+        </Div>
       </Div>
       {/* End Reels Section */}
 

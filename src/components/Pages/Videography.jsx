@@ -81,7 +81,7 @@ export default function Videography() {
               <Div className="col-lg-6">
                 <Button btnLink='/contact' btnText='Get in Touch' variant='cs-type2'/>
                 <Spacing lg='20' md='10'/>
-                <Button btnLink='/portfolio' btnText='View Showreel' variant='cs-type2'/>
+                <Button btnLink='/portfolio?category=reels' btnText='View Showreel' variant='cs-type2'/>
               </Div>
             </Div>
           </Div>
