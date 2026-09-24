@@ -711,3 +711,10 @@
     margin-right: 56px;
   }
 }
+
+/* Keep the side-menu button clear of the last menu item on desktop */
+@media screen and (min-width: 1200px) {
+  .cs-site_header.cs-style1 .cs-main_header_right .cs-toolbox {
+    margin-left: 40px;
+  }
+}
