@@ -1,0 +1,2 @@
+.es-reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.es-reveal.es-reveal--in { opacity: 1; transform: none; }
