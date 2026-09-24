@@ -1,78 +1,99 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './camera-assemble.css';
 
-// EXPERIMENT (exp/3d): a 3D camera whose parts float apart, assemble as the visitor
-// scrolls toward the end of the page, then fire the shutter (flash).
-// three.js is loaded lazily, only when this section is close to the screen.
-export default function CameraAssemble() {
-  const sectionRef = useRef(null);
+// EXPERIMENT (exp/3d): a camera pinned to the screen from the top of the home page.
+// Its parts assemble section by section as the visitor scrolls; just before the
+// portfolio it moves to centre stage, the shutter fires with a flash, and the
+// Selected Works grid is revealed out of the flash. Scrolling up takes it apart again.
+// three.js loads only after the page itself has finished loading.
+export default function CameraAssemble({ targetId = 'selected-works' }) {
+  const wrapRef = useRef(null);
   const canvasRef = useRef(null);
   const flashRef = useRef(null);
-  const stageRef = useRef(null);
-  const [ready, setReady] = useState(false);
+  const dimRef = useRef(null);
 
   useEffect(() => {
-    const section = sectionRef.current;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return undefined; // reduce-motion: no overlay, portfolio shows normally
+    const root = document.documentElement;
+    const target = () => document.getElementById(targetId);
     let scene = null;
     let disposed = false;
-    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let revealed = false;
+
+    root.classList.add('es-cam-on');
+
+    const setRevealed = (on) => {
+      revealed = on;
+      const el = target();
+      if (el) el.classList.toggle('es-cam-revealed', on);
+    };
 
     const progress = () => {
-      const r = section.getBoundingClientRect();
-      const total = r.height - window.innerHeight;
-      if (total <= 0) return 1;
-      return Math.min(1, Math.max(0, -r.top / total));
+      const el = target();
+      if (!el) return 0;
+      const end = el.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.55;
+      if (end <= 0) return 1;
+      return window.scrollY / end;
     };
-    // Keep the stage pinned to the viewport while the section scrolls past
-    // (done in JS because a parent's overflow setting breaks CSS sticky).
-    const pin = () => {
-      const r = section.getBoundingClientRect();
-      const total = Math.max(0, r.height - window.innerHeight);
-      const y = Math.min(total, Math.max(0, -r.top));
-      if (stageRef.current) stageRef.current.style.transform = `translate3d(0, ${y}px, 0)`;
+
+    const onScroll = () => {
+      const p = progress();
+      if (scene) scene.setProgress(p);
+      // Fade the whole overlay out once the portfolio is on screen.
+      const out = Math.min(1, Math.max(0, (p - 1.0) / 0.12));
+      if (wrapRef.current) wrapRef.current.style.opacity = String(1 - out);
+      if (wrapRef.current) wrapRef.current.style.visibility = out >= 1 ? 'hidden' : 'visible';
+      if (p > 1.15 && !revealed) setRevealed(true); // safety: never leave the grid hidden
     };
-    const onScroll = () => { pin(); if (scene) scene.setProgress(reduce ? 1 : progress()); };
 
     const start = () => {
+      if (disposed) return;
       import('./cameraScene').then(({ createCameraScene }) => {
         if (disposed) return;
         scene = createCameraScene(canvasRef.current, {
-          onFlash: () => {
-            const el = flashRef.current;
-            if (!el) return;
-            el.classList.remove('es-cam_flash--on');
-            void el.offsetWidth;
-            el.classList.add('es-cam_flash--on');
+          mobile: window.innerWidth < 768,
+          staticMode: false,
+          onPhase: (p, centre) => {
+            if (dimRef.current) dimRef.current.style.opacity = String(centre * 0.92);
           },
-          staticMode: reduce,
+          onFlash: (fired) => {
+            if (!fired) { setRevealed(false); return; }
+            const el = flashRef.current;
+            if (el) { el.classList.remove('es-cam_flash--on'); void el.offsetWidth; el.classList.add('es-cam_flash--on'); }
+            setRevealed(true);
+          },
         });
-        setReady(true);
+        if (wrapRef.current) wrapRef.current.classList.add('is-ready');
         onScroll();
-      });
+      }).catch(() => setRevealed(true));
     };
 
-    const io = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !scene) { io.disconnect(); start(); }
-    }, { rootMargin: '600px 0px' });
-    io.observe(section);
-    pin();
+    const kickoff = () => {
+      if ('requestIdleCallback' in window) window.requestIdleCallback(start, { timeout: 1500 });
+      else setTimeout(start, 300);
+    };
+    if (document.readyState === 'complete') kickoff();
+    else window.addEventListener('load', kickoff, { once: true });
+
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     return () => {
       disposed = true;
-      io.disconnect();
+      root.classList.remove('es-cam-on');
+      setRevealed(false);
+      window.removeEventListener('load', kickoff);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
       if (scene) scene.dispose();
     };
-  }, []);
+  }, [targetId]);
 
   return (
-    <section className="es-cam" ref={sectionRef} aria-label="Error Studio camera">
-      <div className="es-cam_sticky" ref={stageRef}>
-        <canvas ref={canvasRef} className={`es-cam_canvas${ready ? ' is-ready' : ''}`} />
-        <div className="es-cam_flash" ref={flashRef} />
-      </div>
-    </section>
+    <div className="es-cam" ref={wrapRef} aria-hidden="true">
+      <div className="es-cam_dim" ref={dimRef} />
+      <canvas ref={canvasRef} className="es-cam_canvas" />
+      <div className="es-cam_flash" ref={flashRef} />
+    </div>
   );
 }
