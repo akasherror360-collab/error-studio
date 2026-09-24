@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import SocialWidget from '../Widget/SocialWidget';
 import './header.css';
 import ContactInfoWidget from '../Widget/ContactInfoWidget';
 import Div from '../Div';
 import DropDown from './DropDown';
 import logo from '../../assets/images/error-studio-logo.png';
+import logoWhite from '../../assets/images/logo-white.png';
+import logoColor from '../../assets/images/logo-color.png';
 import footerLogo from '../../assets/images/error-studio-logo.png';
 
 const serviceLinks = [
@@ -28,6 +30,7 @@ const portfolioLinks = [
 
 export default function Header({ variant }) {
   const [isSticky, setIsSticky] = useState(false);
+  const isHome = useLocation().pathname === '/';
   const [sideHeaderToggle, setSideHeaderToggle] = useState(false);
   const [mobileToggle, setMobileToggle] = useState(false);
   useEffect(() => {
@@ -86,7 +89,14 @@ export default function Header({ variant }) {
               {/* Centered logo */}
               <Div className="cs-main_header_left cs-header_logo_center">
                 <Link className="cs-site_branding" to="/">
-                  <img src={logo} alt="Error Studio" width={100} height={100} style={{ borderRadius: "100%", height: "100px" }} />
+                  {isHome ? (
+                    <span className={`cs-logo_reveal ${isSticky ? 'cs-logo_reveal--color' : ''}`}>
+                      <img src={logoWhite} alt="Error Studio" width={400} height={231} className="cs-logo_reveal_white" />
+                      <img src={logoColor} alt="" aria-hidden="true" width={400} height={231} className="cs-logo_reveal_color" />
+                    </span>
+                  ) : (
+                    <img src={logo} alt="Error Studio" width={100} height={100} style={{ borderRadius: "100%", height: "100px" }} />
+                  )}
                 </Link>
               </Div>
 

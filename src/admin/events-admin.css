@@ -28,3 +28,15 @@
 .admin-tabs button{background:#2a2a32}
 .admin-tabs button.active{background:var(--admin-accent)}
 .admin-shell.events-mode{grid-template:64px 1fr/1fr;height:auto;min-height:100vh}
+.sw-upload{display:inline-flex !important;align-items:center;border-radius:9px;padding:10px 14px !important;background:var(--admin-accent);color:#fff;font-weight:700;cursor:pointer;margin:0 !important}
+.sw-upload input{display:none}
+.sw-filters{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0 16px}
+.sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.sw-card{display:flex;flex-direction:column;gap:8px;border:1px solid #303038;border-radius:12px;padding:10px;background:var(--admin-panel)}
+.sw-card img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px}
+.sw-card.sw-hidden img{opacity:.35}
+.sw-card label{margin:0 !important}
+.sw-actions{display:flex;gap:6px;flex-wrap:wrap}
+.sw-actions button{padding:6px 9px !important;font-size:12px}
+.sw-deleted{margin-top:24px}
+.sw-deleted summary{cursor:pointer;margin-bottom:12px;color:var(--admin-muted)}

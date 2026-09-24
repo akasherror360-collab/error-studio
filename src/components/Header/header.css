@@ -718,3 +718,35 @@
     margin-left: 40px;
   }
 }
+
+/* Home logo reveal: white logo over the hero, colour logo once the visitor scrolls */
+.cs-logo_reveal {
+  position: relative;
+  display: inline-block;
+  height: 64px;
+  aspect-ratio: 400 / 231;
+}
+.cs-logo_reveal img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100% !important;
+  max-height: none !important;
+  object-fit: contain;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.cs-logo_reveal_color { opacity: 0; transform: scale(0.94); }
+.cs-logo_reveal--color .cs-logo_reveal_white { opacity: 0; transform: scale(1.04); }
+.cs-logo_reveal--color .cs-logo_reveal_color { opacity: 1; transform: scale(1); }
+@media screen and (min-width: 1200px) {
+  .cs-logo_reveal { height: 76px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs-logo_reveal img { transition: none; }
+}
+
+/* Mobile: header box matches its 80px content, no empty black band under the logo */
+@media screen and (max-width: 1199px) {
+  .cs-site_header { height: 80px; }
+  .cs-logo_reveal { height: 48px; }
+}

@@ -5,6 +5,7 @@ import { auth, db } from '../firebase';
 import { routeKey, selectorFor } from '../content/contentManager';
 import { compressImage, formatBytes } from './imageCompression';
 import EventsAdmin from './EventsAdmin';
+import SelectedWorksAdmin from './SelectedWorksAdmin';
 import './admin.css';
 
 const OWNER_EMAIL = 'akasherror360@gmail.com';
@@ -45,7 +46,7 @@ export default function AdminPanel() {
   const [status, setStatus] = useState('');
   const [busy, setBusy] = useState(false);
   const [pendingImage, setPendingImage] = useState(null);
-  const [tab, setTab] = useState(() => new URLSearchParams(window.location.search).get('tab') === 'events' ? 'events' : 'site');
+  const [tab, setTab] = useState(() => { const t = new URLSearchParams(window.location.search).get('tab'); return t === 'events' || t === 'works' ? t : 'site'; });
   const iframeRef = useRef(null);
   const key = useMemo(() => routeKey(path), [path]);
 
@@ -215,7 +216,11 @@ export default function AdminPanel() {
   if (user === undefined) return <main className="admin-login">Loading secure admin…</main>;
   if (!user || user.email !== OWNER_EMAIL) return <main className="admin-login" data-admin-ui><section><h1>Error Studio Admin</h1><p>Sign in with the owner Google account to edit the website.</p><button disabled={busy} onClick={signIn}>{busy ? 'Opening Google sign-in…' : 'Sign in with Google'}</button>{status && <p role="alert">{status}</p>}<small>On phones, sign-in opens as a full page and returns here automatically.</small></section></main>;
 
-  const tabs = <div className="admin-tabs"><button className={tab === 'site' ? 'active' : ''} onClick={() => setTab('site')}>Website</button><button className={tab === 'events' ? 'active' : ''} onClick={() => setTab('events')}>Event galleries</button></div>;
+  const tabs = <div className="admin-tabs"><button className={tab === 'site' ? 'active' : ''} onClick={() => setTab('site')}>Website</button><button className={tab === 'works' ? 'active' : ''} onClick={() => setTab('works')}>Selected Works</button><button className={tab === 'events' ? 'active' : ''} onClick={() => setTab('events')}>Event galleries</button></div>;
+  if (tab === 'works') return <main className="admin-shell events-mode" data-admin-ui>
+    <header><div><strong>Error Studio Admin</strong><small>{user.email}</small></div><nav>{tabs}<button className="secondary" onClick={() => signOut(auth)}>Sign out</button></nav></header>
+    <SelectedWorksAdmin />
+  </main>;
   if (tab === 'events') return <main className="admin-shell events-mode" data-admin-ui>
     <header><div><strong>Error Studio Admin</strong><small>{user.email}</small></div><nav>{tabs}<button className="secondary" onClick={() => signOut(auth)}>Sign out</button></nav></header>
     <EventsAdmin user={user} />

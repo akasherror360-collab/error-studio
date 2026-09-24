@@ -8,10 +8,9 @@ import Div from '../Div';
 import SectionHeading from '../SectionHeading';
 import Spacing from '../Spacing';
 import Cta from '../Cta';
-import PortfolioSlider from '../Slider/PortfolioSlider';
+import SelectedWorks from '../SelectedWorks';
 import PostSlider from '../Slider/PostSlider';
 import TestimonialSlider from '../Slider/TestimonialSlider';
-import TimelineSlider from '../Slider/TimelineSlider';
 import Reels from '../Reels';
 import reelIds from '../Reels/reelsData';
 import { pageTitle } from '../../helper';
@@ -19,18 +18,9 @@ import service_1 from '../../assets/images/client-2026-09/f07214dc.webp';
 import service_2 from '../../assets/images/client-2026-09/c347dc1d.webp';
 import service_3 from '../../assets/images/client-2026-09/e283b9f8.webp';
 import service_4 from '../../assets/images/client-2026-09/ca4c47af.webp';
-import portfolio_1 from '../../assets/images/client-2026-09/02a83c7d.webp';
-import portfolio_2 from '../../assets/images/client-2026-09/11c32d9e.webp';
-import portfolio_3 from '../../assets/images/client-2026-09/412bbcee.webp';
-import portfolio_4 from '../../assets/images/client-2026-09/68828210.webp';
-import portfolio_5 from '../../assets/images/client-2026-09/6d1e3054.webp';
 import contact_side_img from '../../assets/images/website/Instagram Posters/11-(3).webp';
 import why_main from '../../assets/images/website/Instagram Posters/12-(2).webp';
 import why_secondary from '../../assets/images/website/Instagram Posters/15-(2).webp';
-import poster_1 from '../../assets/images/website/Instagram Posters/1-(5).webp';
-import poster_2 from '../../assets/images/website/Instagram Posters/10-(4).webp';
-import poster_3 from '../../assets/images/website/Instagram Posters/11-(2).webp';
-import poster_4 from '../../assets/images/website/Instagram Posters/14-(3).webp';
 
 import cta_bg from '../../assets/images/cta_bg.jpeg';
 // Hero Social Links
@@ -66,62 +56,6 @@ const funfaceData = [
   {
     title: 'Industries Served',
     factNumber: '10+',
-  },
-];
-const portfolioData = [
-  {
-    title: 'Wedding at The Grand Line',
-    subtitle: 'Candid Photography',
-    href: '/portfolio',
-    src: portfolio_1,
-  },
-  {
-    title: 'Corporate Tech Summit',
-    subtitle: 'Event Coverage',
-    href: '/portfolio',
-    src: portfolio_2,
-  },
-  {
-    title: 'Essence of Maternity',
-    subtitle: 'Portrait Session',
-    href: '/portfolio',
-    src: portfolio_3,
-  },
-  {
-    title: 'Urban Fashion',
-    subtitle: 'Commercial Shoot',
-    href: '/portfolio',
-    src: portfolio_4,
-  },
-  {
-    title: 'Urban Fashion',
-    subtitle: 'Commercial Shoot',
-    href: '/portfolio',
-    src: portfolio_5,
-  },
-  {
-    title: 'Signature Poster',
-    subtitle: 'Custom Poster Design',
-    href: '/portfolio',
-    src: poster_1,
-  },
-  {
-    title: 'Signature Poster',
-    subtitle: 'Custom Poster Design',
-    href: '/portfolio',
-    src: poster_2,
-  },
-  {
-    title: 'Signature Poster',
-    subtitle: 'Custom Poster Design',
-    href: '/portfolio',
-    src: poster_3,
-  },
-  {
-    title: 'Signature Poster',
-    subtitle: 'Custom Poster Design',
-    href: '/portfolio',
-    src: poster_4,
   },
 ];
 
@@ -192,7 +126,7 @@ export default function Home() {
         <FunFact
           variant="cs-type1"
           title="Our Numbers Speak"
-          subtitle="We take pride in our journey. Every project is a testament to our dedication and quality."
+          subtitle="What you can count on when you book your shoot with us."
           data={funfaceData}
         />
       </div>
@@ -215,7 +149,7 @@ export default function Home() {
           </Div>
           <Div className="col-xl-5 offset-xl-1 col-lg-6">
             <SectionHeading
-              title="Crafted frames, honest stories"
+              title="Everything handled, start to finish"
               subtitle="Why Choose Us"
             >
               <Spacing lg="30" md="20" />
@@ -224,7 +158,7 @@ export default function Home() {
               </p>
               <Spacing lg="15" md="15" />
               <p className="cs-m0">
-                Based in Cuddalore and shooting across Tamil Nadu, we treat every project like our own story - planned carefully, captured honestly and delivered polished.
+                Based in Cuddalore and shooting across Tamil Nadu, we plan your shoot with you, capture it honestly and deliver polished photos and films.
               </p>
               <Spacing lg="35" md="25" />
             </SectionHeading>
@@ -295,16 +229,16 @@ export default function Home() {
 
       {/* Start Portfolio Section */}
       <Spacing lg="150" md="50" />
-      <Div>
+      <Div id="selected-works">
         <Div className="container">
           <SectionHeading
             title="Selected Works"
             subtitle="Our Portfolio"
             variant="cs-style1 text-center"
           />
-          <Spacing lg="90" md="45" />
+          <Spacing lg="70" md="40" />
         </Div>
-        <PortfolioSlider data={portfolioData} />
+        <SelectedWorks />
       </Div>
       {/* End Portfolio Section */}
 
@@ -329,28 +263,10 @@ export default function Home() {
       </Div>
       {/* End Reels Section */}
 
-      {/* Start Journey Section */}
-      <Spacing lg="150" md="80" />
-      <Div className="cs-shape_wrap_2">
-        <Div className="cs-shape_2">
-          <Div />
-        </Div>
-        <Div className="container">
-          <Div className="row">
-            <Div className="col-xl-4">
-              <SectionHeading
-                title="We Built Our Legacy"
-                subtitle="Our Journey"
-                variant="cs-style1"
-              />
-              <Spacing lg="90" md="45" />
-            </Div>
-            <Div className="col-xl-7 offset-xl-1">
-              <TimelineSlider />
-            </Div>
-          </Div>
-        </Div>
-      </Div>
+      {/* Journey ("our story") section removed: site copy talks only about what the customer gets.
+          Two empty placeholders keep the top-level div count unchanged, because saved /admin edits use nth-of-type selectors. */}
+      <div style={{ display: "none" }} aria-hidden="true" />
+      <div style={{ display: "none" }} aria-hidden="true" />
       {/* End Journey Section */}
 
       {/* Video block temporarily removed at the owner's request. The component and assets remain available for restoration. */}

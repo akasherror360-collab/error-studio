@@ -59,7 +59,7 @@ export default function AboutPage() {
             >
               <Spacing lg="30" md="20" />
               <p className="cs-m0">
-                Error Studio is a premier photography and post-production agency based in Tamil Nadu. We believe that every image holds a story, and every video has the power to inspire. Our journey began with a simple mission: to bridge the gap between technical precision and artistic expression.
+                Error Studio is a photography and post-production studio based in Tamil Nadu. You get photos and films that are sharp, well lit and full of feeling - from shoot planning to the final edit and album.
               </p>
               <Spacing lg="30" md="30" />
               <Div className="cs-separator cs-accent_bg"></Div>
@@ -99,7 +99,7 @@ export default function AboutPage() {
       <Div className="container">
         <FunFact
           title="Our Numbers Speak"
-          subtitle="We take pride in our journey. Every project is a testament to our dedication and quality."
+          subtitle="What you can count on when you book your shoot with us."
           data={funfaceData}
         />
       </Div>
@@ -132,7 +132,7 @@ export default function AboutPage() {
               </p>
               <Spacing lg="15" md="15" />
               <p className="cs-m0">
-                Our dedicated editing team ensures your visuals look polished and professional, delivering a final product that exceeds expectations.
+                Our editing team polishes every photo and video, so you get a finished result that looks professional.
               </p>
               <Spacing lg="30" md="30" />
               <Div className="cs-separator cs-accent_bg"></Div>

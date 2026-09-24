@@ -2833,7 +2833,7 @@ label {
   .cs-hero.cs-style1 .cs-hero_title, .cs-page_heading h1 { font-size: clamp(38px, 11vw, 58px); line-height: 1.06; letter-spacing: -0.025em; }
   .cs-hero.cs-style1 .cs-hero_subtitle, .cs-section_heading.cs-style1 .cs-section_subtitle, .cs-page_heading .cs-breadcrumb { font-size: 16px; line-height: 1.65; }
   .cs-section_heading.cs-style1 .cs-section_title { font-size: clamp(30px, 8.5vw, 42px); line-height: 1.12; }
-  .cs-height_150, .cs-height_145 { height: 88px; }
+  .cs-height_150, .cs-height_145 { height: 64px; }
   .cs-height_90, .cs-height_85 { height: 56px; }
   .cs-btn.cs-style1 { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 12px 22px; }
   .cs-portfolio.cs-style1 .cs-portfolio_info { padding: 95px 20px 70px 62px; }
