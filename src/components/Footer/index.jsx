@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Div from '../Div';
 import ContactInfoWidget from '../Widget/ContactInfoWidget';
 import MenuWidget from '../Widget/MenuWidget';
@@ -26,6 +27,18 @@ const serviceMenu = [
   {
     title: 'Brand & Commercial',
     href: '/service/commercial',
+  },
+  {
+    title: 'Album Design',
+    href: '/service/album-design',
+  },
+  {
+    title: 'Event Coverage',
+    href: '/service/event-coverage',
+  },
+  {
+    title: 'Cinematic Teasers',
+    href: '/service/cinematic-teasers',
   },
 ];
 
@@ -69,7 +82,7 @@ export default function Footer({ copyrightText, logoSrc, logoAlt, text }) {
       <Div className="container">
         <Div className="cs-bottom_footer">
           <Div className="cs-bottom_footer_left">
-            <Div className="cs-copyright">Copyright © 2026 Error Studio.</Div>
+            <Div className="cs-copyright">Copyright © 2026 Error Studio. &nbsp;·&nbsp; <Link to="/faq">FAQ</Link></Div>
           </Div>
           <Div className="cs-bottom_footer_right">
             <a href="https://samhub.in" target="_blank" rel="noopener noreferrer">Designed and developed by Samhub Innovations</a>

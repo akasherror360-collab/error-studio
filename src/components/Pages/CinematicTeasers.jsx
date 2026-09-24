@@ -13,7 +13,7 @@ import serviceHeroBg from '../../assets/images/service_hero_bg.jpeg'
 import service_icon_1 from '../../assets/images/icons/service_icon_1.svg'
 import service_icon_2 from '../../assets/images/icons/service_icon_2.svg'
 import service_icon_3 from '../../assets/images/icons/service_icon_3.svg'
-import teaser_img from '../../assets/images/service_5.jpeg'
+import teaser_img from '../../assets/images/client-2026-09/f029984b.webp'
 import ctaBg from '../../assets/images/cta_bg.jpeg'
 
 export default function CinematicTeasers() {

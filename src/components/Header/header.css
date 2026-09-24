@@ -654,3 +654,60 @@
     height: 20px;
   }
 }
+
+/* Error Studio premium header: centered logo, split menus */
+@media screen and (min-width: 1200px) {
+  .cs-header_logo_center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+  }
+  .cs-site_header.cs-style1 .cs-nav_desktop {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+  }
+  .cs-nav_desktop .cs-nav_list {
+    display: flex !important;
+    flex-wrap: wrap;
+    height: inherit;
+  }
+  .cs-nav_desktop .cs-nav_list > li {
+    margin-right: 34px;
+  }
+  .cs-nav_desktop .cs-nav_list > li:last-child {
+    margin-right: 0;
+  }
+  .cs-site_header.cs-style1 .cs-main_header_right {
+    margin-left: auto;
+  }
+  .cs-nav_mobile {
+    display: none;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .cs-nav_desktop {
+    display: none !important;
+  }
+  .cs-header_logo_center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .cs-header_logo_center .cs-site_branding img {
+    max-height: 56px;
+    width: auto;
+  }
+  .cs-site_header.cs-style1 .cs-main_header_right .cs-toolbox {
+    margin-right: 56px;
+  }
+}

@@ -5,6 +5,14 @@ import './reels.css';
 function ReelCard({ id }) {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
+  const [wide, setWide] = useState(false);
+
+  const handleLoadedMetadata = (e) => {
+    const v = e.target;
+    if (v.videoWidth && v.videoHeight && v.videoWidth > v.videoHeight) {
+      setWide(true);
+    }
+  };
 
   const toggle = () => {
     const v = videoRef.current;
@@ -22,14 +30,15 @@ function ReelCard({ id }) {
   };
 
   return (
-    <Div className="cs-reel_item">
+    <Div className={wide ? 'cs-reel_item cs-reel_wide' : 'cs-reel_item'}>
       <video
         ref={videoRef}
         src={`/reels/${id}.mp4`}
         poster={`/reels/${id}.webp`}
         playsInline
-        preload="none"
+        preload="metadata"
         controls={playing}
+        onLoadedMetadata={handleLoadedMetadata}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         onEnded={() => setPlaying(false)}

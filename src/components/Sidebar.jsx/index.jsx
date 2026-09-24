@@ -10,56 +10,36 @@ import post2 from '../../assets/images/website/Instagram Posters/8-(2).webp'
 export default function Sidebar() {
   const tagData = [
     {
-      title: 'Business',
-      url:'/'
+      title: 'Wedding',
+      url:'/blog'
     },
     {
-      title: 'Agency',
-      url:'/'
+      title: 'Cuddalore',
+      url:'/blog'
     },
     {
-      title: 'Artwork',
-      url:'/'
+      title: 'Photography',
+      url:'/blog'
     },
     {
-      title: 'Marketing',
-      url:'/'
+      title: 'Videography',
+      url:'/blog'
     },
     {
-      title: 'Information',
-      url:'/'
-    },
-    {
-      title: 'Design',
-      url:'/'
-    },
-    {
-      title: 'Wordpress',
-      url:'/'
+      title: 'Album Design',
+      url:'/blog'
     },
   ]
 
   const categoryData = [
     {
-      title: 'Corporate',
-      url:'/'
+      title: 'Wedding Guide',
+      url:'/blog'
     },
     {
-      title: 'Company',
-      url:'/'
+      title: 'Shoot Tips',
+      url:'/blog'
     },
-    {
-      title: 'Search Engine',
-      url:'/'
-    },
-    {
-      title: 'Information',
-      url:'/'
-    },
-    {
-      title: 'Painting',
-      url:'/'
-    }
   ]
   const recentPostData = [
     {

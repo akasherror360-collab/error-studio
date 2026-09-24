@@ -25,6 +25,12 @@ import portfolio_3 from '../../assets/images/client-2026-09/412bbcee.webp';
 import portfolio_4 from '../../assets/images/client-2026-09/68828210.webp';
 import portfolio_5 from '../../assets/images/client-2026-09/6d1e3054.webp';
 import contact_side_img from '../../assets/images/website/Instagram Posters/11-(3).webp';
+import why_main from '../../assets/images/website/Instagram Posters/12-(2).webp';
+import why_secondary from '../../assets/images/website/Instagram Posters/15-(2).webp';
+import poster_1 from '../../assets/images/website/Instagram Posters/1-(5).webp';
+import poster_2 from '../../assets/images/website/Instagram Posters/10-(4).webp';
+import poster_3 from '../../assets/images/website/Instagram Posters/11-(2).webp';
+import poster_4 from '../../assets/images/website/Instagram Posters/14-(3).webp';
 
 import cta_bg from '../../assets/images/cta_bg.jpeg';
 // Hero Social Links
@@ -66,56 +72,56 @@ const portfolioData = [
   {
     title: 'Wedding at The Grand Line',
     subtitle: 'Candid Photography',
-    href: '/portfolio/portfolio-details',
+    href: '/portfolio',
     src: portfolio_1,
   },
   {
     title: 'Corporate Tech Summit',
     subtitle: 'Event Coverage',
-    href: '/portfolio/portfolio-details',
+    href: '/portfolio',
     src: portfolio_2,
   },
   {
     title: 'Essence of Maternity',
     subtitle: 'Portrait Session',
-    href: '/portfolio/portfolio-details',
+    href: '/portfolio',
     src: portfolio_3,
   },
   {
     title: 'Urban Fashion',
     subtitle: 'Commercial Shoot',
-    href: '/portfolio/portfolio-details',
+    href: '/portfolio',
     src: portfolio_4,
   },
   {
     title: 'Urban Fashion',
     subtitle: 'Commercial Shoot',
-    href: '/portfolio/portfolio-details',
+    href: '/portfolio',
     src: portfolio_5,
   },
   {
-    title: 'Urban Fashion',
-    subtitle: 'Commercial Shoot',
-    href: '/portfolio/portfolio-details',
-    src: portfolio_4,
+    title: 'Signature Poster',
+    subtitle: 'Custom Poster Design',
+    href: '/portfolio',
+    src: poster_1,
   },
   {
-    title: 'Urban Fashion',
-    subtitle: 'Commercial Shoot',
-    href: '/portfolio/portfolio-details',
-    src: portfolio_5,
+    title: 'Signature Poster',
+    subtitle: 'Custom Poster Design',
+    href: '/portfolio',
+    src: poster_2,
   },
   {
-    title: 'Urban Fashion',
-    subtitle: 'Commercial Shoot',
-    href: '/portfolio/portfolio-details',
-    src: portfolio_4,
+    title: 'Signature Poster',
+    subtitle: 'Custom Poster Design',
+    href: '/portfolio',
+    src: poster_3,
   },
   {
-    title: 'Urban Fashion',
-    subtitle: 'Commercial Shoot',
-    href: '/portfolio/portfolio-details',
-    src: portfolio_5,
+    title: 'Signature Poster',
+    subtitle: 'Custom Poster Design',
+    href: '/portfolio',
+    src: poster_4,
   },
 ];
 
@@ -192,6 +198,42 @@ export default function Home() {
       </div>
       {/* End FunFact Section */}
 
+      {/* Start Why Choose Section */}
+      <Spacing lg="150" md="80" />
+      <Div className="container">
+        <Div className="row align-items-center">
+          <Div className="col-xl-6 col-lg-6">
+            <Div className="row">
+              <Div className="col-8">
+                <img src={why_main} alt="Error Studio wedding work" className="w-100 cs-radius_15" />
+              </Div>
+              <Div className="col-4 d-flex align-items-end">
+                <img src={why_secondary} alt="Error Studio event work" className="w-100 cs-radius_15" />
+              </Div>
+            </Div>
+            <Spacing lg="0" md="40" />
+          </Div>
+          <Div className="col-xl-5 offset-xl-1 col-lg-6">
+            <SectionHeading
+              title="Crafted frames, honest stories"
+              subtitle="Why Choose Us"
+            >
+              <Spacing lg="30" md="20" />
+              <p className="cs-m0">
+                Comprehensive solutions handling everything from shoot planning to final album design. With top-tier equipment and lighting, we ensure every frame is crisp and cinematic.
+              </p>
+              <Spacing lg="15" md="15" />
+              <p className="cs-m0">
+                Based in Cuddalore and shooting across Tamil Nadu, we treat every project like our own story - planned carefully, captured honestly and delivered polished.
+              </p>
+              <Spacing lg="35" md="25" />
+            </SectionHeading>
+            <Button btnLink="/about" btnText="More About Us" variant="cs-type2" />
+          </Div>
+        </Div>
+      </Div>
+      {/* End Why Choose Section */}
+
       {/* Start Service Section */}
       <Spacing lg="150" md="80" />
       <Div id="service">
@@ -256,8 +298,8 @@ export default function Home() {
       <Div>
         <Div className="container">
           <SectionHeading
-            title="Portfolio to explore"
-            subtitle="Latest Projects"
+            title="Selected Works"
+            subtitle="Our Portfolio"
             variant="cs-style1 text-center"
           />
           <Spacing lg="90" md="45" />

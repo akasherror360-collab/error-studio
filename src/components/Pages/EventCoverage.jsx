@@ -13,7 +13,7 @@ import serviceHeroBg from '../../assets/images/service_hero_bg.jpeg'
 import service_icon_1 from '../../assets/images/icons/service_icon_1.svg'
 import service_icon_2 from '../../assets/images/icons/service_icon_2.svg'
 import service_icon_3 from '../../assets/images/icons/service_icon_3.svg'
-import event_img from '../../assets/images/service_2.jpeg'
+import event_img from '../../assets/images/client-2026-09/11c32d9e.webp'
 import ctaBg from '../../assets/images/cta_bg.jpeg'
 
 export default function EventCoverage() {

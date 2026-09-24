@@ -8,6 +8,24 @@ import DropDown from './DropDown';
 import logo from '../../assets/images/error-studio-logo.png';
 import footerLogo from '../../assets/images/error-studio-logo.png';
 
+const serviceLinks = [
+  { to: 'service/wedding-photography', label: 'Wedding Photography' },
+  { to: 'service/videography', label: 'Cinematic Videography' },
+  { to: 'service/video-editing', label: 'Creative Editing' },
+  { to: 'service/commercial', label: 'Brand & Commercial' },
+  { to: 'service/album-design', label: 'Album Design' },
+  { to: 'service/event-coverage', label: 'Event Coverage' },
+  { to: 'service/cinematic-teasers', label: 'Cinematic Teasers' },
+];
+
+const portfolioLinks = [
+  { to: '/portfolio?category=wedding', label: 'Weddings' },
+  { to: '/portfolio?category=event', label: 'Events' },
+  { to: '/portfolio?category=commercial', label: 'Commercial' },
+  { to: '/portfolio?category=creative', label: 'Creative Edits' },
+  { to: '/portfolio?category=reels', label: 'Reels' },
+];
+
 export default function Header({ variant }) {
   const [isSticky, setIsSticky] = useState(false);
   const [sideHeaderToggle, setSideHeaderToggle] = useState(false);
@@ -22,6 +40,8 @@ export default function Header({ variant }) {
     });
   }, []);
 
+  const closeMobile = () => setMobileToggle(false);
+
   return (
     <>
       <header
@@ -31,251 +51,77 @@ export default function Header({ variant }) {
         <Div className="cs-main_header">
           <Div className="container">
             <Div className="cs-main_header_in">
-              <Div className="cs-main_header_left">
+              {/* Left menu (desktop) */}
+              <Div className="cs-nav cs-primary_font cs-medium cs-nav_desktop cs-nav_left">
+                <ul className="cs-nav_list">
+                  <li>
+                    <NavLink to="/" onClick={closeMobile}>
+                      Home
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="about" onClick={closeMobile}>
+                      About
+                    </NavLink>
+                  </li>
+                  <li className="menu-item-has-children">
+                    <NavLink to="portfolio" onClick={closeMobile}>
+                      Portfolio
+                    </NavLink>
+                    <DropDown>
+                      <ul>
+                        {portfolioLinks.map((item) => (
+                          <li key={item.to}>
+                            <Link to={item.to} onClick={closeMobile}>
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </DropDown>
+                  </li>
+                </ul>
+              </Div>
+
+              {/* Centered logo */}
+              <Div className="cs-main_header_left cs-header_logo_center">
                 <Link className="cs-site_branding" to="/">
-                  <img src={logo} alt="Logo" width={100} height={100} style={{ borderRadius: "100%", height: "100px" }} />
+                  <img src={logo} alt="Error Studio" width={100} height={100} style={{ borderRadius: "100%", height: "100px" }} />
                 </Link>
               </Div>
-              <Div className="cs-main_header_center">
-                <Div className="cs-nav cs-primary_font cs-medium">
-                  <ul
-                    className="cs-nav_list"
-                    style={{ display: `${mobileToggle ? 'block' : 'none'}` }}
-                  >
-                    <li >
-                      <NavLink to="/" onClick={() => setMobileToggle(false)}>
-                        Home
-                      </NavLink>
-                      {/* <DropDown>
-                        <ul>
-                          <li>
-                            <Link to="/" onClick={() => setMobileToggle(false)}>
-                              Main Home
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="photography-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Photography Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="creative-portfolio"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Creative Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="digital-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Digital Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="marketing-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Marketing Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="freelancer-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Freelancer Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="architecture-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Architecture Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="creative-solution"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Creative Solution
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="personal-portfolio"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Personal Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="showcase-portfolio"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Showcase Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="case-study-showcase"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Case Study Showcase
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="video-showcase"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Video Showcase
-                            </Link>
-                          </li>
-                        </ul>
-                      </DropDown> */}
-                    </li>
-                    <li>
-                      <NavLink
-                        to="about"
-                        onClick={() => setMobileToggle(false)}
-                      >
-                        About
-                      </NavLink>
-                    </li>
+
+              {/* Right menu (desktop) + tools */}
+              <Div className="cs-main_header_right">
+                <Div className="cs-nav cs-primary_font cs-medium cs-nav_desktop cs-nav_right">
+                  <ul className="cs-nav_list">
                     <li className="menu-item-has-children">
-                      <NavLink
-                        to="service"
-                        onClick={() => setMobileToggle(false)}
-                      >
+                      <NavLink to="service" onClick={closeMobile}>
                         Services
                       </NavLink>
                       <DropDown>
                         <ul>
-                          <li>
-                            <Link
-                              to="service/wedding-photography"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Wedding Photography
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="service/videography"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Cinematic Videography
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="service/video-editing"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Creative Editing
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="service/commercial"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Brand & Commercial
-                            </Link>
-                          </li>
+                          {serviceLinks.map((item) => (
+                            <li key={item.to}>
+                              <Link to={item.to} onClick={closeMobile}>
+                                {item.label}
+                              </Link>
+                            </li>
+                          ))}
                         </ul>
                       </DropDown>
                     </li>
                     <li>
-                      <NavLink
-                        to="portfolio"
-                        onClick={() => setMobileToggle(false)}
-                      >
-                        Portfolio
-                      </NavLink>
-                      {/* <DropDown>
-                        <ul>
-                          <li>
-                            <Link
-                              to="portfolio"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="portfolio/portfolio-details"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Portfolio Details
-                            </Link>
-                          </li>
-                        </ul>
-                      </DropDown> */}
-                    </li>
-                    <li >
-                      <NavLink to="blog" onClick={() => setMobileToggle(false)}>
+                      <NavLink to="blog" onClick={closeMobile}>
                         Blogs
                       </NavLink>
                     </li>
-                    <li >
-                      <Link to="/contact" onClick={() => setMobileToggle(false)}>
+                    <li>
+                      <Link to="/contact" onClick={closeMobile}>
                         Contact
                       </Link>
-                      {/* <DropDown>
-                        <ul>
-                          <li>
-                            <Link
-                              to="/contact"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Contact
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="/case-study/case-study-details"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Case Study Details
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="/faq"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              FAQ
-                            </Link>
-                          </li>
-                        </ul>
-                      </DropDown> */}
                     </li>
                   </ul>
-                  <span
-                    className={
-                      mobileToggle
-                        ? 'cs-munu_toggle cs-toggle_active'
-                        : 'cs-munu_toggle'
-                    }
-                    onClick={() => setMobileToggle(!mobileToggle)}
-                  >
-                    <span></span>
-                  </span>
                 </Div>
-              </Div>
-              <Div className="cs-main_header_right">
                 <Div className="cs-toolbox">
                   <span
                     className="cs-icon_btn"
@@ -289,6 +135,77 @@ export default function Header({ variant }) {
                     </span>
                   </span>
                 </Div>
+                <span
+                  className={
+                    mobileToggle
+                      ? 'cs-munu_toggle cs-toggle_active'
+                      : 'cs-munu_toggle'
+                  }
+                  onClick={() => setMobileToggle(!mobileToggle)}
+                >
+                  <span></span>
+                </span>
+              </Div>
+
+              {/* Mobile menu (all items) */}
+              <Div className="cs-nav cs-primary_font cs-medium cs-nav_mobile">
+                <ul
+                  className="cs-nav_list"
+                  style={{ display: `${mobileToggle ? 'block' : 'none'}` }}
+                >
+                  <li>
+                    <NavLink to="/" onClick={closeMobile}>
+                      Home
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="about" onClick={closeMobile}>
+                      About
+                    </NavLink>
+                  </li>
+                  <li className="menu-item-has-children">
+                    <NavLink to="service" onClick={closeMobile}>
+                      Services
+                    </NavLink>
+                    <DropDown>
+                      <ul>
+                        {serviceLinks.map((item) => (
+                          <li key={item.to}>
+                            <Link to={item.to} onClick={closeMobile}>
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </DropDown>
+                  </li>
+                  <li className="menu-item-has-children">
+                    <NavLink to="portfolio" onClick={closeMobile}>
+                      Portfolio
+                    </NavLink>
+                    <DropDown>
+                      <ul>
+                        {portfolioLinks.map((item) => (
+                          <li key={item.to}>
+                            <Link to={item.to} onClick={closeMobile}>
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </DropDown>
+                  </li>
+                  <li>
+                    <NavLink to="blog" onClick={closeMobile}>
+                      Blogs
+                    </NavLink>
+                  </li>
+                  <li>
+                    <Link to="/contact" onClick={closeMobile}>
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
               </Div>
             </Div>
           </Div>
@@ -311,7 +228,7 @@ export default function Header({ variant }) {
         <Div className="cs-side_header_in">
           <Div className="cs-side_header_shape" />
           <Link className="cs-site_branding" to="/">
-            <img src={footerLogo} alt="Logo" />
+            <img src={footerLogo} alt="Error Studio" />
           </Link>
           <Div className="cs-side_header_box">
             <h2 className="cs-side_header_heading">
@@ -321,13 +238,6 @@ export default function Header({ variant }) {
           <Div className="cs-side_header_box">
             <ContactInfoWidget title="Contact Us" withIcon />
           </Div>
-          {/* <Div className="cs-side_header_box">
-            <Newsletter
-              title="Subscribe"
-              subtitle="At vero eos et accusamus et iusto odio as part dignissimos ducimus qui blandit."
-              placeholder="example@gmail.com"
-            />
-          </Div> */}
           <Div className="cs-side_header_box">
             <SocialWidget />
           </Div>

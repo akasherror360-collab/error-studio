@@ -65,3 +65,22 @@
     max-width: 340px;
   }
 }
+
+/* Horizontal videos play large and uncropped */
+.cs-reel_item.cs-reel_wide {
+  width: min(880px, 100%);
+  max-width: 880px;
+  aspect-ratio: 16 / 9;
+  flex-basis: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cs-reel_item.cs-reel_wide video {
+  object-fit: contain;
+  background: #0d0d0d;
+}
+@media screen and (max-width: 575px) {
+  .cs-reel_item.cs-reel_wide {
+    max-width: 100%;
+  }
+}

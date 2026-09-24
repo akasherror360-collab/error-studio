@@ -12,6 +12,9 @@ import service_1 from '../../assets/images/client-2026-09/f07214dc.webp';
 import service_2 from '../../assets/images/client-2026-09/c347dc1d.webp';
 import service_3 from '../../assets/images/client-2026-09/e283b9f8.webp';
 import service_4 from '../../assets/images/client-2026-09/ca4c47af.webp';
+import service_5 from '../../assets/images/client-2026-09/7196946d.webp';
+import service_6 from '../../assets/images/website/portfolio/12X36/35.webp';
+import service_7 from '../../assets/images/client-2026-09/0200bd0e.webp';
 import ctaBg from '../../assets/images/cta_bg.jpeg'
 
 export default function ServicesPage() {
@@ -76,6 +79,36 @@ export default function ServicesPage() {
                     title="Brand & Commercial"
                     link="/service/commercial"
                     src={service_4}
+                    alt="Service"
+                  />
+                  <Spacing lg="0" md="30" />
+                </Div>
+                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
+                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
+                <Div className="col-lg-3 col-sm-6">
+                  <Card
+                    title="Album Design"
+                    link="/service/album-design"
+                    src={service_6}
+                    alt="Service"
+                  />
+                  <Spacing lg="0" md="30" />
+                </Div>
+                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
+                <Div className="col-lg-3 col-sm-6">
+                  <Card
+                    title="Event Coverage"
+                    link="/service/event-coverage"
+                    src={service_5}
+                    alt="Service"
+                  />
+                  <Spacing lg="0" md="30" />
+                </Div>
+                <Div className="col-lg-3 col-sm-6">
+                  <Card
+                    title="Cinematic Teasers"
+                    link="/service/cinematic-teasers"
+                    src={service_7}
                     alt="Service"
                   />
                   <Spacing lg="0" md="30" />
