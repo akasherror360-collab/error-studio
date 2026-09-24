@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import selectedWorksDefaults from '../../content/selectedWorksDefaults';
 import { loadSelectedWorkDocs, mergeSelectedWorks, visibleWorks } from '../../content/selectedWorksStore';
+import { Link } from 'react-router-dom';
 import './selected-works.css';
 
 const INITIAL_COUNT = 12;
 
 export default function SelectedWorks() {
   const [items, setItems] = useState(null);
-  const [showAll, setShowAll] = useState(false);
   const [open, setOpen] = useState(-1);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function SelectedWorks() {
   }, []);
 
   const list = items || [];
-  const shown = showAll ? list : list.slice(0, INITIAL_COUNT);
+  const shown = list.slice(0, INITIAL_COUNT);
 
   const close = useCallback(() => setOpen(-1), []);
   const step = useCallback(delta => setOpen(index => (index + delta + list.length) % list.length), [list.length]);
@@ -61,9 +61,9 @@ export default function SelectedWorks() {
       </div>
       {list.length > INITIAL_COUNT && (
         <div className="es-works_more">
-          <button type="button" className="cs-btn cs-style1" onClick={() => setShowAll(value => !value)}>
-            <span>{showAll ? 'Show fewer' : `View all works (${list.length})`}</span>
-          </button>
+          <Link to="/portfolio?view=all" className="cs-btn cs-style1">
+            <span>View all</span>
+          </Link>
         </div>
       )}
       {open >= 0 && list[open] && (

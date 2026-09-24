@@ -1,0 +1,8 @@
+.es-cat_grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.es-cat_card { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; padding: 0; border: 0; border-radius: 15px; overflow: hidden; background: #181818; cursor: pointer; text-align: left; }
+.es-cat_card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+.es-cat_card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.78) 100%); }
+.es-cat_card:hover img { transform: scale(1.05); }
+.es-cat_name { position: absolute; left: 20px; right: 20px; bottom: 44px; z-index: 1; color: #fff; font-family: 'Fraunces', serif; font-weight: 300; font-size: 30px; line-height: 1.1; }
+.es-cat_count { position: absolute; left: 20px; bottom: 18px; z-index: 1; color: rgba(255,255,255,.75); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+@media (max-width: 991px) { .es-cat_grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } .es-cat_name { font-size: 22px; left: 14px; bottom: 36px; } .es-cat_count { left: 14px; bottom: 14px; font-size: 11px; } }

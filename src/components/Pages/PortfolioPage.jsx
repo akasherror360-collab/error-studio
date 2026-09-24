@@ -1,15 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { pageTitle } from "../../helper";
-// import Cta from "../Cta";
 import PageHeading from "../PageHeading";
 import Div from "../Div";
 import SectionHeading from "../SectionHeading";
 import Spacing from "../Spacing";
 import ImagePopup from "../ImagePopup/ImagePopup";
 import portfolio_hero_bg from "../../assets/images/portfolio_hero_bg.jpeg";
+import client_0200bd0e from "../../assets/images/client-2026-09/0200bd0e.webp";
 import client_02a83c7d from "../../assets/images/client-2026-09/02a83c7d.webp";
 import client_11c32d9e from "../../assets/images/client-2026-09/11c32d9e.webp";
 import client_412bbcee from "../../assets/images/client-2026-09/412bbcee.webp";
@@ -18,13 +16,10 @@ import client_6d1e3054 from "../../assets/images/client-2026-09/6d1e3054.webp";
 import client_7196946d from "../../assets/images/client-2026-09/7196946d.webp";
 import client_83b84cb3 from "../../assets/images/client-2026-09/83b84cb3.webp";
 import client_992275cb from "../../assets/images/client-2026-09/992275cb.webp";
+import client_b3175fbd from "../../assets/images/client-2026-09/b3175fbd.webp";
 import client_ca15442e from "../../assets/images/client-2026-09/ca15442e.webp";
 import client_ecc79736 from "../../assets/images/client-2026-09/ecc79736.webp";
 import client_f029984b from "../../assets/images/client-2026-09/f029984b.webp";
-import client_0200bd0e from "../../assets/images/client-2026-09/0200bd0e.webp";
-import client_b3175fbd from "../../assets/images/client-2026-09/b3175fbd.webp";
-
-// Portfolio images from assets/images/website/portfolio
 import portfolio_0_2 from "../../assets/images/website/portfolio/0-(2).webp";
 import portfolio_00_2 from "../../assets/images/website/portfolio/00-(2).webp";
 import portfolio_00_6 from "../../assets/images/website/portfolio/00-(6).webp";
@@ -36,6 +31,15 @@ import portfolio_1_6 from "../../assets/images/website/portfolio/1-(6).webp";
 import portfolio_10_5 from "../../assets/images/website/portfolio/10-(5).webp";
 import portfolio_12_1 from "../../assets/images/website/portfolio/12-(1).webp";
 import portfolio_12_3 from "../../assets/images/website/portfolio/12-(3).webp";
+import portfolio_12x36_18 from "../../assets/images/website/portfolio/12X36/18.webp";
+import portfolio_12x36_19 from "../../assets/images/website/portfolio/12X36/19.webp";
+import portfolio_12x36_20 from "../../assets/images/website/portfolio/12X36/20.webp";
+import portfolio_12x36_21 from "../../assets/images/website/portfolio/12X36/21.webp";
+import portfolio_12x36_22 from "../../assets/images/website/portfolio/12X36/22.webp";
+import portfolio_12x36_35 from "../../assets/images/website/portfolio/12X36/35.webp";
+import portfolio_12x36_44 from "../../assets/images/website/portfolio/12X36/44.webp";
+import portfolio_12x36_52 from "../../assets/images/website/portfolio/12X36/52.webp";
+import portfolio_12x36_53 from "../../assets/images/website/portfolio/12X36/53.webp";
 import portfolio_13_1 from "../../assets/images/website/portfolio/13-(1).webp";
 import portfolio_13_2 from "../../assets/images/website/portfolio/13-(2).webp";
 import portfolio_13_7 from "../../assets/images/website/portfolio/13-(7).webp";
@@ -48,333 +52,180 @@ import portfolio_18_2 from "../../assets/images/website/portfolio/18-(2).webp";
 import portfolio_2_1 from "../../assets/images/website/portfolio/2-(1).webp";
 import portfolio_2_2 from "../../assets/images/website/portfolio/2-(2).webp";
 import portfolio_3_1 from "../../assets/images/website/portfolio/3-(1).webp";
-import portfolio_4_2 from "../../assets/images/website/portfolio/4-(2).webp";
 import portfolio_6_2 from "../../assets/images/website/portfolio/6-(2).webp";
 import portfolio_8_1 from "../../assets/images/website/portfolio/8-(1).webp";
 import portfolio_8_5 from "../../assets/images/website/portfolio/8-(5).webp";
 import portfolio_9_5 from "../../assets/images/website/portfolio/9-(5).webp";
-
-// Portfolio images from assets/images/website/portfolio/12X36
-import portfolio_12x36_18 from "../../assets/images/website/portfolio/12X36/18.webp";
-import portfolio_12x36_19 from "../../assets/images/website/portfolio/12X36/19.webp";
-import portfolio_12x36_20 from "../../assets/images/website/portfolio/12X36/20.webp";
-import portfolio_12x36_21 from "../../assets/images/website/portfolio/12X36/21.webp";
-import portfolio_12x36_22 from "../../assets/images/website/portfolio/12X36/22.webp";
-import portfolio_12x36_35 from "../../assets/images/website/portfolio/12X36/35.webp";
-import portfolio_12x36_44 from "../../assets/images/website/portfolio/12X36/44.webp";
-import portfolio_12x36_52 from "../../assets/images/website/portfolio/12X36/52.webp";
-import portfolio_12x36_53 from "../../assets/images/website/portfolio/12X36/53.webp";
 import PortfolioCardForPortfolioPage from "../Portfolio/PortfolioCardForPortfolioPage";
 import Reels from "../Reels";
 import reelIds from "../Reels/reelsData";
-import {
-  ChevronsDownIcon,
-  ChevronsUpIcon,
-} from "lucide-react";
+import "./portfolio-categories.css";
 
-// Portfolio data organized following the pattern:
-// Row 1: 3 images from portfolio folder
-// Rows 2-4: alternating 1 portfolio + 1 12X36
-// Repeat pattern
+// Each photo belongs to one category. Engagement and Reception have no photos yet,
+// so they stay hidden until photos are added.
 const portfolioData = [
-  // Row 1: 3 images from portfolio folder
-  { src: client_02a83c7d, category: "wedding" },
-  { src: client_11c32d9e, category: "event" },
-  { src: client_412bbcee, category: "commercial" },
-
-  // Row 2: 1 portfolio + 1 12X36
-
-  { src: client_68828210, category: "creative" },
-  { src: client_6d1e3054, category: "wedding" },
-
-  // Row 3: 1 portfolio + 1 12X36
-  { src: client_7196946d, category: "event" },
-  { src: client_83b84cb3, category: "commercial" },
-
-  // Row 4: 1 portfolio + 1 12X36
-  { src: client_992275cb, category: "wedding" },
-  { src: client_ca15442e, category: "creative" },
-
-  // Row 5: 3 images from portfolio folder
-  { src: client_ecc79736, category: "event" },
-  { src: client_f029984b, category: "commercial" },
-  { src: client_0200bd0e, category: "wedding" },
-
-  // Row 6: 1 portfolio + 1 12X36
-  { src: client_b3175fbd, category: "creative" },
-  { src: client_02a83c7d, category: "event" },
-
-  // Row 7: 1 portfolio + 1 12X36
-  { src: client_11c32d9e, category: "commercial" },
-  { src: client_412bbcee, category: "wedding" },
-
-  // Row 8: 1 portfolio + 1 12X36
-  { src: client_68828210, category: "creative" },
-  { src: client_6d1e3054, category: "event" },
-
-  // Row 9: 3 images from portfolio folder
-  { src: client_7196946d, category: "commercial" },
-  { src: portfolio_13_7, category: "wedding" },
-  { src: portfolio_14_1, category: "creative" },
-
-  // Row 10: 1 portfolio + 1 12X36
-  { src: portfolio_14_10, category: "event" },
-  { src: portfolio_12x36_18, category: "commercial" },
-
-  // Row 11: 1 portfolio + 1 12X36
-  { src: portfolio_15_6, category: "wedding" },
-  { src: portfolio_12x36_19, category: "creative" },
-
-  // Row 12: 1 portfolio + 1 12X36
-  { src: portfolio_15_8, category: "event" },
-  { src: portfolio_12x36_20, category: "commercial" },
-
-  // Row 13: 3 images from portfolio folder
-  { src: portfolio_18_10, category: "wedding" },
-  { src: portfolio_18_2, category: "creative" },
-  { src: portfolio_2_1, category: "event" },
-
-  // Row 14: 1 portfolio + 1 12X36
-  { src: portfolio_2_2, category: "commercial" },
-  { src: portfolio_12x36_21, category: "wedding" },
-
-  // Row 15: 1 portfolio + 1 12X36
-  { src: portfolio_3_1, category: "creative" },
-  { src: portfolio_12x36_22, category: "event" },
-
-  // Row 16: 1 portfolio + 1 12X36
-  { src: portfolio_4_2, category: "commercial" },
-  { src: portfolio_12x36_35, category: "wedding" },
-
-  // Row 17: 3 images from portfolio folder
-  { src: portfolio_6_2, category: "creative" },
-  { src: portfolio_8_1, category: "event" },
-  { src: portfolio_8_5, category: "commercial" },
-
-  // Row 18: 1 portfolio + 1 12X36
-  { src: portfolio_9_5, category: "wedding" },
-  { src: portfolio_12x36_44, category: "creative" },
-
-  // Row 19: 1 portfolio + 1 12X36 (using remaining images)
-  // { src: portfolio_4, category: "event" },
-  { src: portfolio_12x36_52, category: "commercial" },
-
-  // Row 20: 1 portfolio + 1 12X36
-  // { src: portfolio_5, category: "wedding" },
-  { src: portfolio_12x36_53, category: "creative" },
-
-  // Row 21: 3 images from portfolio folder
-  // { src: portfolio_6, category: "event" },
-  // { src: portfolio_7, category: "commercial" },
-  // { src: portfolio_8, category: "wedding" },
-
-  // Row 22: 2 images
-  // { src: portfolio_9, category: "creative" },
-  // { src: portfolio_10, category: "event" },
-
-  // Continue pattern with remaining slots (rows 23-32)
-  // Repeating some images to fill 32 rows
-  { src: portfolio_0_2, category: "commercial" },
-  { src: portfolio_00_2, category: "wedding" },
-
-  { src: portfolio_00_6, category: "creative" },
-  { src: portfolio_1_1, category: "event" },
-  { src: portfolio_1_2, category: "commercial" },
-
-  { src: portfolio_1_3, category: "wedding" },
-  { src: portfolio_1_4, category: "creative" },
-
-  { src: portfolio_1_6, category: "event" },
-  { src: portfolio_10_5, category: "commercial" },
-
-  { src: portfolio_12_1, category: "wedding" },
-  { src: portfolio_12_3, category: "creative" },
-  { src: portfolio_13_1, category: "event" },
-
-  { src: portfolio_13_2, category: "commercial" },
-  { src: portfolio_13_7, category: "wedding" },
-
-  { src: portfolio_14_1, category: "creative" },
-  { src: portfolio_14_10, category: "event" },
+  { src: portfolio_15_8, category: "portraits" },
+  { src: client_0200bd0e, category: "portraits" },
+  { src: client_412bbcee, category: "portraits" },
+  { src: client_6d1e3054, category: "portraits" },
+  { src: client_7196946d, category: "portraits" },
+  { src: client_83b84cb3, category: "portraits" },
+  { src: client_992275cb, category: "portraits" },
+  { src: portfolio_12_1, category: "portraits" },
+  { src: portfolio_12_3, category: "portraits" },
+  { src: portfolio_12x36_53, category: "portraits" },
+  { src: portfolio_15_6, category: "portraits" },
+  { src: portfolio_2_1, category: "portraits" },
+  { src: portfolio_2_2, category: "portraits" },
+  { src: portfolio_3_1, category: "portraits" },
+  { src: client_ca15442e, category: "couples" },
+  { src: client_11c32d9e, category: "couples" },
+  { src: portfolio_1_4, category: "couples" },
+  { src: portfolio_14_1, category: "couples" },
+  { src: portfolio_14_10, category: "couples" },
+  { src: portfolio_18_10, category: "couples" },
+  { src: portfolio_18_2, category: "couples" },
+  { src: client_ecc79736, category: "pre-wedding" },
+  { src: client_68828210, category: "pre-wedding" },
+  { src: client_b3175fbd, category: "pre-wedding" },
+  { src: portfolio_0_2, category: "pre-wedding" },
+  { src: portfolio_1_1, category: "pre-wedding" },
+  { src: portfolio_1_2, category: "pre-wedding" },
+  { src: portfolio_1_3, category: "pre-wedding" },
+  { src: portfolio_1_6, category: "pre-wedding" },
+  { src: portfolio_10_5, category: "pre-wedding" },
+  { src: portfolio_13_1, category: "pre-wedding" },
+  { src: portfolio_13_2, category: "pre-wedding" },
+  { src: portfolio_13_7, category: "pre-wedding" },
+  { src: portfolio_8_1, category: "pre-wedding" },
+  { src: portfolio_8_5, category: "pre-wedding" },
+  { src: portfolio_9_5, category: "pre-wedding" },
+  { src: portfolio_00_6, category: "tamil-weddings" },
+  { src: client_02a83c7d, category: "tamil-weddings" },
+  { src: client_f029984b, category: "tamil-weddings" },
+  { src: portfolio_00_2, category: "tamil-weddings" },
+  { src: portfolio_6_2, category: "tamil-weddings" },
+  { src: portfolio_12x36_18, category: "tamil-weddings" },
+  { src: portfolio_12x36_19, category: "tamil-weddings" },
+  { src: portfolio_12x36_20, category: "tamil-weddings" },
+  { src: portfolio_12x36_21, category: "tamil-weddings" },
+  { src: portfolio_12x36_22, category: "tamil-weddings" },
+  { src: portfolio_12x36_35, category: "tamil-weddings" },
+  { src: portfolio_12x36_44, category: "tamil-weddings" },
+  { src: portfolio_12x36_52, category: "tamil-weddings" }
 ];
 
+// Category order as set by the owner.
 const categoryMenu = [
-  {
-    title: "Weddings",
-    category: "wedding",
-  },
-  {
-    title: "Events",
-    category: "event",
-  },
-  {
-    title: "Commercial",
-    category: "commercial",
-  },
-  {
-    title: "Creative Edits",
-    category: "creative",
-  },
-  {
-    title: "Reels",
-    category: "reels",
-  },
+  { title: "Portraits", category: "portraits", thumb: portfolio_15_8 },
+  { title: "Couples", category: "couples", thumb: client_ca15442e },
+  { title: "Pre-Wedding", category: "pre-wedding", thumb: client_ecc79736 },
+  { title: "Tamil Weddings", category: "tamil-weddings", thumb: portfolio_00_6 },
+  { title: "Engagement", category: "engagement" },
+  { title: "Reception", category: "reception" },
+  { title: "Reels", category: "reels", thumb: portfolio_1_6 },
 ];
+
+const countFor = (category) =>
+  category === "reels" ? reelIds.length : portfolioData.filter((p) => p.category === category).length;
+const visibleCategories = categoryMenu.filter((c) => countFor(c.category) > 0);
 
 export default function PortfolioPage() {
   pageTitle("Portfolio");
   const [searchParams, setSearchParams] = useSearchParams();
   const requestedCategory = searchParams.get("category");
-  const active = categoryMenu.some((item) => item.category === requestedCategory)
+  const active = visibleCategories.some((item) => item.category === requestedCategory)
     ? requestedCategory
     : "all";
-  const setActive = (category) => {
-    setSearchParams(category === "all" ? {} : { category }, { replace: true });
-  };
   const filterRef = useRef(null);
-  const showReels = active === "reels";
-  const [itemShow, setItemShow] = useState(19); // Show first 8 rows (approximately 20 images)
-  const [isExpanded, setIsExpanded] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+  const scrollToFilter = (smooth) => {
+    if (!filterRef.current) return;
+    const top = filterRef.current.getBoundingClientRect().top + window.scrollY - 110;
+    window.scrollTo({ top, behavior: smooth ? "smooth" : "auto" });
+  };
+  const setActive = (category) => {
+    setSearchParams(category === "all" ? {} : { category }, { replace: false });
+    setSelectedImageIndex(null);
+    setTimeout(() => scrollToFilter(true), 30);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (requestedCategory === "reels" && filterRef.current) {
-      const top =
-        filterRef.current.getBoundingClientRect().top + window.scrollY - 110;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-    // Run once on page load so deep links land on the Reels tab.
+    if (requestedCategory || searchParams.get("view") === "all") setTimeout(() => scrollToFilter(false), 60);
+    // Run once on page load so deep links land on the right section.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Transform portfolio data for ImagePopup component
-  const popupImages = portfolioData.map((item, index) => ({
-    image: item.src,
-    imgTitle: `Portfolio Image ${index + 1}`,
-  }));
-
-  // Handlers for ImagePopup
-  const handleImageClick = (index) => {
-    setSelectedImageIndex(index);
-  };
-
-  const handleClosePopup = () => {
-    setSelectedImageIndex(null);
-  };
-
-  const handleNextImage = () => {
-    setSelectedImageIndex((prev) => (prev + 1) % portfolioData.length);
-  };
-
-  const handlePrevImage = () => {
-    setSelectedImageIndex(
-      (prev) => (prev - 1 + portfolioData.length) % portfolioData.length,
-    );
-  };
+  const photos = active === "all" || active === "reels" ? [] : portfolioData.filter((p) => p.category === active);
+  const popupImages = photos.map((item, index) => ({ image: item.src, imgTitle: `Portfolio Image ${index + 1}` }));
+  const activeTitle = (visibleCategories.find((c) => c.category === active) || {}).title;
 
   return (
     <>
-      <PageHeading
-        title="Portfolio"
-        bgSrc={portfolio_hero_bg}
-        pageLinkText="Portfolio"
-      />
+      <PageHeading title="Portfolio" bgSrc={portfolio_hero_bg} pageLinkText="Portfolio" />
       <Spacing lg="145" md="80" />
       <Div className="container">
-        <div className="cs-portfolio_1_heading" id="reels" ref={filterRef}>
-          <SectionHeading title="Some recent work" subtitle="Our Portfolio" />
+        <div className="cs-portfolio_1_heading" id="all" ref={filterRef}>
+          <SectionHeading title={active === "all" ? "Choose a category" : activeTitle} subtitle="Our Portfolio" />
           <Div className="cs-filter_menu cs-style1">
             <ul className="cs-mp0 cs-center">
               <li className={active === "all" ? "active" : ""}>
                 <span onClick={() => setActive("all")}>All</span>
               </li>
-              {categoryMenu.map((item, index) => (
-                <li
-                  className={active === item.category ? "active" : ""}
-                  key={index}
-                >
-                  <span onClick={() => setActive(item.category)}>
-                    {item.title}
-                  </span>
+              {visibleCategories.map((item) => (
+                <li className={active === item.category ? "active" : ""} key={item.category}>
+                  <span onClick={() => setActive(item.category)}>{item.title}</span>
                 </li>
               ))}
             </ul>
           </Div>
         </div>
-        <Spacing lg="90" md="45" />
-        {showReels && <Reels data={reelIds} />}
-        <Div className={`row${showReels ? " d-none" : ""}`}>
-          <AnimatePresence mode="sync">
-            {portfolioData.slice(0, itemShow).map((item, index) => (
-              <motion.div
-                className={`${
-                  index % 7 === 3 || index % 7 === 6 ? "col-lg-8" : "col-lg-4"
-                } ${
-                  active === "all"
-                    ? ""
-                    : !(active === item.category)
-                      ? "d-none"
-                      : ""
-                }`}
-                key={`portfolio-${index}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.05,
-                  ease: "easeOut",
-                }}
-              >
-                <PortfolioCardForPortfolioPage
-                  src={item.src}
-                  variant="cs-style1 cs-type1"
-                  onClick={() => handleImageClick(index)}
-                />
-                <Spacing lg="25" md="25" />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </Div>
+        <Spacing lg="70" md="40" />
 
-        <Div className="text-center">
-          {!showReels && portfolioData.length > 20 && (
-            <>
-              <Spacing lg="65" md="40" />
-              <span
-                className="cs-text_btn border px-3 py-2 transition ease-in-out duration-300"
-                onClick={() => {
-                  if (isExpanded) {
-                    setItemShow(19); // Show first 8 rows
-                    setIsExpanded(false);
-                  } else {
-                    setItemShow(portfolioData.length); // Show all 32 rows
-                    setIsExpanded(true);
-                  }
-                }}
-              >
-                <span>{isExpanded ? "See Less" : "See More"}</span>
-                {isExpanded ? (
-                  <ChevronsUpIcon size={18} />
-                ) : (
-                  <ChevronsDownIcon size={18} />
-                )}
-              </span>
-            </>
-          )}
-        </Div>
+        {active === "all" && (
+          <div className="es-cat_grid">
+            {visibleCategories.map((item) => (
+              <button type="button" className="es-cat_card" key={item.category} onClick={() => setActive(item.category)}>
+                <img src={item.thumb} alt={item.title} loading="lazy" />
+                <span className="es-cat_name">{item.title}</span>
+                <span className="es-cat_count">{countFor(item.category)} {item.category === "reels" ? "reels" : "photos"}</span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {active === "reels" && <Reels data={reelIds} />}
+
+        {photos.length > 0 && (
+          <Div className="row">
+            {photos.map((item, index) => (
+              <div className="col-lg-4 col-sm-6" key={`${active}-${index}`}>
+                <PortfolioCardForPortfolioPage src={item.src} variant="cs-style1 cs-type1" onClick={() => setSelectedImageIndex(index)} />
+                <Spacing lg="25" md="25" />
+              </div>
+            ))}
+          </Div>
+        )}
+
+        {active !== "all" && (
+          <Div className="text-center">
+            <Spacing lg="40" md="30" />
+            <span className="cs-text_btn border px-3 py-2" onClick={() => setActive("all")}>
+              <span>All categories</span>
+            </span>
+          </Div>
+        )}
       </Div>
       <Spacing lg="145" md="80" />
-      {/* <Cta title="agency@arino.com" bgSrc={cta_bg_2} variant="rounded-0" /> */}
 
-      {/* Image Popup */}
       <ImagePopup
         images={popupImages}
         selectedIndex={selectedImageIndex}
-        onClose={handleClosePopup}
-        onNext={handleNextImage}
-        onPrev={handlePrevImage}
+        onClose={() => setSelectedImageIndex(null)}
+        onNext={() => setSelectedImageIndex((prev) => (prev + 1) % photos.length)}
+        onPrev={() => setSelectedImageIndex((prev) => (prev - 1 + photos.length) % photos.length)}
       />
     </>
   );

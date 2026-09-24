@@ -21,10 +21,10 @@ const serviceLinks = [
 ];
 
 const portfolioLinks = [
-  { to: '/portfolio?category=wedding', label: 'Weddings' },
-  { to: '/portfolio?category=event', label: 'Events' },
-  { to: '/portfolio?category=commercial', label: 'Commercial' },
-  { to: '/portfolio?category=creative', label: 'Creative Edits' },
+  { to: '/portfolio?category=portraits', label: 'Portraits' },
+  { to: '/portfolio?category=couples', label: 'Couples' },
+  { to: '/portfolio?category=pre-wedding', label: 'Pre-Wedding' },
+  { to: '/portfolio?category=tamil-weddings', label: 'Tamil Weddings' },
   { to: '/portfolio?category=reels', label: 'Reels' },
 ];
 
