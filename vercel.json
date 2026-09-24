@@ -1,6 +1,72 @@
 {
   "rewrites": [
-    { "source": "/__/auth/:path*", "destination": "https://error-studio-fd96c.firebaseapp.com/__/auth/:path*" },
-    { "source": "/__/firebase/:path*", "destination": "https://error-studio-fd96c.firebaseapp.com/__/firebase/:path*" }
+    {
+      "source": "/__/auth/:path*",
+      "destination": "https://error-studio-fd96c.firebaseapp.com/__/auth/:path*"
+    },
+    {
+      "source": "/__/firebase/:path*",
+      "destination": "https://error-studio-fd96c.firebaseapp.com/__/firebase/:path*"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/service",
+      "destination": "/service.html"
+    },
+    {
+      "source": "/service/wedding-photography",
+      "destination": "/service/wedding-photography.html"
+    },
+    {
+      "source": "/service/videography",
+      "destination": "/service/videography.html"
+    },
+    {
+      "source": "/service/video-editing",
+      "destination": "/service/video-editing.html"
+    },
+    {
+      "source": "/service/commercial",
+      "destination": "/service/commercial.html"
+    },
+    {
+      "source": "/service/album-design",
+      "destination": "/service/album-design.html"
+    },
+    {
+      "source": "/service/event-coverage",
+      "destination": "/service/event-coverage.html"
+    },
+    {
+      "source": "/service/cinematic-teasers",
+      "destination": "/service/cinematic-teasers.html"
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/portfolio.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/blog/wedding-venues-in-and-around-cuddalore",
+      "destination": "/blog/wedding-venues-in-and-around-cuddalore.html"
+    },
+    {
+      "source": "/blog/how-to-prepare-for-your-wedding-shoot",
+      "destination": "/blog/how-to-prepare-for-your-wedding-shoot.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html"
+    }
   ]
 }
