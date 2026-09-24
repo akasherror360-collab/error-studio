@@ -31,15 +31,6 @@ import portfolio_1_6 from "../../assets/images/website/portfolio/1-(6).webp";
 import portfolio_10_5 from "../../assets/images/website/portfolio/10-(5).webp";
 import portfolio_12_1 from "../../assets/images/website/portfolio/12-(1).webp";
 import portfolio_12_3 from "../../assets/images/website/portfolio/12-(3).webp";
-import portfolio_12x36_18 from "../../assets/images/website/portfolio/12X36/18.webp";
-import portfolio_12x36_19 from "../../assets/images/website/portfolio/12X36/19.webp";
-import portfolio_12x36_20 from "../../assets/images/website/portfolio/12X36/20.webp";
-import portfolio_12x36_21 from "../../assets/images/website/portfolio/12X36/21.webp";
-import portfolio_12x36_22 from "../../assets/images/website/portfolio/12X36/22.webp";
-import portfolio_12x36_35 from "../../assets/images/website/portfolio/12X36/35.webp";
-import portfolio_12x36_44 from "../../assets/images/website/portfolio/12X36/44.webp";
-import portfolio_12x36_52 from "../../assets/images/website/portfolio/12X36/52.webp";
-import portfolio_12x36_53 from "../../assets/images/website/portfolio/12X36/53.webp";
 import portfolio_13_1 from "../../assets/images/website/portfolio/13-(1).webp";
 import portfolio_13_2 from "../../assets/images/website/portfolio/13-(2).webp";
 import portfolio_13_7 from "../../assets/images/website/portfolio/13-(7).webp";
@@ -61,7 +52,7 @@ import Reels from "../Reels";
 import reelIds from "../Reels/reelsData";
 import "./portfolio-categories.css";
 
-// Each photo belongs to one category. Engagement and Reception have no photos yet,
+// Each photo belongs to one category (album spreads removed from the portfolio). Engagement and Reception have no photos yet,
 // so they stay hidden until photos are added.
 const portfolioData = [
   { src: portfolio_15_8, category: "portraits" },
@@ -73,7 +64,6 @@ const portfolioData = [
   { src: client_992275cb, category: "portraits" },
   { src: portfolio_12_1, category: "portraits" },
   { src: portfolio_12_3, category: "portraits" },
-  { src: portfolio_12x36_53, category: "portraits" },
   { src: portfolio_15_6, category: "portraits" },
   { src: portfolio_2_1, category: "portraits" },
   { src: portfolio_2_2, category: "portraits" },
@@ -104,30 +94,23 @@ const portfolioData = [
   { src: client_02a83c7d, category: "tamil-weddings" },
   { src: client_f029984b, category: "tamil-weddings" },
   { src: portfolio_00_2, category: "tamil-weddings" },
-  { src: portfolio_6_2, category: "tamil-weddings" },
-  { src: portfolio_12x36_18, category: "tamil-weddings" },
-  { src: portfolio_12x36_19, category: "tamil-weddings" },
-  { src: portfolio_12x36_20, category: "tamil-weddings" },
-  { src: portfolio_12x36_21, category: "tamil-weddings" },
-  { src: portfolio_12x36_22, category: "tamil-weddings" },
-  { src: portfolio_12x36_35, category: "tamil-weddings" },
-  { src: portfolio_12x36_44, category: "tamil-weddings" },
-  { src: portfolio_12x36_52, category: "tamil-weddings" }
+  { src: portfolio_6_2, category: "tamil-weddings" }
 ];
 
 // Category order as set by the owner.
 const categoryMenu = [
+  { title: "All Photographs", category: "all-photos", thumb: portfolio_10_5 },
   { title: "Portraits", category: "portraits", thumb: portfolio_15_8 },
   { title: "Couples", category: "couples", thumb: client_ca15442e },
   { title: "Pre-Wedding", category: "pre-wedding", thumb: client_ecc79736 },
   { title: "Tamil Weddings", category: "tamil-weddings", thumb: portfolio_00_6 },
   { title: "Engagement", category: "engagement" },
   { title: "Reception", category: "reception" },
-  { title: "Reels", category: "reels", thumb: portfolio_1_6 },
+  { title: "Reels", category: "reels", thumb: portfolio_1_6 }
 ];
 
 const countFor = (category) =>
-  category === "reels" ? reelIds.length : portfolioData.filter((p) => p.category === category).length;
+  category === "reels" ? reelIds.length : category === "all-photos" ? portfolioData.length : portfolioData.filter((p) => p.category === category).length;
 const visibleCategories = categoryMenu.filter((c) => countFor(c.category) > 0);
 
 export default function PortfolioPage() {
@@ -158,7 +141,7 @@ export default function PortfolioPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const photos = active === "all" || active === "reels" ? [] : portfolioData.filter((p) => p.category === active);
+  const photos = active === "all" || active === "reels" ? [] : active === "all-photos" ? portfolioData : portfolioData.filter((p) => p.category === active);
   const popupImages = photos.map((item, index) => ({ image: item.src, imgTitle: `Portfolio Image ${index + 1}` }));
   const activeTitle = (visibleCategories.find((c) => c.category === active) || {}).title;
 
