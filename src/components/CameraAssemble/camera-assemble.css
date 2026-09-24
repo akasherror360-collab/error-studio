@@ -1,0 +1,12 @@
+.es-cam { position: relative; height: 260vh; background: #0b0b0b; }
+.es-cam { overflow: hidden; }
+.es-cam_sticky { position: absolute; top: 0; left: 0; right: 0; height: 100vh; overflow: hidden; will-change: transform; }
+.es-cam_canvas { width: 100%; height: 100%; display: block; opacity: 0; transition: opacity .8s ease; }
+.es-cam_canvas.is-ready { opacity: 1; }
+.es-cam_flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
+.es-cam_flash--on { animation: esCamFlash .7s ease-out; }
+@keyframes esCamFlash { 0% { opacity: 0; } 8% { opacity: .95; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .es-cam { height: 100vh; }
+  .es-cam_flash--on { animation: none; }
+}
