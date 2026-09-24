@@ -35,7 +35,7 @@ export default function GalleryStyle2() {
               className="cs-portfolio_bg cs-bg"
               style={{ backgroundImage: `url("${item.src}")` }}
             >
-              <ModalImage small={item.src} large={item.srcLg} alt="Gallery" />
+              <ModalImage small={item.src} large={item.srcLg} alt="Gallery" hideDownload />
             </div>
           </div>
         </div>

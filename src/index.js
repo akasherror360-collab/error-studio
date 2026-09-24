@@ -6,6 +6,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "./scss/index.css";
 import "./tailwind.css";
+import "./helper/imageGuard.css";
+import installImageGuard from "./helper/imageGuard";
+
+installImageGuard();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

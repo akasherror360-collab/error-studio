@@ -208,6 +208,7 @@ export default function MasonryGallery() {
                   small={item.src}
                   large={item.srcLg}
                   alt={item.title}
+                  hideDownload
                 />
               </Div>
               <Div className="cs-portfolio_hover" />
