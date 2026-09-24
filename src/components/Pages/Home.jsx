@@ -20,7 +20,6 @@ import service_3 from '../../assets/images/client-2026-09/e283b9f8.webp';
 import service_4 from '../../assets/images/client-2026-09/ca4c47af.webp';
 import contact_side_img from '../../assets/images/website/Instagram Posters/11-(3).webp';
 import why_main from '../../assets/images/website/why-temple-main.webp';
-import why_secondary from '../../assets/images/website/why-temple-secondary.webp';
 
 import cta_bg from '../../assets/images/cta_bg.jpeg';
 // Hero Social Links
@@ -136,18 +135,11 @@ export default function Home() {
       <Spacing lg="150" md="80" />
       <Div className="container">
         <Div className="row align-items-center">
-          <Div className="col-xl-6 col-lg-6">
-            <Div className="row">
-              <Div className="col-8">
-                <img src={why_main} alt="Couple at Gangaikonda Cholapuram temple, Error Studio shoot" className="w-100 cs-radius_15" />
-              </Div>
-              <Div className="col-4 d-flex align-items-end">
-                <img src={why_secondary} alt="Couple on temple steps, Error Studio poster" className="w-100 cs-radius_15" />
-              </Div>
-            </Div>
+          <Div className="col-xl-4 col-lg-5">
+            <img src={why_main} alt="Couple at Gangaikonda Cholapuram temple, Error Studio shoot" className="w-100 cs-radius_15" />
             <Spacing lg="0" md="40" />
           </Div>
-          <Div className="col-xl-5 offset-xl-1 col-lg-6">
+          <Div className="col-xl-6 offset-xl-1 col-lg-7">
             <SectionHeading
               title="Everything handled, start to finish"
               subtitle="Why Choose Us"
