@@ -277,7 +277,7 @@ export default function Home() {
       <Div className="container">
         <Cta
           title="Let’s discuss making <br /><i>Memories together</i>"
-          btnText="Apply For Meeting"
+          btnText="Enquire about your shoot"
           btnLink="/contact"
           bgSrc={cta_bg}
         />
