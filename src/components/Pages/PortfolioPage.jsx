@@ -109,6 +109,8 @@ const categoryMenu = [
   { title: "Reels", category: "reels", thumb: portfolio_1_6 }
 ];
 
+const featuredPhotos = [portfolio_00_6, client_ecc79736, client_ca15442e, portfolio_15_8];
+
 const countFor = (category) =>
   category === "reels" ? reelIds.length : category === "all-photos" ? portfolioData.length : portfolioData.filter((p) => p.category === category).length;
 const visibleCategories = categoryMenu.filter((c) => countFor(c.category) > 0);
@@ -150,16 +152,21 @@ export default function PortfolioPage() {
       <PageHeading title="Portfolio" bgSrc={portfolio_hero_bg} pageLinkText="Portfolio" />
       <Spacing lg="145" md="80" />
       <Div className="container">
+        {active === "all" && <section className="es-featured" aria-label="Featured photography">
+          <h2>Selected photographs</h2>
+          <div className="es-featured_grid">{featuredPhotos.map((src, index) => <button type="button" key={src} onClick={() => setSelectedImageIndex(index)} aria-label={`View selected photograph ${index + 1}`}><img src={src} alt={`Selected Error Studio photograph ${index + 1}`} loading={index < 2 ? 'eager' : 'lazy'} /></button>)}</div>
+          <p>Explore more of our work by category below.</p>
+        </section>}
         <div className="cs-portfolio_1_heading" id="all" ref={filterRef}>
           <SectionHeading title={active === "all" ? "Choose a category" : activeTitle} subtitle="Our Portfolio" />
           <Div className="cs-filter_menu cs-style1">
             <ul className="cs-mp0 cs-center">
               <li className={active === "all" ? "active" : ""}>
-                <span onClick={() => setActive("all")}>All</span>
+                <button type="button" onClick={() => setActive("all")} aria-pressed={active === "all"}>All</button>
               </li>
               {visibleCategories.map((item) => (
                 <li className={active === item.category ? "active" : ""} key={item.category}>
-                  <span onClick={() => setActive(item.category)}>{item.title}</span>
+                  <button type="button" onClick={() => setActive(item.category)} aria-pressed={active === item.category}>{item.title}</button>
                 </li>
               ))}
             </ul>
@@ -194,22 +201,21 @@ export default function PortfolioPage() {
 
         {active !== "all" && (
           <Div className="text-center">
+            <a className="es-category_enquiry cs-btn cs-style1" href="/contact"><span>Ask about a similar shoot</span></a>
             <Spacing lg="40" md="30" />
-            <span className="cs-text_btn border px-3 py-2" onClick={() => setActive("all")}>
-              <span>All categories</span>
-            </span>
+            <button type="button" className="cs-text_btn border px-3 py-2" onClick={() => setActive("all")}>All categories</button>
           </Div>
         )}
       </Div>
       <Spacing lg="145" md="80" />
 
       <ImagePopup
-        images={popupImages}
+        images={active === "all" ? featuredPhotos.map((src, index) => ({ image: src, imgTitle: `Selected photograph ${index + 1}` })) : popupImages}
         selectedIndex={selectedImageIndex}
         onClose={() => setSelectedImageIndex(null)}
-        onNext={() => setSelectedImageIndex((prev) => (prev + 1) % photos.length)}
-        onPrev={() => setSelectedImageIndex((prev) => (prev - 1 + photos.length) % photos.length)}
+        onNext={() => setSelectedImageIndex((prev) => (prev + 1) % (active === "all" ? featuredPhotos.length : photos.length))}
+        onPrev={() => setSelectedImageIndex((prev) => (prev - 1 + (active === "all" ? featuredPhotos.length : photos.length)) % (active === "all" ? featuredPhotos.length : photos.length))}
       />
     </>
   );
-}
+  }
