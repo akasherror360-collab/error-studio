@@ -750,8 +750,3 @@
   .cs-site_header { height: 80px; }
   .cs-logo_reveal { height: 48px; }
 }
-
-.es-mobile_booking { display:none; }
-@media(max-width:767px) {
-  .cs-site_header .cs-main_header_right .es-mobile_booking { display:inline-flex; color:#fff; background:#E60A06; font-size:11px; line-height:1.2; letter-spacing:.02em; border-radius:3px; padding:9px 8px; white-space:nowrap; margin-right:10px; }
-                                                 }
