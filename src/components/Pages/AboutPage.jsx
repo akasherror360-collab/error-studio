@@ -54,12 +54,12 @@ export default function AboutPage() {
         <Div className="row">
           <Div className="col-xl-5 col-lg-7">
             <SectionHeading
-              title="Your trusted partner for visual storytelling"
+              title="A studio for moments worth keeping"
               subtitle="About Error Studio"
             >
               <Spacing lg="30" md="20" />
               <p className="cs-m0">
-                Error Studio is a photography and post-production studio based in Tamil Nadu. You get photos and films that are sharp, well lit and full of feeling - from shoot planning to the final edit and album.
+                Error Studio is based in Cuddalore. We photograph weddings and events and make films, edits and albums. We plan the shoot with you, capture the people and details, then shape the photographs and footage into work you can return to.
               </p>
               <Spacing lg="30" md="30" />
               <Div className="cs-separator cs-accent_bg"></Div>
@@ -123,16 +123,16 @@ export default function AboutPage() {
           </Div>
           <Div className="col-xl-5 offset-xl-1 col-lg-6">
             <SectionHeading
-              title="Highly experienced people with us"
-              subtitle="Why Choose Us"
+              title="From first conversation to final work"
+              subtitle="Our Approach"
             >
               <Spacing lg="30" md="20" />
               <p className="cs-m0">
-                Comprehensive solutions handling everything from shoot planning to final album design. With top-tier equipment and lighting, we ensure every frame is crisp and cinematic.
+                Tell us about the occasion, people and place. We plan the coverage together, make the photographs or film, then edit the work and prepare the final images, film or album for the project you chose.
               </p>
               <Spacing lg="15" md="15" />
               <p className="cs-m0">
-                Our editing team polishes every photo and video, so you get a finished result that looks professional.
+                These real shoot photos and our portfolio show the work itself. If you have a date in mind, ask us about availability.
               </p>
               <Spacing lg="30" md="30" />
               <Div className="cs-separator cs-accent_bg"></Div>
@@ -157,4 +157,4 @@ export default function AboutPage() {
       {/* End CTA Section */}
     </>
   );
-}
+              }
