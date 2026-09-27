@@ -17,7 +17,7 @@ export default function ContactInfoWidget({ withIcon, title }) {
         </a>
         <li>
           {withIcon ? <span className='cs-accent_color'><Icon icon="mdi:map-marker" /></span> : ''}
-          1A, Gopal Nagar, Pathirikuppam, <br />Thiruvanthipuram Main Road, <br />Cuddalore – 607401, Tamil Nadu
+          Co-operative Nagar, Koothapakkam, <br />Pathirikuppam, Tamil Nadu 607401
         </li>
       </ul>
     </>
