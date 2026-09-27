@@ -26,7 +26,7 @@ export default function FloatingButtons() {
     <div className="cs-floating_btns">
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/916384568059"
+        href="https://wa.me/919944036606"
         className="cs-floating_btn cs-whatsapp"
         target="_blank"
         rel="noopener noreferrer"

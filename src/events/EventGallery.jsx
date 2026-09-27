@@ -7,8 +7,8 @@ import { WATERMARK_SRC, originalBlob, overlayStyle, saveBlob, watermarkedBlob } 
 import './events.css';
 
 const PAGE = 48;
-const WHATSAPP = '916384568059';
-const PHONE_DISPLAY = '+91 63845 68059';
+const WHATSAPP = '919944036606';
+const PHONE_DISPLAY = '+91 99440 36606';
 
 const formatDate = value => {
   if (!value) return '';
@@ -175,7 +175,7 @@ export default function EventGallery() {
       <p>Error Studio covers weddings, receptions and events across Tamil Nadu - photography, cinematic films and albums.</p>
       <div className="esg-book-actions">
         <a className="esg-btn esg-btn-red" href={`https://wa.me/${WHATSAPP}?text=${bookText}`} target="_blank" rel="noopener noreferrer">Book on WhatsApp</a>
-        <a className="esg-btn esg-btn-ghost" href="tel:+916384568059">Call {PHONE_DISPLAY}</a>
+        <a className="esg-btn esg-btn-ghost" href="tel:+919944036606">Call {PHONE_DISPLAY}</a>
       </div>
       <div className="esg-links">
         <a href="https://www.instagram.com/errorstudio.official/" target="_blank" rel="noopener noreferrer">Instagram @errorstudio.official</a>

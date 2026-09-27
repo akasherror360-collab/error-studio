@@ -84,7 +84,7 @@ export default function FaqPage() {
       <Div className="container">
         <Cta
           title="Let’s discuss making <br />something <i>cool</i> together"
-          btnText="Apply For Meeting"
+          btnText="Enquire about your shoot"
           btnLink="/contact"
           bgSrc={cta_bg}
         />

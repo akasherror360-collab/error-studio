@@ -1235,3 +1235,28 @@
   background-position: center;
 }
 
+
+/* Keep the photo clear; on mobile the heading and booking path sit below it. */
+.cs-hero_still { position:absolute; inset:0; background-position:center; background-size:cover; }
+@media (max-width:767px) {
+  .cs-hero.cs-style1 { height:auto; min-height:0; padding:0 0 32px; display:block; background:#101010; }
+  .cs-hero.cs-style1 .cs-hero_still { height: min(55svh, 480px); bottom:auto; background-position:center; }
+  .cs-hero.cs-style1 > .absolute.inset-0 { height: min(55svh, 480px); bottom:auto; }
+  .cs-hero.cs-style1 > .container { padding-top:min(55svh, 480px); height:auto !important; }
+  .cs-hero.cs-style1 .cs-hero_text { min-height:0; height:auto !important; padding-top:20px; }
+  .cs-hero.cs-style1 .cs-hero_text > div { height:auto !important; display:block; }
+  .cs-hero.cs-style1 .cs-hero_title { text-align:left; font-size:clamp(34px,9vw,42px); line-height:1.08; margin:0 0 18px; text-shadow:none; }
+  .cs-hero.cs-style1 .cs-hero_info { display:flex; flex-direction:column; align-items:flex-start; }
+  .cs-hero.cs-style1 .cs-hero_info > div { width:100%; }
+  .cs-hero.cs-style1 .cs-hero_info .text-end { order:-1; text-align:left !important; margin:0 0 20px; }
+  .cs-hero.cs-style1 .cs-hero_info a { display:inline-flex; background:#F9A30A; color:#111; padding:11px 18px; border-radius:4px; font-size:15px; font-weight:600; }
+  .cs-hero.cs-style1 .cs-hero_subtitle { font-size:15px; line-height:1.5; max-width:350px; text-shadow:none; }
+  .cs-hero.cs-style1::after { display:none; }
+}
+/* The old counter overlap belongs to the full-height desktop hero, not the
+   mobile photo plus content panel. Keep the booking copy unobstructed. */
+@media (max-width:767px) {
+  .cs-hero.cs-style1 + .container .cs-funfact_wrap.cs-type1 { margin-top:0; }
+}
+/* No decorative shards over the studio photograph. */
+.cs-hero.cs-style1 > .cs-shape_1 { display:none; }

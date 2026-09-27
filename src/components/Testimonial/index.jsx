@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 import './testimonial.css'
 import Div from '../Div';
 import ratingIcon from '../../assets/images/rating.svg';
+import { GOOGLE_REVIEW_URL } from './googleReviewUrl';
 
 export default function Testimonial({testimonialText, avatarName, avatarDesignation, ratings}) {
   return (
@@ -16,8 +17,7 @@ export default function Testimonial({testimonialText, avatarName, avatarDesignat
         <Div className="cs-rating_percentage" style={{backgroundImage: `url(${ratingIcon})`, width:`${ratings * 20}%`}} />
       </Div>
       <h2 className="cs-testimonial_avatar_name">{avatarName}</h2>
-      <Div className="cs-testimonial_avatar_designation text-uppercase">{avatarDesignation}</Div>
+      <Div className="cs-testimonial_avatar_designation text-uppercase"><a href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer" aria-label={`See Error Studio Google reviews, including ${avatarName}`}>{avatarDesignation}</a></Div>
     </Div>
   )
 }
-
