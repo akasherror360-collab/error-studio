@@ -1253,3 +1253,8 @@
   .cs-hero.cs-style1 .cs-hero_subtitle { font-size:15px; line-height:1.5; max-width:350px; text-shadow:none; }
   .cs-hero.cs-style1::after { display:none; }
 }
+/* The old counter overlap belongs to the full-height desktop hero, not the
+   mobile photo plus content panel. Keep the booking copy unobstructed. */
+@media (max-width:767px) {
+  .cs-hero.cs-style1 + .container .cs-funfact_wrap.cs-type1 { margin-top:0; }
+}
