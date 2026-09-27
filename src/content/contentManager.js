@@ -23,7 +23,12 @@ export function applyPatches(patches = {}) {
     try {
       const element = document.querySelector(selector);
       if (!element || element.closest('[data-admin-ui]')) return;
-      if (patch.type === 'text' && element.textContent !== (patch.value ?? '')) element.textContent = patch.value ?? '';
+      // Preserve the booking path when an older /admin edit saved empty hero copy.
+      // Other intentional blank text patches (such as social labels) still apply.
+      const isRequiredHeroCopy = element.closest('.cs-hero.cs-style1') &&
+        (element.matches('.cs-hero_title, .cs-hero_subtitle') || element.matches('.cs-hero_info a'));
+      if (patch.type === 'text' && !(isRequiredHeroCopy && !String(patch.value ?? '').trim()) &&
+          element.textContent !== (patch.value ?? '')) element.textContent = patch.value ?? '';
       if (patch.type === 'image' && element.tagName === 'IMG') {
         const hidden = Boolean(patch.deleted);
         if (element.hidden !== hidden) element.hidden = hidden;
