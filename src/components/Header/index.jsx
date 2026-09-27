@@ -145,7 +145,6 @@ export default function Header({ variant }) {
                     </span>
                   </span>
                 </Div>
-                <Link className="es-mobile_booking" to="/contact" onClick={closeMobile}>Book your shoot</Link>
                 <span
                   className={
                     mobileToggle
@@ -256,4 +255,4 @@ export default function Header({ variant }) {
       </Div>
     </>
   );
-                        }
+}
