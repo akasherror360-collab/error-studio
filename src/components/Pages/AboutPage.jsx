@@ -16,11 +16,11 @@ import ctaBg from '../../assets/images/cta_bg.jpeg';
 const funfaceData = [
   {
     title: 'Projects Completed',
-    factNumber: '120+',
+    factNumber: '285',
   },
   {
     title: 'Happy Clients',
-    factNumber: '100+',
+    factNumber: '143',
   },
   {
     title: 'Years Experience',
@@ -149,7 +149,7 @@ export default function AboutPage() {
       <Div className="container">
         <Cta
           title="Let’s discuss making <br />something <i>cool</i> together"
-          btnText="Apply For Meeting"
+          btnText="Enquire about your shoot"
           btnLink="/contact"
           bgSrc={ctaBg}
         />
