@@ -59,7 +59,7 @@ export default function EventPoster() {
       <p className="esg-poster-steps">Scan with your phone camera<br />View and download the event photos</p>
       <div>
         <p className="esg-poster-url">{url.replace(/^https?:\/\//, '')}</p>
-        <p className="esg-poster-foot">Error Studio · 63845 68059 · @errorstudio.official</p>
+        <p className="esg-poster-foot">Error Studio · 99440 36606 · @errorstudio.official</p>
       </div>
     </div>
   </main>;
