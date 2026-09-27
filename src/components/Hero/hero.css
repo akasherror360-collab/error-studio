@@ -1258,3 +1258,5 @@
 @media (max-width:767px) {
   .cs-hero.cs-style1 + .container .cs-funfact_wrap.cs-type1 { margin-top:0; }
 }
+/* No decorative shards over the studio photograph. */
+.cs-hero.cs-style1 > .cs-shape_1 { display:none; }
