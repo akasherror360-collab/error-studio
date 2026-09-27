@@ -6,3 +6,15 @@
 .es-cat_name { position: absolute; left: 20px; right: 20px; bottom: 44px; z-index: 1; color: #fff; font-family: 'Fraunces', serif; font-weight: 300; font-size: 30px; line-height: 1.1; }
 .es-cat_count { position: absolute; left: 20px; bottom: 18px; z-index: 1; color: rgba(255,255,255,.75); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
 @media (max-width: 991px) { .es-cat_grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } .es-cat_name { font-size: 22px; left: 14px; bottom: 36px; } .es-cat_count { left: 14px; bottom: 14px; font-size: 11px; } }
+
+.es-featured { margin-bottom:72px; }
+.es-featured h2 { font-size:clamp(28px,4vw,48px); margin-bottom:24px; }
+.es-featured_grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.es-featured_grid button { border:0; padding:0; background:transparent; overflow:hidden; border-radius:8px; aspect-ratio:4/5; cursor:zoom-in; }
+.es-featured_grid img { width:100%; height:100%; object-fit:cover; display:block; }
+.es-featured p { margin:22px 0 0; }
+.cs-filter_menu button { background:transparent; border:0; color:inherit; padding:7px 8px; font:inherit; cursor:pointer; }
+.cs-filter_menu li.active button { color:var(--accent); }
+.cs-filter_menu button:focus-visible, .es-featured button:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
+.es-category_enquiry { margin-bottom:24px; }
+@media(max-width:767px) { .es-featured { margin-bottom:54px; } .es-featured_grid { grid-template-columns:repeat(2,1fr); gap:8px; } }
