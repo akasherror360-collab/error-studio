@@ -5,7 +5,7 @@ const accordionData = [
   {
     question: 'How far in advance should we book for a wedding?',
     answer:
-      'We recommend booking at least 3-6 months in advance for weddings to ensure our team\'s availability, especially during peak seasons like December and May.',
+      'We recommend booking at least 2-3 months in advance for weddings to ensure our team\'s availability, especially during peak seasons like December and May.',
   },
   {
     question: 'Do you provide raw footage?',
