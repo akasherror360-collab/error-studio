@@ -1,4 +1,29 @@
+# Public pages are open to search and AI search crawlers.
 User-agent: *
+Disallow: /events/
+Allow: /
+
+User-agent: OAI-SearchBot
+Disallow: /events/
+Allow: /
+
+User-agent: GPTBot
+Disallow: /events/
+Allow: /
+
+User-agent: Claude-SearchBot
+Disallow: /events/
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /events/
+Allow: /
+
+User-agent: PerplexityBot
+Disallow: /events/
+Allow: /
+
+User-agent: Google-Extended
 Disallow: /events/
 Allow: /
 
