@@ -74,3 +74,12 @@ button.esg-btn.esg-btn-red,a.esg-btn.esg-btn-red{background-color:#E60A06!import
 button.esg-btn.esg-btn-gold,a.esg-btn.esg-btn-gold{background-color:#F9A30A!important;color:#111!important}
 button.esg-btn.esg-btn-ghost,a.esg-btn.esg-btn-ghost{background-color:transparent!important;color:#fefefe!important;border:1px solid #555!important}
 button.esg-nav{background-color:rgba(24,24,24,.6)!important}
+
+.esg-skeleton-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:100%;max-width:1400px;margin:0 auto;padding:6px}
+.esg-skeleton{aspect-ratio:4/5;border-radius:4px;border:1px solid #262626;background:#202020}
+@media(min-width:640px){.esg-skeleton-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1024px){.esg-skeleton-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.esg-state{max-width:620px;margin:38px auto;padding:clamp(30px,5vw,54px) 24px;text-align:center;border:1px solid #363636;background:#141414}
+.esg-state-kicker{font-size:11px;letter-spacing:.18em;color:var(--esg-gold);font-weight:700}
+.esg-state h2{font-size:clamp(22px,4vw,30px);margin:10px 0}
+.esg-state p{color:var(--esg-muted);line-height:1.7;margin:0 auto 22px;max-width:430px}
