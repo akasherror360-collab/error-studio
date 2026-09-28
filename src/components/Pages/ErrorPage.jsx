@@ -1,25 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { pageTitle } from '../../helper';
 import Div from '../Div';
-import SectionHeading from '../SectionHeading';
-import about_hero_bg from '../../assets/images/about_hero_bg.jpeg';
+import './error-state.css';
 
 export default function ErrorPage() {
-  pageTitle('Error');
-  return (
-    <Div
-      className="cs-page_heading cs-style1 cs-center text-center cs-bg cs-error_page"
-      style={{ backgroundImage: `url(${about_hero_bg})` }}
-    >
-      <Div className="container">
-        <SectionHeading
-          title="This page could <br/>not be found."
-          subtitle="404 Error"
-          btnText="Back To Home"
-          btnLink="/"
-          variant="cs-style1 text-center"
-        />
-      </Div>
+  pageTitle('Page not found');
+  return <main className="es-not-found cs-error_page">
+    <Div className="es-not-found-inner">
+      <span className="es-not-found-kicker">ERROR STUDIO / 404</span>
+      <h1>We couldn't find<br />this page.</h1>
+      <p>The link may have moved, or the address may have a typo. You can start again from the studio homepage.</p>
+      <Link to="/" className="es-not-found-link">Back to home <span aria-hidden="true">↗</span></Link>
     </Div>
-  );
+  </main>;
 }
