@@ -1,0 +1,20 @@
+.es-enquiry-form .es-field{margin-bottom:16px}
+.es-enquiry-form label{display:block;margin-bottom:9px}
+.es-enquiry-form .cs-form_field{border-radius:10px;min-height:50px}
+.es-enquiry-form textarea.cs-form_field{min-height:140px}
+.es-enquiry-form .cs-form_field.es-field-invalid{border-color:#f07d78}
+.es-field-error{display:block;min-height:22px;margin-top:6px;color:#f7a4a0;font-size:13px;line-height:1.4}
+.es-enquiry-form .cs-btn:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.35)}
+.es-enquiry-state,.es-enquiry-notice{border:1px solid #444;border-left:3px solid var(--accent);padding:24px;background:#151515;color:#ddd}
+.es-enquiry-state{padding:clamp(28px,5vw,56px);min-height:300px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.es-enquiry-kicker{display:block;color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.18em;margin-bottom:12px}
+.es-enquiry-state h3{color:#fff;font-size:clamp(23px,3vw,32px);margin:0 0 10px}
+.es-enquiry-state p,.es-enquiry-notice p{margin:0;line-height:1.6}
+.es-enquiry-state p{max-width:450px}
+.es-enquiry-reset{background:transparent;border:0;border-bottom:1px solid var(--accent);color:#fff;padding:10px 0;margin-top:24px;cursor:pointer}
+.es-enquiry-reset svg{margin-left:8px}
+.es-enquiry-notice{margin-top:20px}
+.es-enquiry-notice a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.es-enquiry-failed{border-left-color:#f07d78}
+.es-enquiry-failed .es-enquiry-kicker{color:#f7a4a0}
+@media(max-width:600px){.es-enquiry-state,.es-enquiry-notice{padding:22px}.es-enquiry-form .es-field{margin-bottom:9px}}
