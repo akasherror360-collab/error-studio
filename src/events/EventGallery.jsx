@@ -102,13 +102,15 @@ export default function EventGallery() {
 
   useEffect(() => {
     let active = true;
+    setEvent(undefined); setOpen(null);
     getEvent(slug).then(data => { if (active) setEvent(data && data.visible !== false ? data : null); })
       .catch(() => { if (active) setEvent(null); });
     return () => { active = false; };
   }, [slug]);
 
   useEffect(() => {
-    if (!event?.folderId) return undefined;
+    setPhotos([]); setError(''); setShown(PAGE); setLoadingPhotos(true);
+    if (!event?.folderId) { if (event) setLoadingPhotos(false); return undefined; }
     let active = true;
     const load = async () => {
       try {
@@ -138,7 +140,7 @@ export default function EventGallery() {
   const watermark = event?.watermark;
   const bookText = encodeURIComponent(`Hi Error Studio, I saw your photos from ${event?.title || 'an event'}. I'd like to know about booking.`);
 
-  if (event === undefined) return <main className="esg-page esg-center"><div className="esg-spinner" aria-label="Loading" /></main>;
+  if (event === undefined) return <main className="esg-page esg-center" aria-busy="true"><img src={logo} alt="Error Studio" className="esg-logo-lg" /><p>Opening gallery...</p><div className="esg-skeleton-grid" aria-label="Loading gallery">{Array.from({ length: 4 }, (_, i) => <div className="esg-skeleton" key={i} />)}</div></main>;
   if (event === null) return <main className="esg-page esg-center">
     <img src={logo} alt="Error Studio" className="esg-logo-lg" />
     <h1>Gallery not found</h1>
@@ -161,8 +163,9 @@ export default function EventGallery() {
       </div>
     </header>
 
-    {error && <p className="esg-error" role="alert">{error}</p>}
-    {!loadingPhotos && !error && photos.length === 0 && <p className="esg-empty">Photos will appear here soon.</p>}
+    {error && <div className="esg-state" role="alert"><span className="esg-state-kicker">GALLERY UNAVAILABLE</span><h2>Photos could not load.</h2><p>Please refresh the page or try again later.</p><button className="esg-btn esg-btn-ghost" onClick={() => window.location.reload()}>Try again</button></div>}
+    {loadingPhotos && photos.length === 0 && !error && <section className="esg-skeleton-grid" aria-label="Loading photos" aria-busy="true">{Array.from({ length: 8 }, (_, i) => <div className="esg-skeleton" key={i} />)}</section>}
+    {!loadingPhotos && !error && photos.length === 0 && <div className="esg-state" role="status"><span className="esg-state-kicker">PHOTO GALLERY</span><h2>Photos will appear here soon.</h2><p>There are no photos in this gallery yet. You can check back later or visit our portfolio.</p><Link className="esg-btn esg-btn-ghost" to="/portfolio">See our portfolio</Link></div>}
 
     <section className="esg-grid" aria-label="Event photos">
       {visible.map((photo, index) => <Photo key={photo.id} photo={photo} index={index} watermark={watermark} onOpen={setOpen} />)}
