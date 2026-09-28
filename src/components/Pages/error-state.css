@@ -1,0 +1,7 @@
+.es-not-found{min-height:75vh;background:#0b0b0b;color:#fff;padding:110px 24px;display:flex;justify-content:center;align-items:center;text-align:center}
+.es-not-found-inner{max-width:610px}
+.es-not-found-kicker{display:block;color:var(--accent);font-weight:700;font-size:12px;letter-spacing:.22em;margin-bottom:22px}
+.es-not-found h1{font-size:clamp(42px,7vw,76px);line-height:1.08;color:#fff;margin:0 0 20px}
+.es-not-found p{color:#b9b9b9;font-size:clamp(15px,2vw,18px);line-height:1.7;margin:0 auto 30px;max-width:490px}
+.es-not-found-link{display:inline-flex;align-items:center;gap:15px;min-height:48px;padding:10px 22px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;text-decoration:none}
+.es-not-found-link:hover,.es-not-found-link:focus{color:#fff;background:transparent}
