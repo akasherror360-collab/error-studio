@@ -4,7 +4,7 @@ import Div from '../Div';
 import './enquiry-states.css';
 
 // Enable only after the owner's endpoint has been deployed and a real inbox receipt verified.
-const OWNER_ENQUIRY_URL = process.env.REACT_APP_ENQUIRY_URL || '';
+const OWNER_ENQUIRY_URL = process.env.REACT_APP_ENQUIRY_URL || 'https://script.google.com/macros/s/AKfycbyYUkcAIAQYWBOa5uai_sHzWPs1mnrl_TI9oup_UN4K8NuOK5G_oh7mfmq07-9fMWvu2Q/exec';
 const empty = { fullName: '', mobile: '', email: '', projectType: '', eventDate: '', location: '', message: '' };
 const services = ['Wedding Photography', 'Cinematic Videography', 'Creative Editing', 'Brand & Commercial', 'Album Design', 'Event Coverage', 'Cinematic Teasers', 'Other'];
 const fields = [
