@@ -18,3 +18,7 @@
 .es-enquiry-failed{border-left-color:#f07d78}
 .es-enquiry-failed .es-enquiry-kicker{color:#f7a4a0}
 @media(max-width:600px){.es-enquiry-state,.es-enquiry-notice{padding:22px}.es-enquiry-form .es-field{margin-bottom:9px}}
+.cs-form_field{color-scheme:dark}
+.cs-form_field option,.cs-form_field optgroup{background-color:#151515;color:#fff}
+.cs-form_field option:checked{background-color:#2a2a2a;color:#fff}
+.cs-form_field::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.8;cursor:pointer}
