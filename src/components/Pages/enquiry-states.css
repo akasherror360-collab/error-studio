@@ -19,6 +19,7 @@
 .es-enquiry-failed .es-enquiry-kicker{color:#f7a4a0}
 @media(max-width:600px){.es-enquiry-state,.es-enquiry-notice{padding:22px}.es-enquiry-form .es-field{margin-bottom:9px}}
 .cs-form_field{color-scheme:dark}
-.cs-form_field option,.cs-form_field optgroup{background-color:#151515;color:#fff}
-.cs-form_field option:checked{background-color:#2a2a2a;color:#fff}
-.cs-form_field::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.8;cursor:pointer}
+select.cs-form_field{background-color:#151515;color:#fff;cursor:pointer}
+select.cs-form_field option,select.cs-form_field optgroup{background-color:#151515;color:#fff}
+select.cs-form_field option:checked,select.cs-form_field option:hover{background-color:#2a2a2a;color:#fff}
+.cs-form_field::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.9}
