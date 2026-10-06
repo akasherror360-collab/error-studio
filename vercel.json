@@ -21,6 +21,14 @@
       "destination": "/service/wedding-photography.html"
     },
     {
+      "source": "/service/portrait-photography",
+      "destination": "/service/portrait-photography.html"
+    },
+    {
+      "source": "/service/pre-wedding-photography",
+      "destination": "/service/pre-wedding-photography.html"
+    },
+    {
       "source": "/service/videography",
       "destination": "/service/videography.html"
     },
