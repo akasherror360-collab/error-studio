@@ -54,7 +54,7 @@ import "./portfolio-categories.css";
 
 // Each photo belongs to one category (album spreads removed from the portfolio). Engagement and Reception have no photos yet,
 // so they stay hidden until photos are added.
-const portfolioData = [
+export const portfolioData = [
   { src: portfolio_15_8, category: "portraits" },
   { src: client_0200bd0e, category: "portraits" },
   { src: client_412bbcee, category: "portraits" },
