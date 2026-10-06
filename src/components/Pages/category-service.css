@@ -1,0 +1,12 @@
+.es-cat_service h2 { font-size:clamp(30px,4vw,50px); max-width:860px; line-height:1.15; }
+.es-cat_service_intro { margin-top:24px; font-size:18px; }
+.es-cat_service p { max-width:760px; line-height:1.6; margin:12px 0; }
+.es-cat_service a:not(.cs-text_btn) { color:#F9A30A; text-decoration:underline; text-underline-offset:3px; }
+.es-cat_service_actions { display:flex; gap:20px 32px; flex-wrap:wrap; align-items:center; }
+.es-cat_service_grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; margin-top:24px; }
+.es-cat_service_grid a { display:block; aspect-ratio:4/5; border-radius:12px; overflow:hidden; background:#202020; }
+.es-cat_service_grid img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
+.es-cat_service_grid a:hover img { transform:scale(1.04); }
+.es-cat_service_info { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; border-top:1px solid #3a3a3a; padding-top:40px; }
+@media(max-width:991px) { .es-cat_service_info { grid-template-columns:1fr; gap:24px; } }
+@media(max-width:767px) { .es-cat_service_grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } }
