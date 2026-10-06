@@ -12,6 +12,8 @@ import footerLogo from '../../assets/images/error-studio-logo.png';
 
 const serviceLinks = [
   { to: 'service/wedding-photography', label: 'Wedding Photography' },
+  { to: 'service/pre-wedding-photography', label: 'Pre-Wedding Photography' },
+  { to: 'service/portrait-photography', label: 'Portrait Photography' },
   { to: 'service/videography', label: 'Cinematic Videography' },
   { to: 'service/video-editing', label: 'Creative Editing' },
   { to: 'service/commercial', label: 'Brand & Commercial' },

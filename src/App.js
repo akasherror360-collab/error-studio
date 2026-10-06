@@ -17,6 +17,8 @@ import ServicesPage from './components/Pages/ServicesPage';
 import PortfolioPage from './components/Pages/PortfolioPage';
 import Layout from './components/Layout';
 import FaqPage from './components/Pages/FaqPage';
+import PreWeddingPhotography from './components/Pages/PreWeddingPhotography';
+import PortraitPhotography from './components/Pages/PortraitPhotography';
 import FloatingButtons from './components/FloatingButtons';
 import AdminPanel from './admin/AdminPanel';
 import PublishedContent from './content/PublishedContent';
@@ -36,6 +38,8 @@ function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="service" element={<ServicesPage />} />
           <Route path="service/wedding-photography" element={<WeddingPhotography />} />
+          <Route path="service/pre-wedding-photography" element={<PreWeddingPhotography />} />
+          <Route path="service/portrait-photography" element={<PortraitPhotography />} />
           <Route path="service/videography" element={<Videography />} />
           <Route path="service/video-editing" element={<VideoEditing />} />
           <Route path="service/commercial" element={<BrandCommercial />} />
