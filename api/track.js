@@ -2,11 +2,11 @@
 // Clients database only). Optional: UPSTASH_REDIS_REST_URL / UPSTASH_REDIS_REST_TOKEN for shared rate limits.
 const crypto = require('crypto');
 
-const DATA_SOURCE_ID = process.env.NOTION_CLIENTS_DATA_SOURCE_ID || 'f1e8d41c-2031-483a-a4bb-78ea19914abd';
+const DATA_SOURCE_ID = process.env.NOTION_CLIENTS_DATA_SOURCE_ID || '81fd404c-6c10-837b-a664-07d2b479420e';
 const NOTION_VERSION = '2025-09-03';
 const MIN_MS = 700; // every answer takes at least this long, so timing does not reveal anything
 
-const GENERIC = { ok: false, message: 'We could not find a booking with those details. Please check your Booking ID and registered phone number, or call the studio on 99440 36606.' };
+const GENERIC = { ok: false, message: 'We could not find a booking with those details. Please check your Booking ID and password, or call the studio on 99440 36606.' };
 const LOCKED = { ok: false, message: 'Too many attempts. Please try again later or call the studio on 99440 36606.' };
 
 // ---- rate limiting: shared store if configured, otherwise per-instance memory (weaker) ----
@@ -29,7 +29,16 @@ async function hit(key, limit, windowSec) {
 }
 const h = (s) => crypto.createHash('sha256').update(String(s)).digest();
 const safeEq = (a, b) => crypto.timingSafeEqual(h(a), h(b));
-const digits10 = (s) => String(s || '').replace(/\D/g, '').slice(-10);
+// Passwords are stored only as salted scrypt hashes ("s1$salt$hash") in the "Access hash" column.
+const DUMMY = 's1$' + '00'.repeat(16) + '$' + '00'.repeat(32);
+function checkPassword(stored, given) {
+  let parts = String(stored || '').split('$');
+  const valid = parts.length === 3 && parts[0] === 's1' && /^[0-9a-f]+$/.test(parts[1]) && /^[0-9a-f]{64}$/.test(parts[2]);
+  if (!valid) parts = DUMMY.split('$');
+  const calc = crypto.scryptSync(String(given).trim().toLowerCase(), Buffer.from(parts[1], 'hex'), 32);
+  const ok = crypto.timingSafeEqual(calc, Buffer.from(parts[2], 'hex'));
+  return valid && ok;
+}
 const text = (p) => (p && p.rich_text ? p.rich_text.map((t) => t.plain_text).join('') : '').trim();
 const sel = (p) => (p && p.select ? p.select.name : null);
 
@@ -54,14 +63,14 @@ function toPublic(page) {
     return { name, stage: raw ? (STAGE_LABEL[raw] || raw) : 'Not started' };
   });
   let balance = null;
-  const amt = p['Pending payment (INR)'] ? p['Pending payment (INR)'].number : null;
-  const pay = sel(p['Payment status']);
+  const amt = p['Balance'] ? p['Balance'].number : null;
+  const pay = sel(p['Payment Status']);
   if (typeof amt === 'number') balance = { amount: amt, label: amt === 0 ? 'No balance pending' : null };
   else if (pay === 'Paid') balance = { amount: 0, label: 'No balance pending' };
   return {
     ok: true,
-    name: ((p['Client name'] && p['Client name'].title) || []).map((t) => t.plain_text).join('').trim(),
-    eventDate: p['Event date'] && p['Event date'].date ? p['Event date'].date.start : null,
+    name: ((p['Shoot'] && p['Shoot'].title) || []).map((t) => t.plain_text).join('').trim(),
+    eventDate: p['Date'] && p['Date'].date ? p['Date'].date.start : null,
     services,
     delivered: {
       photos: p['Photos link'] ? safeUrl(p['Photos link'].url) : null,
@@ -73,7 +82,7 @@ function toPublic(page) {
   };
 }
 
-async function lookup(bookingId, phone) {
+async function lookup(bookingId, password) {
   const r = await fetch('https://api.notion.com/v1/data_sources/' + DATA_SOURCE_ID + '/query', {
     method: 'POST',
     headers: { Authorization: 'Bearer ' + process.env.NOTION_TOKEN, 'Notion-Version': NOTION_VERSION, 'Content-Type': 'application/json' },
@@ -88,10 +97,10 @@ async function lookup(bookingId, phone) {
   if (!r.ok) throw new Error('notion ' + r.status);
   const j = await r.json();
   const rows = (j.results || []).filter((pg) => safeEq(text(pg.properties['Booking ID']).toUpperCase(), bookingId));
-  if (rows.length !== 1) return null; // none, or ambiguous: never guess
-  const stored = digits10(rows[0].properties['Phone'] && rows[0].properties['Phone'].phone_number);
-  if (stored.length !== 10 || !safeEq(stored, phone)) return null;
-  return toPublic(rows[0]);
+  const row = rows.length === 1 ? rows[0] : null; // none, or ambiguous: never guess
+  const okPw = checkPassword(row ? text(row.properties['Access hash']) : '', password);
+  if (!row || !okPw) return null;
+  return toPublic(row);
 }
 
 module.exports = async (req, res) => {
@@ -109,12 +118,12 @@ module.exports = async (req, res) => {
     if (!process.env.NOTION_TOKEN) return await send(503, { ok: false, message: 'Tracking is not available yet. Please call the studio on 99440 36606.' });
     const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
     const bookingId = String(body.bookingId || '').trim().toUpperCase();
-    const phone = digits10(body.phone);
+    const password = String(body.password || '').trim();
     const ip = String((req.headers['x-forwarded-for'] || '').split(',')[0] || 'unknown').trim();
     if (!(await hit('trk:ip:' + ip, 20, 3600))) return await send(429, LOCKED);
-    if (!/^ERR-[A-Z0-9-]{1,16}$/.test(bookingId) || phone.length !== 10) return await send(200, GENERIC);
+    if (!/^ERR-[A-Z0-9-]{1,16}$/.test(bookingId) || password.length < 4 || password.length > 64) return await send(200, GENERIC);
     if (!(await hit("trk:id:" + bookingId, 8, 3600))) return await send(429, LOCKED);
-    const result = await lookup(bookingId, phone);
+    const result = await lookup(bookingId, password);
     return await send(200, result || GENERIC);
   } catch (e) {
     return await send(200, GENERIC); // errors look the same as "not found"
