@@ -127,7 +127,6 @@
 
 <script>
 (function(){
-  var DEMO = false;
   var t=document.getElementById('siteTop'),bg=document.getElementById('burger');
   function f(){t.classList.toggle('on',window.scrollY>0)}
   window.addEventListener('scroll',f,{passive:true});f();
@@ -157,12 +156,6 @@
     if(!bid||!ph){fail('Please enter your Booking ID and phone number.');return}
     go.disabled=true;go.textContent='Checking...';
     var done=function(){go.disabled=false;go.textContent='Check status'};
-    if(DEMO){
-      setTimeout(function(){done();
-        if(bid.toUpperCase()==='ERR-TEST1'&&ph.replace(/\D/g,'').slice(-10)==='9999900000'){show(null)}
-        else fail('We could not find a booking with those details. Please check your Booking ID and registered phone number, or call the studio on 99440 36606.')},700);
-      return;
-    }
     fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({bookingId:bid,phone:ph})})
       .then(function(r){return r.json()}).then(function(r){done();if(r&&r.ok)show(r);else fail((r&&r.message)||'Something went wrong. Please call the studio on 99440 36606.')})
       .catch(function(){done();fail('Something went wrong. Please call the studio on 99440 36606.')});
