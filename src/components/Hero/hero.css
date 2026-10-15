@@ -1260,3 +1260,11 @@
 }
 /* No decorative shards over the studio photograph. */
 .cs-hero.cs-style1 > .cs-shape_1 { display:none; }
+
+/* Home intro paragraph: on tablet/mobile it sits below "Our Numbers Speak" instead of under the hero button. */
+.cs-home_intro_mobile { display: none; }
+@media screen and (max-width: 991px) {
+  .cs-hero.cs-style1 .cs-hero_info_text { display: none; }
+  .cs-home_intro_mobile { display: block; padding-top: 40px; }
+  .cs-home_intro_mobile p { font-size: 17px; line-height: 1.9em; color: #fefefe; max-width: 500px; margin: 0; }
+}
