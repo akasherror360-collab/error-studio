@@ -143,7 +143,7 @@
     var ov='';
     if(r.services&&r.services.length){var tot=r.services.length,sc=0,dn=0;r.services.forEach(function(s){if(s.stage==='Done'){sc+=1;dn++}else if(s.stage==='In progress'||s.stage==='Waiting for you'){sc+=.5}});var pc=Math.round(sc/tot*100);ov='<div class="ovr"><div class="top"><span>Overall progress &middot; '+dn+' of '+tot+' done</span><span class="pct">'+pc+'%</span></div><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+pc+'"><div class="fill" style="width:0"></div></div></div>'}
     h+=ov;
-    if(r.services&&r.services.length){h+='<div class="sec"><h3>Your work'</h3><ul class="svc">'+r.services.map(function(s){return '<li><span>'+esc(s.name)+'</span><span class="badge '+cls(s.stage)+'">'+esc(s.stage)+'</span></li>'}).join('')+'</ul></div>'}
+    if(r.services&&r.services.length){h+='<div class="sec"><h3>Your work</h3><ul class="svc">'+r.services.map(function(s){return '<li><span>'+esc(s.name)+'</span><span class="badge '+cls(s.stage)+'">'+esc(s.stage)+'</span></li>'}).join('')+'</ul></div>'}
     if(r.delivered&&(r.delivered.photos||r.delivered.videos)){h+='<div class="sec links"><h3>Delivered</h3>'+(r.delivered.photos?'<a href="'+esc(r.delivered.photos)+'" target="_blank" rel="noopener noreferrer">View photos</a>':'')+(r.delivered.videos?'<a href="'+esc(r.delivered.videos)+'" target="_blank" rel="noopener noreferrer">View videos</a>':'')+'</div>'}
     if(r.balance){h+='<div class="sec"><h3>Payment</h3><div class="bal">'+(r.balance.label?esc(r.balance.label):'Balance pending: &#8377;'+Number(r.balance.amount).toLocaleString('en-IN'))+'</div></div>'}
     if(r.note){h+='<div class="sec"><h3>Note from the studio</h3><div class="note">'+esc(r.note)+'</div></div>'}
