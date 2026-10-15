@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
+<title>ERROR STUDIO — Wedding Photography &amp; Cinematography Packages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --black: #0b0a08;
+    --charcoal: #16140f;
+    --charcoal-2: #1d1a14;
+    --ivory: #f7f2e8;
+    --champagne: #ece1c8;
+    --gold: #a9823f;
+    --gold-soft: #cbaa6c;
+    --line: rgba(247,242,232,0.16);
+    --line-soft: rgba(11,10,8,0.12);
+    --wine: #2c1416;
+    --wine-2: #3a1a1c;
+    --maxw: 1180px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--ivory);
+    color: var(--black);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  h1,h2,h3,h4{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: 0.01em;
+  }
+
+  a{ color: inherit; }
+  img{ max-width: 100%; display:block; }
+
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .rule{
+    width: 64px;
+    height: 1px;
+    background: var(--gold);
+    margin: 28px auto;
+  }
+  .rule.left{ margin: 28px 0; }
+
+  .eyebrow{
+    font-family:'Manrope',sans-serif;
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    color: var(--gold-soft);
+    font-weight: 600;
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    background: var(--black);
+    color: var(--ivory);
+    padding: 118px 0 96px;
+    text-align: center;
+    position: relative;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    left:50%; bottom:0;
+    transform: translateX(-50%);
+    width: 1px; height: 64px;
+    background: linear-gradient(var(--gold), transparent);
+  }
+  .hero .mark{
+    font-family:'Cormorant Garamond', serif;
+    font-size: 15px;
+    letter-spacing: 0.42em;
+    color: var(--gold-soft);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .hero .mark span{ color: var(--ivory); opacity: 0.5; }
+  .hero .subline{
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: rgba(247,242,232,0.55);
+    margin-bottom: 46px;
+  }
+  .hero h1{
+    font-size: clamp(42px, 6vw, 78px);
+    line-height: 1.08;
+    font-weight: 500;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .hero h1 em{
+    font-style: italic;
+    color: var(--gold-soft);
+    font-weight: 400;
+  }
+  .hero p.intro{
+    max-width: 560px;
+    margin: 40px auto 0;
+    font-size: 16.5px;
+    color: rgba(247,242,232,0.72);
+    font-weight: 300;
+    line-height: 1.85;
+  }
+
+  /* ============ SECTION HEADERS ============ */
+  .section-head{
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 64px;
+  }
+  .section-head h2{
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 500;
+  }
+  .section-head p{
+    margin-top: 16px;
+    font-size: 15.5px;
+    color: rgba(11,10,8,0.62);
+    font-weight: 300;
+  }
+
+  section.on-dark .section-head h2{ color: var(--ivory); }
+  section.on-dark .section-head p{ color: rgba(247,242,232,0.6); }
+
+  /* ============ PACKAGES GRID ============ */
+  .packages{
+    background: var(--ivory);
+    padding: 110px 0 40px;
+  }
+
+  .grid-3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .card{
+    background: #ffffff;
+    border: 1px solid var(--line-soft);
+    border-radius: 4px;
+    padding: 44px 34px 38px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .card.featured{
+    border: 1px solid var(--gold);
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 24px 48px -30px rgba(169,130,63,0.45);
+    transform: translateY(-14px);
+  }
+
+  .featured-tag{
+    position: absolute;
+    top: -13px;
+    right: 34px;
+    background: var(--ivory);
+    padding: 0 10px;
+    font-family:'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--gold);
+  }
+
+  .card .pkg-name{
+    font-size: 15px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .card .position{
+    font-family:'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: rgba(11,10,8,0.55);
+    margin-top: 6px;
+  }
+
+  .card .price{
+    font-size: 44px;
+    margin-top: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .card .desc{
+    margin-top: 14px;
+    font-size: 14.5px;
+    color: rgba(11,10,8,0.66);
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  .card .divider{
+    height: 1px;
+    background: var(--line-soft);
+    margin: 26px 0 22px;
+  }
+
+  .card .block-title{
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(11,10,8,0.42);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .card ul{
+    list-style: none;
+    margin: 0 0 22px;
+    padding: 0;
+  }
+  .card ul li{
+    font-size: 14.5px;
+    padding: 6px 0 6px 18px;
+    position: relative;
+    color: rgba(11,10,8,0.82);
+    border-bottom: 1px dashed var(--line-soft);
+  }
+  .card ul li:last-child{ border-bottom: none; }
+  .card ul li::before{
+    content: "";
+    position: absolute;
+    left: 0; top: 15px;
+    width: 6px; height: 1px;
+    background: var(--gold);
+  }
+
+  .card .cta{
+    margin-top: auto;
+    padding-top: 24px;
+  }
+  .card .cta a{
+    display: block;
+    text-align: center;
+    padding: 14px 0;
+    border: 1px solid var(--black);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--black);
+    transition: background .25s ease, color .25s ease;
+  }
+  .card.featured .cta a{
+    background: var(--black);
+    color: var(--ivory);
+    border-color: var(--black);
+  }
+  .card .cta a:hover{
+    background: var(--black);
+    color: var(--ivory);
+  }
+
+  /* ============ DIAMOND SHOWCASE ============ */
+  .diamond{
+    background: var(--black);
+    color: var(--ivory);
+    padding: 110px 0;
+    margin-top: 90px;
+    position: relative;
+  }
+  .diamond-inner{
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 70px;
+    align-items: center;
+  }
+  .diamond-left .eyebrow{ margin-bottom: 18px; display:block; }
+  .diamond-left h2{
+    font-size: clamp(36px, 4.4vw, 54px);
+    line-height: 1.1;
+    color: var(--ivory);
+  }
+  .diamond-left h2 em{
+    font-style: italic;
+    color: var(--gold-soft);
+  }
+  .diamond-left .price{
+    font-size: 46px;
+    margin-top: 24px;
+    color: var(--gold-soft);
+    font-family:'Cormorant Garamond', serif;
+  }
+  .diamond-left p{
+    margin-top: 20px;
+    font-size: 15.5px;
+    color: rgba(247,242,232,0.65);
+    font-weight: 300;
+    line-height: 1.85;
+    max-width: 420px;
+  }
+  .diamond-left .cta{
+    margin-top: 34px;
+  }
+  .diamond-left .cta a{
+    display: inline-block;
+    padding: 15px 34px;
+    border: 1px solid var(--gold-soft);
+    color: var(--ivory);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    transition: background .25s ease;
+  }
+  .diamond-left .cta a:hover{
+    background: var(--gold-soft);
+    color: var(--black);
+  }
+
+  .diamond-right{
+    border: 1px solid rgba(247,242,232,0.14);
+    padding: 44px 44px;
+    background: linear-gradient(180deg, rgba(169,130,63,0.06), transparent 60%);
+  }
+  .diamond-cols{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .diamond-right h4{
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    font-weight: 700;
+    font-family:'Manrope',sans-serif;
+    margin-bottom: 16px;
+  }
+  .diamond-right ul{
+    list-style: none;
+    margin: 0 0 28px;
+    padding: 0;
+  }
+  .diamond-right ul li{
+    font-size: 14.5px;
+    padding: 7px 0;
+    color: rgba(247,242,232,0.85);
+    border-bottom: 1px solid rgba(247,242,232,0.08);
+  }
+  .diamond-right ul li:last-child{ border-bottom: none; }
+
+  /* ============ COMPLIMENTARY ============ */
+  .comp{
+    background: var(--champagne);
+    padding: 100px 0;
+  }
+  .comp-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+  }
+  .comp-item{
+    background: var(--champagne);
+    padding: 40px 30px;
+    text-align: center;
+  }
+  .comp-item .pkg{
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .comp-item .count{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    margin: 16px 0 6px;
+    color: var(--black);
+  }
+  .comp-item .label{
+    font-size: 13.5px;
+    color: rgba(11,10,8,0.6);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ============ COMPARISON TABLE ============ */
+  .compare{
+    background: var(--ivory);
+    padding: 110px 0;
+  }
+  .table-scroll{
+    overflow-x: auto;
+    border: 1px solid var(--line-soft);
+    -webkit-overflow-scrolling: touch;
+  }
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+    font-size: 14px;
+  }
+  thead th{
+    font-family:'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    padding: 22px 14px;
+    background: var(--black);
+    color: var(--ivory);
+    border-left: 1px solid rgba(247,242,232,0.1);
+  }
+  thead th:first-child{
+    text-align: left;
+    background: var(--black);
+    border-left: none;
+  }
+  thead th.featured-col{
+    color: var(--gold-soft);
+  }
+  tbody td, tbody th{
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line-soft);
+    text-align: center;
+    font-weight: 400;
+  }
+  tbody th{
+    text-align: left;
+    font-weight: 500;
+    color: rgba(11,10,8,0.78);
+    font-family: 'Manrope', sans-serif;
+    font-size: 13.5px;
+    white-space: nowrap;
+  }
+  tbody tr:nth-child(even){ background: rgba(169,130,63,0.045); }
+  tbody td{ color: rgba(11,10,8,0.75); font-size: 13.5px; }
+  tbody td.yes{ color: var(--gold); font-weight: 700; font-size: 15px; }
+  tbody td.no{ color: rgba(11,10,8,0.25); }
+  tbody td.feat{ color: var(--black); font-weight: 600; background: rgba(169,130,63,0.06); }
+  tbody tr:last-child td, tbody tr:last-child th{ border-bottom: none; }
+
+  /* ============ NOTES ============ */
+  .notes{
+    background: var(--ivory);
+    padding: 0 0 100px;
+  }
+  .notes-box{
+    border-top: 1px solid var(--line-soft);
+    padding-top: 44px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .notes-box h3{
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(11,10,8,0.45);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .notes-box ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .notes-box li{
+    font-size: 13.5px;
+    color: rgba(11,10,8,0.56);
+    font-weight: 300;
+    padding: 9px 0 9px 18px;
+    position: relative;
+    border-bottom: 1px solid var(--line-soft);
+    line-height: 1.7;
+  }
+  .notes-box li:last-child{ border-bottom: none; }
+  .notes-box li::before{
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta{
+    background: var(--black);
+    color: var(--ivory);
+    text-align: center;
+    padding: 130px 0 140px;
+    position: relative;
+  }
+  .final-cta h2{
+    font-size: clamp(36px, 5vw, 58px);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.15;
+  }
+  .final-cta h2 em{ font-style: italic; color: var(--gold-soft); font-weight: 400; }
+  .final-cta p{
+    max-width: 460px;
+    margin: 30px auto 0;
+    font-size: 16px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    color: rgba(247,242,232,0.72);
+    line-height: 1.7;
+  }
+  .final-cta .cta{
+    margin-top: 44px;
+  }
+  .final-cta .cta a{
+    display: inline-block;
+    padding: 18px 46px;
+    background: var(--gold);
+    color: var(--black);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    transition: background .25s ease, transform .25s ease;
+  }
+  .final-cta .cta a:hover{
+    background: var(--gold-soft);
+    transform: translateY(-2px);
+  }
+
+  footer{
+    background: var(--black);
+    color: rgba(247,242,232,0.4);
+    text-align: center;
+    padding: 26px 0;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    border-top: 1px solid rgba(247,242,232,0.08);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1020px){
+    .wrap{ padding: 0 28px; }
+    .grid-3{ grid-template-columns: repeat(2, 1fr); }
+    .card.featured{ transform: none; grid-column: span 2; max-width: 480px; margin: 0 auto; }
+    .diamond-inner{ grid-template-columns: 1fr; gap: 48px; }
+    .diamond-right{ padding: 34px 26px; }
+    .comp-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 680px){
+    .hero{ padding: 90px 0 70px; }
+    .wrap{ padding: 0 20px; }
+    .grid-3{ grid-template-columns: 1fr; gap: 22px; }
+    .card.featured{ grid-column: auto; max-width: none; }
+    .diamond{ padding: 80px 0; }
+    .diamond-cols{ grid-template-columns: 1fr; gap: 4px; }
+    .comp-grid{ grid-template-columns: 1fr; }
+    .packages{ padding: 80px 0 20px; }
+    .compare{ padding: 80px 0; }
+    .final-cta{ padding: 90px 0 100px; }
+    .section-head{ margin-bottom: 44px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior: auto !important; transition: none !important; }
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+
+  .custom{ background: var(--ivory); padding: 20px 0 100px; text-align:center; }
+  .custom .box{ max-width: 720px; margin: 0 auto; border-top: 1px solid var(--gold); border-bottom: 1px solid var(--line-soft); padding: 44px 24px; }
+  .custom h2{ font-size: clamp(28px,4vw,40px); }
+  .custom p{ margin: 16px auto 0; max-width: 520px; font-size: 15.5px; color: rgba(11,10,8,0.66); font-weight: 300; }
+  .custom a.call{ display:inline-block; margin-top: 26px; padding: 14px 34px; border: 1px solid var(--black); text-decoration:none; font-size: 13px; letter-spacing: 0.1em; color: var(--black); }
+  .custom a.call:hover{ background: var(--black); color: var(--ivory); }
+</style>
+</head>
+<body>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="mark">E R R O R<span> · </span>S T U D I O</div>
+      <div class="subline">Wedding Photography &amp; Cinematography</div>
+      <h1>Your Story.<br><em>Captured to Last Forever.</em></h1>
+      <p class="intro">Every wedding unfolds once — the glances, the nerves, the first look, the last dance. We build our packages around telling that story completely, in photographs you'll hold for decades and films you'll return to for a lifetime.</p>
+    </div>
+  </header>
+
+  <!-- ============ PACKAGES ============ -->
+  <section class="packages" id="packages">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The Collections</span>
+        <h2 style="margin-top:14px;">Four Ways to Tell Your Story</h2>
+        <p>Each package is built as a complete experience — from coverage to final delivery. Choose the depth of storytelling that matches your day.</p>
+      </div>
+
+      <div class="grid-3">
+
+        <!-- SILVER -->
+        <article class="card">
+          <div class="pkg-name">Silver</div>
+          <div class="position">Essential Wedding Coverage</div>
+          <div class="price">₹45,999</div>
+          <p class="desc">A refined, honest record of your day — one photographer, one filmmaker, one beautifully bound album. Simple storytelling, done well.</p>
+          <div class="divider"></div>
+          <div class="block-title">Photography &amp; Videography</div>
+          <ul>
+            <li>1 Traditional Photographer</li>
+            <li>1 Traditional Videographer</li>
+          </ul>
+          <div class="block-title">Deliverables</div>
+          <ul>
+            <li>1 Premium Album — 12 × 36, 45 Pages</li>
+            <li>Digital Wedding Invitation</li>
+            <li>Unlimited RAW Photos</li>
+            <li>4K Video in Pen Drive</li>
+            <li>1 Couple Calendar</li>
+          </ul>
+          <div class="block-title">Complimentary</div>
+          <ul>
+            <li>Outdoor / Indoor Photoshoot</li>
+          </ul>
+          <div class="cta"><a href="#enquire">Enquire About Silver</a></div>
+        </article>
+
+        <!-- GOLD -->
+        <article class="card">
+          <div class="pkg-name">Gold</div>
+          <div class="position">Candid + Traditional Experience</div>
+          <div class="price">₹85,000</div>
+          <p class="desc">Traditional structure meets candid spontaneity, with a drone lifting your story above the crowd — wedding and reception, fully covered.</p>
+          <div class="divider"></div>
+          <div class="block-title">Coverage</div>
+          <ul><li>Wedding + Reception</li></ul>
+          <div class="block-title">Photography &amp; Videography</div>
+          <ul>
+            <li>1 Traditional Photographer</li>
+            <li>1 Traditional Videographer</li>
+            <li>1 Candid Photographer</li>
+            <li>Drone Coverage</li>
+          </ul>
+          <div class="block-title">Deliverables</div>
+          <ul>
+            <li>1 Premium Album — 12 × 36, 45 Pages</li>
+            <li>Digital Wedding Invitation</li>
+            <li>Unlimited RAW Photos in Pen Drive</li>
+            <li>4K Traditional Story Video</li>
+            <li>1 Couple Calendar</li>
+          </ul>
+          <div class="block-title">Complimentary</div>
+          <ul>
+            <li>1 Photoframe</li>
+            <li>Outdoor / Indoor Photoshoot</li>
+          </ul>
+          <div class="cta"><a href="#enquire">Enquire About Gold</a></div>
+        </article>
+
+        <!-- PLATINUM -->
+        <article class="card featured">
+          <span class="featured-tag">Most Popular</span>
+          <div class="pkg-name">Platinum</div>
+          <div class="position">Complete Wedding Story</div>
+          <div class="price">₹99,999</div>
+          <p class="desc">Two photographers, two filmmakers, one continuous story from vows to victory dance. Nothing about your day goes uncaptured.</p>
+          <div class="divider"></div>
+          <div class="block-title">Coverage</div>
+          <ul><li>Wedding + Reception</li></ul>
+          <div class="block-title">Photography &amp; Videography</div>
+          <ul>
+            <li>1 Traditional Photographer</li>
+            <li>1 Traditional Videographer</li>
+            <li>1 Candid Photographer</li>
+            <li>1 Candid Videographer</li>
+            <li>Drone Coverage</li>
+          </ul>
+          <div class="block-title">Deliverables</div>
+          <ul>
+            <li>2 Premium Albums — 12 × 36, 45 Pages</li>
+            <li>Digital Wedding Invitation</li>
+            <li>Unlimited RAW Photos in Pen Drive</li>
+            <li>Full HD Traditional Story Video</li>
+            <li>Full HD Candid Story Video</li>
+            <li>1 Couple Calendar</li>
+          </ul>
+          <div class="block-title">Complimentary</div>
+          <ul>
+            <li>3 Photoframes</li>
+            <li>Outdoor / Indoor Photoshoot</li>
+          </ul>
+          <div class="cta"><a href="#enquire">Enquire About Platinum</a></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIAMOND SHOWCASE ============ -->
+  <section class="diamond" id="diamond">
+    <div class="wrap diamond-inner">
+      <div class="diamond-left">
+        <span class="eyebrow">The Flagship Collection</span>
+        <h2>Diamond<br><em>Ultimate Wedding Experience</em></h2>
+        <div class="price">₹1,89,999</div>
+        <p>Every moment, every angle, every emotion — held on film, from a save-the-date to a cinematic finale, presented on a six-by-eight foot wall for everyone to see. This is the most complete storytelling experience we offer.</p>
+        <div class="cta"><a href="#enquire">Enquire About Diamond</a></div>
+      </div>
+
+      <div class="diamond-right">
+        <div class="diamond-cols">
+          <div>
+            <h4>Coverage</h4>
+            <ul>
+              <li>Wedding + Reception</li>
+              <li>1 Traditional Photographer</li>
+              <li>2 Traditional Videographers</li>
+              <li>1 Candid Photographer</li>
+              <li>1 Candid Videographer</li>
+              <li>Drone Coverage</li>
+            </ul>
+            <h4>Special Inclusion</h4>
+            <ul>
+              <li>1 LED Wall — 6 × 8 Feet</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Deliverables</h4>
+            <ul>
+              <li>2 Elite Albums — 12 × 36</li>
+              <li>Approx. 600 Photos</li>
+              <li>Save the Date Video</li>
+              <li>Teaser</li>
+              <li>Cinematic Video</li>
+              <li>Unlimited RAW Photos — 64GB Pen Drive</li>
+              <li>4K Traditional Story Video</li>
+              <li>4K Candid Story Video</li>
+              <li>1 Couple Calendar · 1 Mini Album</li>
+              <li>360° Spin Video</li>
+            </ul>
+          </div>
+        </div>
+        <h4 style="margin-top:4px;">Complimentary</h4>
+        <ul style="margin-bottom:0;">
+          <li>5 Photoframes</li>
+          <li>Outdoor / Indoor Photoshoot</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPLIMENTARY BENEFITS ============ -->
+  <section class="comp">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">With Every Package</span>
+        <h2 style="margin-top:14px;">Complimentary Benefits</h2>
+        <p>A thank-you for choosing us — included at no extra cost, scaled to your package.</p>
+      </div>
+      <div class="comp-grid">
+        <div class="comp-item">
+          <div class="pkg">Silver</div>
+          <div class="count">—</div>
+          <div class="label">Outdoor / Indoor<br>Photoshoot</div>
+        </div>
+        <div class="comp-item">
+          <div class="pkg">Gold</div>
+          <div class="count">1</div>
+          <div class="label">Photoframe +<br>Outdoor / Indoor Photoshoot</div>
+        </div>
+        <div class="comp-item">
+          <div class="pkg">Platinum</div>
+          <div class="count">3</div>
+          <div class="label">Photoframes +<br>Outdoor / Indoor Photoshoot</div>
+        </div>
+        <div class="comp-item">
+          <div class="pkg">Diamond</div>
+          <div class="count">5</div>
+          <div class="label">Photoframes +<br>Outdoor / Indoor Photoshoot</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPARISON TABLE ============ -->
+  <section class="compare" id="compare">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Side by Side</span>
+        <h2 style="margin-top:14px;">Compare Packages</h2>
+        <p>Every inclusion, laid out plainly, so you can choose with confidence.</p>
+      </div>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Silver</th>
+              <th>Gold</th>
+              <th class="featured-col">Platinum</th>
+              <th>Diamond</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Coverage</th>
+              <td>Wedding</td>
+              <td>Wedding + Reception</td>
+              <td>Wedding + Reception</td>
+              <td>Wedding + Reception</td>
+            </tr>
+            <tr>
+              <th>Traditional Photographer</th>
+              <td>1</td><td>1</td><td>1</td><td>1</td>
+            </tr>
+            <tr>
+              <th>Traditional Videographer</th>
+              <td>1</td><td>1</td><td>1</td><td class="feat">2</td>
+            </tr>
+            <tr>
+              <th>Candid Photographer</th>
+              <td class="no">—</td><td>1</td><td>1</td><td>1</td>
+            </tr>
+            <tr>
+              <th>Candid Videographer</th>
+              <td class="no">—</td><td class="no">—</td><td>1</td><td>1</td>
+            </tr>
+            <tr>
+              <th>Drone Coverage</th>
+              <td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td>
+            </tr>
+            <tr>
+              <th>LED Wall — 6 × 8 Feet</th>
+              <td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="feat">✓</td>
+            </tr>
+            <tr>
+              <th>Album(s)</th>
+              <td>1 Premium — 12×36, 45pg</td>
+              <td>1 Premium — 12×36, 45pg</td>
+              <td>2 Premium — 12×36, 45pg</td>
+              <td>2 Elite — 12×36</td>
+            </tr>
+            <tr>
+              <th>Mini Album</th>
+              <td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="feat">✓</td>
+            </tr>
+            <tr>
+              <th>Digital Wedding Invitation</th>
+              <td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td>
+            </tr>
+            <tr>
+              <th>RAW Photos</th>
+              <td>Unlimited</td>
+              <td>Unlimited, Pen Drive</td>
+              <td>Unlimited, Pen Drive</td>
+              <td>Unlimited, 64GB Pen Drive</td>
+            </tr>
+            <tr>
+              <th>Approx. Photo Count</th>
+              <td class="no">—</td><td class="no">—</td><td class="no">—</td><td>~600</td>
+            </tr>
+            <tr>
+              <th>Story Video</th>
+              <td>4K Video</td>
+              <td>4K Traditional Story</td>
+              <td>Full HD Traditional + Candid</td>
+              <td>4K Traditional + Candid</td>
+            </tr>
+            <tr>
+              <th>Save the Date Video</th>
+              <td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="feat">✓</td>
+            </tr>
+            <tr>
+              <th>Teaser</th>
+              <td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="feat">✓</td>
+            </tr>
+            <tr>
+              <th>Cinematic Video</th>
+              <td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="feat">✓</td>
+            </tr>
+            <tr>
+              <th>360° Spin Video</th>
+              <td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="feat">✓</td>
+            </tr>
+            <tr>
+              <th>Couple Calendar</th>
+              <td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td>
+            </tr>
+            <tr>
+              <th>Complimentary Photoframes</th>
+              <td class="no">—</td><td>1</td><td>3</td><td class="feat">5</td>
+            </tr>
+            <tr>
+              <th>Outdoor / Indoor Photoshoot</th>
+              <td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px; color:rgba(11,10,8,0.5); margin-top:18px; font-weight:300;">Note: the Digital Wedding Invitation is not listed as a deliverable within the Diamond package.</p>
+    </div>
+  </section>
+
+  <!-- ============ CUSTOMIZED ============ -->
+<section class="custom">
+  <div class="wrap">
+    <div class="box">
+      <span class="eyebrow">Something Different in Mind?</span>
+      <h2 style="margin-top:14px;">Customized Packages Available</h2>
+      <p>Customized packages are also available. Call us and tell us what you need for your day.</p>
+      <a class="call" href="tel:+919944036606">Call 99440 36606</a>
+    </div>
+  </div>
+</section>
+<!-- ============ NOTES ============ -->
+  <section class="notes">
+    <div class="wrap">
+      <div class="notes-box">
+        <h3>Good to Know</h3>
+        <ul>
+          <li>RAW photographs are unedited camera files.</li>
+          <li>Drone coverage is subject to venue permission, weather and applicable regulations.</li>
+          <li>Outdoor / indoor photoshoot is complimentary as mentioned in each package.</li>
+          <li>Album design will be shared for approval before printing.</li>
+          <li>Additional events or requirements can be discussed separately.</li>
+          <li>Final delivery timelines will be communicated during booking.</li>
+          <li>Services not explicitly mentioned are not included unless separately agreed.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta" id="enquire">
+    <div class="wrap">
+      <h2>Let's Create <em>Something Timeless.</em></h2>
+      <p>"Your wedding happens once. Let us turn those moments into memories you can relive for a lifetime."</p>
+      <div class="cta"><a href="tel:+919944036606">Check Your Date</a></div>
+    </div>
+  </section>
+
+  <footer>ERROR STUDIO — WEDDING PHOTOGRAPHY &amp; CINEMATOGRAPHY</footer>
+
+</body>
+</html>
