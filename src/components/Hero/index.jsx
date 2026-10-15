@@ -30,7 +30,7 @@ export default function Hero({
           <div className="flex justify-between flex-col h-full">
             <h1 className="cs-hero_title">{parse(title)}</h1>
             <Div className="cs-hero_info">
-              <Div>
+              <Div className="cs-hero_info_text">
                 <Div className="cs-hero_subtitle">{subtitle}</Div>
               </Div>
               <div className="text-end">
