@@ -79,6 +79,10 @@
     {
       "source": "/packages",
       "destination": "/p/1226cb27b2828e3a.html"
+    },
+    {
+      "source": "/track",
+      "destination": "/track.html"
     }
   ]
 }
