@@ -113,10 +113,10 @@
   <div class="wrap">
     <span class="eyebrow">Error Studio</span>
     <h1>Track My Work</h1>
-    <p class="lead">Enter your Booking ID and the phone number you gave us to see where your work stands.</p>
+    <p class="lead">Enter your Booking ID and the password we sent you to see where your work stands.</p>
     <form id="f" autocomplete="off" novalidate>
       <div><label for="bid">Booking ID</label><input id="bid" name="bid" placeholder="ERR-..." autocapitalize="characters" spellcheck="false" required></div>
-      <div><label for="ph">Registered phone number</label><input id="ph" name="ph" type="tel" inputmode="numeric" placeholder="10-digit mobile number" required></div>
+      <div><label for="ph">Password</label><input id="ph" name="ph" type="password" autocomplete="current-password" autocapitalize="none" spellcheck="false" placeholder="Password from the studio" required></div>
       <button class="go" id="go" type="submit">Check status</button>
     </form>
     <div class="msg" id="msg" role="alert"></div>
@@ -153,10 +153,10 @@
   form.addEventListener('submit',function(e){
     e.preventDefault();msg.style.display='none';card.style.display='none';
     var bid=document.getElementById('bid').value.trim(),ph=document.getElementById('ph').value.trim();
-    if(!bid||!ph){fail('Please enter your Booking ID and phone number.');return}
+    if(!bid||!ph){fail('Please enter your Booking ID and password.');return}
     go.disabled=true;go.textContent='Checking...';
     var done=function(){go.disabled=false;go.textContent='Check status'};
-    fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({bookingId:bid,phone:ph})})
+    fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({bookingId:bid,password:ph})})
       .then(function(r){return r.json()}).then(function(r){done();if(r&&r.ok)show(r);else fail((r&&r.message)||'Something went wrong. Please call the studio on 99440 36606.')})
       .catch(function(){done();fail('Something went wrong. Please call the studio on 99440 36606.')});
   });
