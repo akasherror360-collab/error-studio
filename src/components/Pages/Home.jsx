@@ -58,6 +58,9 @@ const funfaceData = [
   },
 ];
 
+const heroIntro =
+  "Professional photography and cinematic videography that transforms fleeting moments into timeless visual narratives. From customized weddings to high-impact corporate branding, we deliver excellence.";
+
 export default function Home() {
   pageTitle('Home');
 
@@ -70,7 +73,7 @@ export default function Home() {
       {/* Start Hero Section */}
       <Hero
         title="Capturing Moments. <br/>Editing Stories."
-        subtitle="Professional photography and cinematic videography that transforms fleeting moments into timeless visual narratives. From customized weddings to high-impact corporate branding, we deliver excellence."
+        subtitle={heroIntro}
         btnText="Book Your Shoot"
         btnLink="/contact"
         scrollDownId="#service"
@@ -88,6 +91,11 @@ export default function Home() {
         />
       </div>
       {/* End FunFact Section */}
+
+      {/* Intro paragraph, shown here on tablet/mobile (desktop keeps it in the hero) */}
+      <div className="container cs-home_intro_mobile">
+        <p>{heroIntro}</p>
+      </div>
 
       {/* Start Why Choose Section */}
       <Spacing lg="150" md="80" />
