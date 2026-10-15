@@ -29,6 +29,7 @@
   .card{ margin-top:34px; background:#111; border-radius:14px; padding:30px 28px; display:none; }
   .card h2{ font-weight:400; font-size:28px; margin:0 0 4px; }
   .meta{ color:rgba(255,255,255,.6); font-size:15px; margin-bottom:22px; }
+  .ovr{margin-top:22px}.ovr .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px;font-family:'Manrope',sans-serif;font-size:13px;color:#cfcfcf}.ovr .pct{font-size:22px;font-weight:700;color:#f9a30a}.ovr .bar{height:12px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden}.ovr .fill{height:100%;border-radius:99px;background:#f9a30a;transition:width .8s ease}
   .sec{ margin-top:26px; }
   .sec h3{ font-family:'Manrope', sans-serif; font-weight:600; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#f9a30a; margin:0 0 10px; }
   ul.svc{ list-style:none; margin:0; padding:0; }
@@ -139,12 +140,15 @@
   function fmt(d){if(!d)return '';var x=new Date(d);return isNaN(x)?'':x.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'})}
   function show(r){
     var h='<h2>'+esc(r.name)+'</h2><div class="meta">'+(r.eventDate?'Event date: '+esc(fmt(r.eventDate)):'')+'</div>';
-    if(r.services&&r.services.length){h+='<div class="sec"><h3>Your work</h3><ul class="svc">'+r.services.map(function(s){return '<li><span>'+esc(s.name)+'</span><span class="badge '+cls(s.stage)+'">'+esc(s.stage)+'</span></li>'}).join('')+'</ul></div>'}
+    var ov='';
+    if(r.services&&r.services.length){var tot=r.services.length,sc=0,dn=0;r.services.forEach(function(s){if(s.stage==='Done'){sc+=1;dn++}else if(s.stage==='In progress'||s.stage==='Waiting for you'){sc+=.5}});var pc=Math.round(sc/tot*100);ov='<div class="ovr"><div class="top"><span>Overall progress &middot; '+dn+' of '+tot+' done</span><span class="pct">'+pc+'%</span></div><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+pc+'"><div class="fill" style="width:0"></div></div></div>'}
+    h+=ov;
+    if(r.services&&r.services.length){h+='<div class="sec"><h3>Your work'</h3><ul class="svc">'+r.services.map(function(s){return '<li><span>'+esc(s.name)+'</span><span class="badge '+cls(s.stage)+'">'+esc(s.stage)+'</span></li>'}).join('')+'</ul></div>'}
     if(r.delivered&&(r.delivered.photos||r.delivered.videos)){h+='<div class="sec links"><h3>Delivered</h3>'+(r.delivered.photos?'<a href="'+esc(r.delivered.photos)+'" target="_blank" rel="noopener noreferrer">View photos</a>':'')+(r.delivered.videos?'<a href="'+esc(r.delivered.videos)+'" target="_blank" rel="noopener noreferrer">View videos</a>':'')+'</div>'}
     if(r.balance){h+='<div class="sec"><h3>Payment</h3><div class="bal">'+(r.balance.label?esc(r.balance.label):'Balance pending: &#8377;'+Number(r.balance.amount).toLocaleString('en-IN'))+'</div></div>'}
     if(r.note){h+='<div class="sec"><h3>Note from the studio</h3><div class="note">'+esc(r.note)+'</div></div>'}
     if(r.updated){h+='<div class="foot">Last updated: '+esc(fmt(r.updated))+'</div>'}
-    card.innerHTML=h;card.style.display='block';
+    card.innerHTML=h;card.style.display='block';var fl=card.querySelector('.fill');if(fl){var w=fl.parentNode.getAttribute('aria-valuenow');setTimeout(function(){fl.style.width=w+'%'},60)}
   }
   function fail(m){card.style.display='none';msg.textContent=m;msg.style.display='block'}
   form.addEventListener('submit',function(e){
