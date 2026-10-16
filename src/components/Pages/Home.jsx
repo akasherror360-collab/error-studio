@@ -49,10 +49,6 @@ const funfaceData = [
     title: 'Years Experience',
     factNumber: '5+',
   },
-  {
-    title: 'Industries Served',
-    factNumber: '10+',
-  },
 ];
 
 const heroIntro =
