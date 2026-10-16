@@ -12,6 +12,7 @@ import SelectedWorks from '../SelectedWorks';
 import PostSlider from '../Slider/PostSlider';
 import TestimonialSlider from '../Slider/TestimonialSlider';
 import Reels from '../Reels';
+import TrackWork from '../TrackWork';
 import reelIds from '../Reels/reelsData';
 import { pageTitle } from '../../helper';
 import service_1 from '../../assets/images/client-2026-09/f07214dc.webp';
@@ -223,7 +224,7 @@ export default function Home() {
 
       {/* Journey ("our story") section removed: site copy talks only about what the customer gets.
           Two empty placeholders keep the top-level div count unchanged, because saved /admin edits use nth-of-type selectors. */}
-      <div style={{ display: "none" }} aria-hidden="true" />
+      <div id="track-slot"><TrackWork /></div>
       <div style={{ display: "none" }} aria-hidden="true" />
       {/* End Journey Section */}
 
