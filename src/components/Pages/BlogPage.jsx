@@ -9,6 +9,7 @@ import Spacing from "../Spacing";
 import blogHeroBg from "../../assets/images/blog_hero_bg.jpeg";
 import post1 from "../../assets/images/website/Instagram Posters/0-(4).webp";
 import post2 from "../../assets/images/website/Instagram Posters/8-(2).webp";
+import post3 from "../../assets/images/client-2026-09/ecc79736.webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -32,6 +33,16 @@ const postData = [
     category: "Shoot Tips",
     categoryHref: "/blog",
     href: "/blog/how-to-prepare-for-your-wedding-shoot",
+  },
+  {
+    thumb: post3,
+    title: "Pre-wedding shoot locations around Cuddalore: Silver Beach, Pichavaram and Paradise Beach",
+    subtitle:
+      "Three locations within about an hour of Cuddalore town, what each one looks like, the best light and timing, and a practical tip for each - plus how to choose.",
+    date: "16 Oct 2026",
+    category: "Shoot Tips",
+    categoryHref: "/blog",
+    href: "/blog/pre-wedding-shoot-locations-cuddalore",
   },
 ];
 
