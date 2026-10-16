@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import AboutPage from './components/Pages/AboutPage';
 import BlogPage from './components/Pages/BlogPage';
 import BlogDetails1 from './components/Pages/BlogDetails1';
+import BlogDetails3 from "./components/Pages/BlogDetails3";
 import BlogDetails2 from './components/Pages/BlogDetails2';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
@@ -55,6 +56,10 @@ function App() {
           <Route
             path="blog/how-to-prepare-for-your-wedding-shoot"
             element={<BlogDetails2 />}
+          />
+          <Route
+            path="blog/pre-wedding-shoot-locations-cuddalore"
+            element={<BlogDetails3 />}
           />
           <Route path="contact" element={<ContactPage />} />
           <Route path="faq" element={<FaqPage />} />
