@@ -46,10 +46,6 @@ const funfaceData = [
     factNumber: '285',
   },
   {
-    title: 'Happy Clients',
-    factNumber: '143',
-  },
-  {
     title: 'Years Experience',
     factNumber: '5+',
   },
