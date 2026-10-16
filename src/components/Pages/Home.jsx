@@ -35,7 +35,7 @@ const heroSocialLinks = [
   },
   {
     name: 'Youtube',
-    links: 'https://youtube.com/@errorstuido?si=69wiTCukQpkVg9dG',
+    links: 'https://youtube.com/@error_studio_official',
   },
 ];
 
