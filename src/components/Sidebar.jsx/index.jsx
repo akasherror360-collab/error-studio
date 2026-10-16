@@ -5,6 +5,7 @@ import SearchWidget from '../Widget/SearchWidget'
 import SideMenuWidget from '../Widget/SideMenuWidget'
 import TagWidget from '../Widget/TagWidget'
 import post1 from '../../assets/images/website/Instagram Posters/0-(4).webp'
+import post3 from '../../assets/images/client-2026-09/ecc79736.webp'
 import post2 from '../../assets/images/website/Instagram Posters/8-(2).webp'
 
 export default function Sidebar() {
@@ -53,6 +54,12 @@ export default function Sidebar() {
       thumb: post2,
       href: '/blog/how-to-prepare-for-your-wedding-shoot',
       date: '22 Sep 2026'
+    },
+    {
+      title: 'Pre-wedding shoot locations around Cuddalore',
+      thumb: post3,
+      href: '/blog/pre-wedding-shoot-locations-cuddalore',
+      date: '16 Oct 2026'
     }
   ]
   return (
