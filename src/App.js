@@ -3,6 +3,7 @@ import AboutPage from './components/Pages/AboutPage';
 import BlogPage from './components/Pages/BlogPage';
 import BlogDetails1 from './components/Pages/BlogDetails1';
 import BlogDetails3 from "./components/Pages/BlogDetails3";
+import BlogDetails4 from "./components/Pages/BlogDetails4";
 import BlogDetails2 from './components/Pages/BlogDetails2';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
@@ -60,6 +61,10 @@ function App() {
           <Route
             path="blog/pre-wedding-shoot-locations-cuddalore"
             element={<BlogDetails3 />}
+          />
+          <Route
+            path="blog/candid-vs-traditional-wedding-photography"
+            element={<BlogDetails4 />}
           />
           <Route path="contact" element={<ContactPage />} />
           <Route path="faq" element={<FaqPage />} />
