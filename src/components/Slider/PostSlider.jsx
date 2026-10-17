@@ -4,6 +4,7 @@ import Div from '../Div';
 import Post from '../Post';
 import post1 from '../../assets/images/website/Instagram Posters/0-(4).webp';
 import post3 from '../../assets/images/client-2026-09/ecc79736.webp';
+import post4 from '../../assets/images/website/portfolio/8-(5).webp';
 import post2 from '../../assets/images/website/Instagram Posters/8-(2).webp';
 
 const postData = [
@@ -27,6 +28,13 @@ const postData = [
     alt: 'Pre-wedding shoot locations around Cuddalore',
     date: '16 Oct 2026',
     title: 'Pre-wedding shoot locations around Cuddalore',
+  },
+  {
+    url: '/blog/candid-vs-traditional-wedding-photography',
+    src: post4,
+    alt: 'Candid vs traditional wedding photography',
+    date: '17 Oct 2026',
+    title: 'Candid vs traditional wedding photography',
   },
 ];
 
