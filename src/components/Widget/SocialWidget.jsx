@@ -11,7 +11,7 @@ export default function SocialWidget() {
       <a href='https://www.instagram.com/errorstudio.official/' target='_blank' rel='noopener noreferrer' className="cs-center">
         <Icon icon="fa6-brands:instagram" />               
       </a>
-      <a href='https://youtube.com/@errorstuido?si=69wiTCukQpkVg9dG' target='_blank' rel='noopener noreferrer' className="cs-center">
+      <a href='https://youtube.com/@error_studio_official' target='_blank' rel='noopener noreferrer' className="cs-center">
         <Icon icon="fa6-brands:youtube" />              
       </a>
       <a href='https://x.com/ErrorStudio_Off' target='_blank' rel='noopener noreferrer' className="cs-center">
