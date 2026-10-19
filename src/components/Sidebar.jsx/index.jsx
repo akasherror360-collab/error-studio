@@ -67,6 +67,12 @@ export default function Sidebar() {
       thumb: post4,
       href: '/blog/candid-vs-traditional-wedding-photography',
       date: '17 Oct 2026'
+    },
+    {
+      title: 'What a full wedding-day photography timeline looks like',
+      thumb: post5,
+      href: '/blog/wedding-day-photography-timeline',
+      date: '19 Oct 2026'
     }
   ]
   return (
