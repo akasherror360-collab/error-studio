@@ -11,6 +11,7 @@ import post1 from "../../assets/images/website/Instagram Posters/0-(4).webp";
 import post2 from "../../assets/images/website/Instagram Posters/8-(2).webp";
 import post3 from "../../assets/images/client-2026-09/ecc79736.webp";
 import post4 from "../../assets/images/website/portfolio/8-(5).webp";
+import post5 from "../../assets/images/website/portfolio/00-(6).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -54,6 +55,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/candid-vs-traditional-wedding-photography",
+  },
+  {
+    thumb: post5,
+    title: "What a full wedding-day photography timeline actually looks like",
+    subtitle:
+      "From the early getting-ready hours to the muhurtham, family groups, the couple session and the reception - how a wedding day unfolds from the photographer's side, and how to plan coverage for each part.",
+    date: "19 Oct 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/wedding-day-photography-timeline",
   },
 ];
 
