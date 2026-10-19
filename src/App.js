@@ -5,6 +5,7 @@ import BlogDetails1 from './components/Pages/BlogDetails1';
 import BlogDetails3 from "./components/Pages/BlogDetails3";
 import BlogDetails4 from "./components/Pages/BlogDetails4";
 import BlogDetails2 from './components/Pages/BlogDetails2';
+import BlogDetails5 from './components/Pages/BlogDetails5';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
 import Home from './components/Pages/Home';
@@ -65,6 +66,10 @@ function App() {
           <Route
             path="blog/candid-vs-traditional-wedding-photography"
             element={<BlogDetails4 />}
+          />
+          <Route
+            path="blog/wedding-day-photography-timeline"
+            element={<BlogDetails5 />}
           />
           <Route path="contact" element={<ContactPage />} />
           <Route path="faq" element={<FaqPage />} />
