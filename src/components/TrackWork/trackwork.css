@@ -1,0 +1,32 @@
+.tw-wrap{padding:70px 0;background:transparent}
+.tw-inner{max-width:720px;margin:0 auto}
+.tw-eyebrow{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#f9a30a}
+.tw-title{font-weight:300;font-size:clamp(32px,5vw,48px);margin:6px 0 10px;line-height:1.15}
+.tw-lead{color:rgba(255,255,255,.72);margin:0 0 26px;font-size:17px}
+.tw-form{background:#111;border-radius:14px;padding:26px;display:grid;gap:16px}
+.tw-form label{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.62);margin-bottom:8px}
+.tw-form input{width:100%;padding:14px 16px;background:#000;border:1px solid rgba(255,255,255,.18);border-radius:8px;color:#fff;font-size:17px}
+.tw-form input:focus{outline:none;border-color:#f9a30a}
+.tw-go{padding:15px 22px;background:#f9a30a;color:#000;border:0;border-radius:8px;font-weight:700;font-size:15px;letter-spacing:.04em;cursor:pointer}
+.tw-go[disabled]{opacity:.6;cursor:wait}
+.tw-msg{margin-top:16px;padding:14px 16px;border-radius:8px;background:rgba(249,163,10,.1);border:1px solid rgba(249,163,10,.35);color:#ffd9a0}
+.tw-hint{margin-top:16px;font-size:14px;color:rgba(255,255,255,.55)}
+.tw-card{margin-top:28px;background:#111;border-radius:14px;padding:28px 24px}
+.tw-name{font-weight:400;font-size:26px;margin:0 0 4px}
+.tw-meta{color:rgba(255,255,255,.6);font-size:15px;margin-bottom:18px}
+.tw-ovr{margin-top:18px}
+.tw-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px;font-size:13px;color:#cfcfcf}
+.tw-pct{font-size:22px;font-weight:700;color:#f9a30a}
+.tw-bar{height:12px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden}
+.tw-fill{height:100%;border-radius:99px;background:#f9a30a;transition:width .8s ease}
+.tw-sec{margin-top:24px}
+.tw-sec h4{font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#f9a30a;margin:0 0 10px}
+.tw-svc{list-style:none;margin:0;padding:0}
+.tw-svc li{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.tw-badge{font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.tw-done{background:#1f6f3a;color:#d6ffe3}.tw-prog{background:#6b4a00;color:#ffe2a6}.tw-wait{background:#7a3b12;color:#ffd8c0}.tw-none{background:#333;color:#ddd}
+.tw-links a{display:inline-block;margin:0 10px 10px 0;padding:12px 20px;border:1px solid #f9a30a;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600}
+.tw-links a:hover{background:#f9a30a;color:#000}
+.tw-bal{font-size:24px}
+.tw-foot{margin-top:26px;font-size:14px;color:rgba(255,255,255,.55)}
+@media (max-width:575px){.tw-wrap{padding:50px 0}.tw-form{padding:20px}.tw-card{padding:22px 18px}}
