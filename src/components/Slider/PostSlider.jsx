@@ -6,6 +6,7 @@ import post1 from '../../assets/images/website/Instagram Posters/0-(4).webp';
 import post3 from '../../assets/images/client-2026-09/ecc79736.webp';
 import post4 from '../../assets/images/website/portfolio/8-(5).webp';
 import post2 from '../../assets/images/website/Instagram Posters/8-(2).webp';
+import post5 from '../../assets/images/website/portfolio/00-(6).webp';
 
 const postData = [
   {
@@ -35,6 +36,13 @@ const postData = [
     alt: 'Candid vs traditional wedding photography',
     date: '17 Oct 2026',
     title: 'Candid vs traditional wedding photography',
+  },
+  {
+    url: '/blog/wedding-day-photography-timeline',
+    src: post5,
+    alt: 'Wedding day photography timeline',
+    date: '19 Oct 2026',
+    title: 'What a wedding-day photography timeline looks like',
   },
 ];
 
