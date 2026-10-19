@@ -150,9 +150,11 @@
 
   .grid-3{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 28px;
     align-items: stretch;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   .card{
@@ -670,7 +672,7 @@
       
       <div class="subline">Outdoor Photoshoot</div>
       <h1>Outdoor Shoot <em>Packages</em></h1>
-      <p class="intro">Three simple packages for your outdoor shoot. Every package includes unlimited photos and unlimited soft copies.</p>
+      <p class="intro">Choose a half session or a full session for your outdoor shoot. Every full session package includes unlimited photos and unlimited soft copies.</p>
     </div>
   </header>
 
@@ -680,15 +682,30 @@
       <div class="section-head">
         <span class="eyebrow">Outdoor Photoshoot</span>
         <h2 style="margin-top:14px;">Choose Your Package</h2>
-        <p>Every outdoor package includes unlimited photos and unlimited soft copies.</p>
+        <p>Full session packages include unlimited photos and unlimited soft copies.</p>
       </div>
 
       <div class="grid-3">
 
+        <!-- 6K -->
+        <article class="card">
+          <div class="pkg-name">Photos Only</div>
+          <div class="position">Half Session</div>
+          <div class="price">₹6,000</div>
+          <div class="divider"></div>
+          <div class="block-title">Includes</div>
+          <ul>
+            <li>Photos</li>
+            <li>1 Costume</li>
+            <li>Half Session</li>
+          </ul>
+          <div class="cta"><a href="#enquire">Enquire About This Package</a></div>
+        </article>
+
         <!-- 10K -->
         <article class="card">
           <div class="pkg-name">Photos Only</div>
-          <div class="position">Outdoor Photoshoot</div>
+          <div class="position">Full Session</div>
           <div class="price">₹10,000</div>
           <div class="divider"></div>
           <div class="block-title">Includes</div>
@@ -702,7 +719,7 @@
         <!-- 15K -->
         <article class="card">
           <div class="pkg-name">Photos + 1 Reel</div>
-          <div class="position">Outdoor Photoshoot</div>
+          <div class="position">Full Session</div>
           <div class="price">₹15,000</div>
           <div class="divider"></div>
           <div class="block-title">Includes</div>
@@ -717,7 +734,7 @@
         <!-- 20K -->
         <article class="card">
           <div class="pkg-name">Photos + 2 Reels</div>
-          <div class="position">Outdoor Photoshoot</div>
+          <div class="position">Full Session</div>
           <div class="price">₹20,000</div>
           <div class="divider"></div>
           <div class="block-title">Includes</div>
@@ -750,7 +767,7 @@
       <div class="notes-box">
         <h3>Good to Know</h3>
         <ul>
-          <li>Every outdoor package includes unlimited photos and unlimited soft copies.</li>
+          <li>Every full session package includes unlimited photos and unlimited soft copies.</li>
           <li>Final delivery timelines will be communicated during booking.</li>
           <li>Services not explicitly mentioned are not included unless separately agreed.</li>
         </ul>
@@ -779,4 +796,4 @@
 })();
 </script>
 </body>
-</html>
+                                  </html>
