@@ -45,7 +45,7 @@ export default function FunFact({variant, title, subtitle, data}) {
         </Div>
       </Div>
       <Div className="cs-funfact_right">
-        <Div className="cs-funfacts">
+        <Div className={data.length === 3 ? 'cs-funfacts cs-funfacts_three' : 'cs-funfacts'}>
         {data.map((item, index) => (
           // <article> (not div) so the old saved /admin text patch for the first counter no longer overrides these values
           <article className="cs-funfact cs-style1" key={index}>
