@@ -12,6 +12,7 @@ import post2 from "../../assets/images/website/Instagram Posters/8-(2).webp";
 import post3 from "../../assets/images/client-2026-09/ecc79736.webp";
 import post4 from "../../assets/images/website/portfolio/8-(5).webp";
 import post5 from "../../assets/images/website/portfolio/00-(6).webp";
+import post6 from "../../assets/images/website/portfolio/12X36/18.webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -65,6 +66,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/wedding-day-photography-timeline",
+  },
+  {
+    thumb: post6,
+    title: "From wedding photos to wedding album: how the album design process works",
+    subtitle:
+      "Selection, layout, your review round and printing - how a wedding album goes from a thousand photos to a finished designed book, and how you can help it finish faster.",
+    date: "21 Oct 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/wedding-album-design-process",
   },
 ];
 
