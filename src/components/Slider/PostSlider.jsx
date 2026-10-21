@@ -7,6 +7,7 @@ import post3 from '../../assets/images/client-2026-09/ecc79736.webp';
 import post4 from '../../assets/images/website/portfolio/8-(5).webp';
 import post2 from '../../assets/images/website/Instagram Posters/8-(2).webp';
 import post5 from '../../assets/images/website/portfolio/00-(6).webp';
+import post6 from '../../assets/images/website/portfolio/12X36/18.webp';
 
 const postData = [
   {
@@ -43,6 +44,13 @@ const postData = [
     alt: 'Wedding day photography timeline',
     date: '19 Oct 2026',
     title: 'What a wedding-day photography timeline looks like',
+  },
+  {
+    url: '/blog/wedding-album-design-process',
+    src: post6,
+    alt: 'Wedding album design process',
+    date: '21 Oct 2026',
+    title: 'From photos to album: the design process',
   },
 ];
 
