@@ -81,6 +81,10 @@
       "destination": "/blog/wedding-day-photography-timeline.html"
     },
     {
+      "source": "/blog/wedding-album-design-process",
+      "destination": "/blog/wedding-album-design-process.html"
+    },
+    {
       "source": "/contact",
       "destination": "/contact.html"
     },
