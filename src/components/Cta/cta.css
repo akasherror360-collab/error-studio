@@ -102,3 +102,26 @@
     font-size: 28px;
   }
 }
+
+/* Prominent enquiry button inside the closing CTA (site red accent) */
+.cs-cta.cs-style1 .cs-text_btn {
+  background-color: var(--accent, #e60a06);
+  color: #fff;
+  padding: 16px 42px;
+  border-radius: 50px;
+  font-size: 17px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.cs-cta.cs-style1 .cs-text_btn span::before {
+  display: none;
+}
+.cs-cta.cs-style1 .cs-text_btn:hover {
+  background-color: #fff;
+  color: var(--accent, #e60a06);
+}
+@media (max-width: 991px) {
+  .cs-cta.cs-style1 .cs-text_btn {
+    padding: 13px 32px;
+    font-size: 15px;
+  }
+}
