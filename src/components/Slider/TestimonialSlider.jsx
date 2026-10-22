@@ -4,10 +4,11 @@ import { Icon } from '@iconify/react';
 import Testimonial from '../Testimonial';
 import Div from '../Div';
 import Spacing from '../Spacing';
-import testimonial1 from '../../assets/images/website/testimonials/dharshini-priya.webp';
-import testimonial2 from '../../assets/images/website/testimonials/maha.webp';
-import testimonial3 from '../../assets/images/website/testimonials/jenani.webp';
-import testimonial4 from '../../assets/images/website/testimonials/dk.webp';
+// Reviewer profile photos from the public Google Maps listing (verified against each reviewer's own review)
+const testimonial1 = 'https://lh3.googleusercontent.com/a-/ALV-UjVilOYqsweNJzO1vx8ZhAtuv-NL5BJAdpIlfLJX0MN3NVahcreq=w256-h256-p-rp-mo-br100';
+const testimonial2 = 'https://lh3.googleusercontent.com/a-/ALV-UjWxJvvstVv96A_R1mzJmY_FYCrVacqBja-i1c9TujNsiWxYHKw=w256-h256-p-rp-mo-br100';
+const testimonial3 = 'https://lh3.googleusercontent.com/a-/ALV-UjULAo2mytuxkuO5N6J6GY5rC74WmyV6kDO8LTUj_P-dPf32Hxo=w256-h256-p-rp-mo-br100';
+const testimonial4 = 'https://lh3.googleusercontent.com/a-/ALV-UjXZbanEmrtWJr6zjLNaVA_2VPC2KCxrtnQktTZ3MthT1YVs6_Qf=w256-h256-p-rp-mo-br100';
 import shape1 from '../../assets/images/shape_1.svg';
 
 const testimonialData = [
