@@ -4,10 +4,10 @@ import { Icon } from '@iconify/react';
 import Testimonial from '../Testimonial';
 import Div from '../Div';
 import Spacing from '../Spacing';
-import testimonial1 from '../../assets/images/website/Instagram Posters/0-(1).webp';
-import testimonial2 from '../../assets/images/website/Instagram Posters/14-(8).webp';
-import testimonial3 from '../../assets/images/website/Instagram Posters/00-(4).webp';
-import testimonial4 from '../../assets/images/website/Instagram Posters/13-(1).webp';
+import testimonial1 from '../../assets/images/website/testimonials/dharshini-priya.webp';
+import testimonial2 from '../../assets/images/website/testimonials/maha.webp';
+import testimonial3 from '../../assets/images/website/testimonials/jenani.webp';
+import testimonial4 from '../../assets/images/website/testimonials/dk.webp';
 import shape1 from '../../assets/images/shape_1.svg';
 
 const testimonialData = [
@@ -98,7 +98,7 @@ export default function TestimonialSlider() {
                   <Div className="slider-nav_item" key={index}>
                     <Div className="cs-rotate_img">
                       <Div className="cs-rotate_img_in">
-                        <img src={item.testimonialThumb} alt="Thumb" />
+                        <img src={item.testimonialThumb} alt={item.avatarName} />
                       </Div>
                     </Div>
                   </Div>
