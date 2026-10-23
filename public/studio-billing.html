@@ -298,7 +298,7 @@ async function genInvoice(q, savedId){
     const r=await fetch('/api/billing',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+IDTOKEN},
       body:JSON.stringify({action:'convert',clientName:q.clientName,phone:q.phone,eventDate:q.eventDate})});
     const j=await r.json();
-    if(!j.ok){ $('generr').textContent=j.message||'Could not create the invoice access.'; $('gen').disabled=false; $('gen').textContent='Generate Invoice — booking confirmed'; return; }
+    if(!j.ok){ $('generr').textContent=(j.message||'Could not create the invoice access.')+(j.detail?' — '+j.detail:''); $('gen').disabled=false; $('gen').textContent='Generate Invoice — booking confirmed'; return; }
     const bookingId=j.bookingId, setupUrl=j.setupUrl;
     const inv=Object.assign({},q,{type:'invoice',bookingId,convertedAt:Date.now()});
     await setDoc(doc(db,'draftPages','inv_'+bookingId+'_'+Date.now()),inv);
