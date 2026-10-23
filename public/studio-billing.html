@@ -90,11 +90,21 @@
   .err{color:#a14a4a;font-size:12.5px;margin-top:8px}
   .okmsg{color:#4a6b3f;font-size:12.5px;margin-top:8px}
   .tab{cursor:pointer}
+  @page{size:A4;margin:12mm 0}
   @media print{
-    body{background:#fff;padding:0}
+    html,body{background:#fff !important;padding:0 !important;margin:0 !important}
     body *{visibility:hidden}
-    .doc.printme, .doc.printme *{visibility:visible}
-    .doc.printme{position:absolute;left:0;top:0;width:100%;box-shadow:none;border:none}
+    .doc.printme, .doc.printme *{visibility:visible;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .doc.printme{position:absolute;left:0;right:0;top:0;width:auto;max-width:170mm;margin:0 auto;box-shadow:none;border:1px solid #e6dfd0}
+    .doc.printme .doc-head{padding:24px 20px 20px;break-inside:avoid}
+    .doc.printme .doc-head img{height:64px;margin-bottom:10px}
+    .doc.printme .doc-doctitle{padding:14px 0 4px}
+    .doc.printme .doc-meta{padding:10px 30px 0}
+    .doc.printme .doc-body{padding:6px 30px 20px}
+    .doc.printme .doc-pkg{font-size:23px;margin:10px 0 4px}
+    .doc.printme h3{margin:15px 0 6px;break-after:avoid}
+    .doc.printme li,.doc.printme .price-row,.doc.printme .total-band,.doc.printme .trackbox{break-inside:avoid}
+    .doc.printme .doc-foot{margin-top:20px;padding:14px 30px 0;break-inside:avoid}
   }
 </style>
 </head>
@@ -284,6 +294,7 @@ function renderQuote(q, savedId){
   $('docwrap').innerHTML = docHTML(q,false) +
     '<div class="card" style="margin-top:14px">'+
     '<div class="copyrow"><button class="btn2" id="print" style="border:1px solid var(--black);cursor:pointer;font-family:Manrope">Print / Save PDF</button></div>'+
+    '<div class="small" style="margin-top:6px">Tip: in the print dialog, untick "Headers and footers" for a clean PDF.</div>'+
     '<button class="btn" id="gen" style="border:none;cursor:pointer;font-family:Manrope;margin-top:10px">Generate Invoice — booking confirmed</button>'+
     '<div class="small" style="margin-top:8px">Converts this quotation into an invoice without re-entering details. Only the invoice carries T&C and creates the client tracking login (linked to the same tracker record).</div>'+
     '<div class="err" id="generr"></div></div>';
@@ -318,6 +329,7 @@ async function genInvoice(q, savedId){
       '<div class="card" style="margin-top:14px">'+
       accessBlock+
       '<div class="copyrow"><button class="btn2" id="print2" style="border:1px solid var(--black);cursor:pointer;font-family:Manrope">Print / Save PDF</button></div>'+
+    '<div class="small" style="margin-top:6px">Tip: in the print dialog, untick "Headers and footers" for a clean PDF.</div>'+
       '<div class="okmsg">Invoice saved. Tracking ID '+esc(bookingId)+(j.created?' (new tracker record created)':' (existing tracker record reused)')+'.</div>'+
       ((!j.created&&j.visible===false)?'<div class="warnbox" style="margin-top:8px"><strong>Heads up:</strong> this client\'s existing tracker record is still hidden from the website (Show on website is unticked on their Notion card). They can set a password from the link but cannot log in until you tick it.</div>':'')+'</div>';
     if(setupUrl){
