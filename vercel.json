@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/cover-song-package",
+      "destination": "/p/4c14a23f831d.html"
+    },
+    {
       "source": "/__/auth/:path*",
       "destination": "https://error-studio-fd96c.firebaseapp.com/__/auth/:path*"
     },
