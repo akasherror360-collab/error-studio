@@ -22,6 +22,12 @@
   .row{display:flex;gap:10px}.row .field{flex:1}
   .btn{display:block;text-align:center;background:var(--black);color:var(--ivory);padding:12px;border-radius:8px;font-size:13px;letter-spacing:.08em;margin-top:6px}
   .btn2{display:block;text-align:center;background:#fff;border:1px solid var(--black);color:var(--black);padding:12px;border-radius:8px;font-size:13px;letter-spacing:.08em;margin-top:8px}
+  .li-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px dashed #eee;font-size:13px}
+  .li-row .cnt{margin-left:auto;border:1px solid #ddd;border-radius:5px;padding:1px 8px;font-size:12px;color:#666}
+  .li-row .x{color:#c00;font-weight:600;padding:0 4px;cursor:default}
+  .li-row .cnt + .x{margin-left:0}
+  .add{color:var(--gold);font-size:12.5px;padding:6px 0;letter-spacing:.04em}
+  .notes{font-size:11.5px;color:#999;border-top:1px solid #eee;padding-top:6px;margin-top:4px}
   /* premium quotation document */
   .doc{background:#fff;max-width:640px;margin:0 auto;box-shadow:0 18px 50px rgba(11,10,8,0.18);border:1px solid #e6dfd0}
   .doc-head{background:var(--black);text-align:center;padding:34px 20px 26px}
@@ -55,21 +61,54 @@
 <body>
 <div class="banner">CONCEPT PREVIEW — NOT LIVE — SAMPLE DATA ONLY</div>
 
-<h2 class="stage">Step 1 — Fill details (inside /admin login)</h2>
+<h2 class="stage">Step 1 — Pick package, adjust, generate (inside /admin login)</h2>
 <div class="card">
   <div class="row">
     <div class="field"><label>Client name</label><div class="val">Sample Client</div></div>
     <div class="field"><label>Event date</label><div class="val">14.12.2026</div></div>
   </div>
-  <div class="field"><label>Package name</label><div class="val">Golden Package</div></div>
+  <div class="field"><label>Package (auto-fills everything below)</label><div class="val"><strong>Gold — ₹85,000</strong> &nbsp;▾<br><span style="font-size:11.5px;color:#999">Silver ₹45,999 · Gold ₹85,000 · Platinum ₹99,999 · Diamond ₹1,89,999 · Outdoor: Starter ₹6,000 / Signature ₹10,000 / Story ₹17,000 / Cinematic ₹25,000 · Cover Song ₹12,000</span></div></div>
   <div class="row">
-    <div class="field"><label>Package total (₹)</label><div class="val">60,000</div></div>
-    <div class="field"><label>Discount (₹, optional)</label><div class="val">8,000</div></div>
+    <div class="field"><label>Package total (₹) — from package, editable</label><div class="val">85,000</div></div>
+    <div class="field"><label>Discount (₹, optional)</label><div class="val">—</div></div>
   </div>
-  <div class="field"><label>Included services (one per line)</label><div class="val">Traditional Photography — 2 sessions<br>Traditional Videography — 2 sessions<br>Candid Photography — 2 sessions<br>12x36 Album</div></div>
-  <div class="field"><label>Deliverables</label><div class="val">12x36 Album (300-350 photos approx.)<br>Unlimited soft copies<br>Pendrive box<br>Pendrive with edited video</div></div>
-  <div class="field"><label>Complimentary</label><div class="val">20 edited images<br>Pre/Post wedding<br>Digital invitation<br>Calendar<br>5 - A3 size frames</div></div>
-  <div class="field"><label>Payment schedule</label><div class="val">10% advance to block the date<br>₹5,000 after pre-wedding shoot<br>₹30,000 after marriage coverage<br>Balance before final delivery</div></div>
+  <div class="field"><label>Included services — auto-filled, edit / add / remove</label>
+    <div class="val">
+      <div class="li-row">Traditional Photographer <span class="cnt">1 ▾</span><span class="x">×</span></div>
+      <div class="li-row">Traditional Videographer <span class="cnt">1 ▾</span><span class="x">×</span></div>
+      <div class="li-row">Candid Photographer <span class="cnt">1 ▾</span><span class="x">×</span></div>
+      <div class="li-row">Drone Coverage<span class="x">×</span></div>
+      <div class="li-row">4K Traditional Story Video<span class="x">×</span></div>
+      <div class="add">+ Add service</div>
+      <div class="notes">Notes: (optional, e.g. extra session on request)</div>
+    </div>
+  </div>
+  <div class="field"><label>Deliverables — auto-filled, edit / add / remove</label>
+    <div class="val">
+      <div class="li-row">1 Premium Album — 12 × 36, 45 Pages<span class="x">×</span></div>
+      <div class="li-row">Unlimited RAW Photos in Pen Drive<span class="x">×</span></div>
+      <div class="add">+ Add deliverable</div>
+      <div class="notes">Notes: (optional)</div>
+    </div>
+  </div>
+  <div class="field"><label>Complimentary — auto-filled, edit / add / remove</label>
+    <div class="val">
+      <div class="li-row">Digital Wedding Invitation<span class="x">×</span></div>
+      <div class="li-row">1 Couple Calendar<span class="x">×</span></div>
+      <div class="li-row">1 Photoframe<span class="x">×</span></div>
+      <div class="li-row">Outdoor / Indoor Photoshoot<span class="x">×</span></div>
+      <div class="add">+ Add complimentary</div>
+      <div class="notes">Notes: (optional)</div>
+    </div>
+  </div>
+  <div class="field"><label>Payment schedule — pre-filled, editable</label>
+    <div class="val">
+      <div class="li-row">₹5,000 — booking advance (to block the date)<span class="x">×</span></div>
+      <div class="li-row">60% — before the event<span class="x">×</span></div>
+      <div class="li-row">Remaining — on / before the event<span class="x">×</span></div>
+      <div class="notes" style="color:#a36a00">Pending: whether the ₹5,000 advance is part of the 60% or additional — confirm before use.</div>
+    </div>
+  </div>
   <div class="btn">Generate Quotation PDF</div>
   <div class="btn2">Generate Invoice PDF</div>
 </div>
@@ -85,26 +124,24 @@
   <div class="doc-doctitle">QUOTATION</div>
   <div class="doc-meta"><span>To &nbsp;<strong>SAMPLE CLIENT</strong></span><span>24.10.2026</span></div>
   <div class="doc-body">
-    <div class="doc-pkg">Golden Package</div>
-    <div class="price-row"><span>Package total</span><span>₹60,000</span></div>
-    <div class="price-row"><span>Discount</span><span>− ₹8,000</span></div>
-    <div class="total-band"><span class="lbl">TOTAL</span><span class="amt">₹52,000</span></div>
+    <div class="doc-pkg">Gold Package — Wedding + Reception</div>
+    <div class="price-row"><span>Package total</span><span>₹85,000</span></div>
+    <div class="total-band"><span class="lbl">TOTAL</span><span class="amt">₹85,000</span></div>
 
     <h3>INCLUDED SERVICES</h3>
-    <ul><li>Traditional Photography — 2 sessions</li><li>Traditional Videography — 2 sessions</li><li>Candid Photography — 2 sessions</li><li>12x36 Album</li></ul>
+    <ul><li>1 Traditional Photographer</li><li>1 Traditional Videographer</li><li>1 Candid Photographer</li><li>Drone Coverage</li><li>4K Traditional Story Video</li><li>Outdoor / Indoor Photoshoot</li></ul>
 
     <h3>DELIVERABLES</h3>
-    <ul><li>12x36 Album — 300-350 photos approx.</li><li>Unlimited soft copies</li><li>Pendrive box</li><li>Pendrive with edited video</li></ul>
+    <ul><li>1 Premium Album — 12 × 36, 45 Pages</li><li>Unlimited RAW Photos in Pen Drive</li></ul>
 
     <h3>COMPLIMENTARY</h3>
-    <ul><li>20 edited images</li><li>Pre/Post wedding</li><li>Digital invitation</li><li>Calendar</li><li>5 - A3 size frames</li></ul>
+    <ul><li>Digital Wedding Invitation</li><li>1 Couple Calendar</li><li>1 Photoframe</li></ul>
 
-    <h3>PAYMENT TERMS (SAMPLE)</h3>
+    <h3>PAYMENT TERMS (DRAFT — SPLIT PENDING CONFIRMATION)</h3>
     <ul class="pay">
-      <li><span>1.</span>10% of total — to block the date (advance)</li>
-      <li><span>2.</span>₹5,000 — after the pre-wedding shoot</li>
-      <li><span>3.</span>₹30,000 — after the marriage coverage</li>
-      <li><span>4.</span>Remaining balance — after design approval, before final delivery / album printing</li>
+      <li><span>1.</span>₹5,000 — booking advance, to block the date</li>
+      <li><span>2.</span>60% — before the event</li>
+      <li><span>3.</span>Remaining balance — on / before the event</li>
     </ul>
 
     <h3>TERMS &amp; CONDITIONS</h3>
