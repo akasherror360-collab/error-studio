@@ -13,6 +13,7 @@ import post3 from "../../assets/images/client-2026-09/ecc79736.webp";
 import post4 from "../../assets/images/website/portfolio/8-(5).webp";
 import post5 from "../../assets/images/website/portfolio/00-(6).webp";
 import post6 from "../../assets/images/website/portfolio/12X36/18.webp";
+import post7 from "../../assets/images/website/portfolio/13-(2).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -76,6 +77,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/wedding-album-design-process",
+  },
+  {
+    thumb: post7,
+    title: "Engagement and reception photography: coverage tips for couples",
+    subtitle:
+      "Light, timing, stage plans and family groups - how to plan engagement and reception coverage so no moment is missed, from weddings we cover across Tamil Nadu.",
+    date: "23 Oct 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/engagement-reception-coverage-tips",
   },
 ];
 
