@@ -8,6 +8,7 @@ import post4 from '../../assets/images/website/portfolio/8-(5).webp';
 import post2 from '../../assets/images/website/Instagram Posters/8-(2).webp';
 import post5 from '../../assets/images/website/portfolio/00-(6).webp';
 import post6 from '../../assets/images/website/portfolio/12X36/18.webp';
+import post7 from '../../assets/images/website/portfolio/13-(2).webp';
 
 const postData = [
   {
@@ -51,6 +52,13 @@ const postData = [
     alt: 'Wedding album design process',
     date: '21 Oct 2026',
     title: 'From photos to album: the design process',
+  },
+  {
+    url: '/blog/engagement-reception-coverage-tips',
+    src: post7,
+    alt: 'Engagement and reception photography coverage tips',
+    date: '23 Oct 2026',
+    title: 'Engagement and reception photography: coverage tips for couples',
   },
 ];
 
