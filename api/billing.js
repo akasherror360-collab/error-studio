@@ -93,57 +93,70 @@ async function visibleMaxBookingNum() {
   return max;
 }
 
-// Booking IDs must never be reissued, even after a record is archived. Notion
-// queries never return archived rows, so the durable high-water mark lives in a
-// dedicated ledger row (ERR-000) that is never archived. The ledger is seeded
-// once (currently 20, covering ERR-018/020 issued before it existed) and bumped
-// on every allocation and every archive of a numbered record.
-const LEDGER_BID = 'ERR-000';
-async function findLedger() {
-  const j = await nf('/data_sources/' + DS_ID + '/query', 'POST', { page_size: 1, filter: { property: 'Booking ID', rich_text: { equals: LEDGER_BID } } });
-  return (j.results || [])[0] || null;
+// Booking IDs must never be reissued, even after a record is archived, and two
+// concurrent converts must never share one. Notion has no transactions and its
+// query index lags writes, so the durable reservation lives in Firestore (this
+// project's existing client-data store, reachable with the caller's verified
+// owner ID token). One Firestore transaction reads the counter doc, increments
+// it, and creates a reservation doc named for the candidate ID with an
+// exists:false precondition. A conflicting concurrent transaction aborts and
+// retries; a reused number fails the precondition. Both writes commit or
+// neither does. idlock_* docs and _idLedger are the permanent record: never
+// delete them, even when the matching tracker row is archived.
+const FS_DOCS = 'https://firestore.googleapis.com/v1/projects/' + PROJECT + '/databases/(default)/documents';
+const ID_SEED = 24; // high-water mark at migration: covers archived ERR-018 and ERR-020..024
+async function fsFetch(path, method, body, token) {
+  const r = await fetch(FS_DOCS + path, {
+    method: method || 'GET',
+    headers: { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' },
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  const j = await r.json().catch(() => ({}));
+  return { status: r.status, body: j };
 }
-async function ensureLedger() {
-  const lg = await findLedger();
-  if (lg) return lg;
-  // Fallback seed only: normally the ledger is created once by hand with the
-  // correct historical high-water mark. Visible max can miss archived IDs.
-  const seeded = await visibleMaxBookingNum();
-  return await nf('/pages', 'POST', { parent: { data_source_id: DS_ID }, properties: {
-    'Shoot': { title: [{ type: 'text', text: { content: 'ID LEDGER — internal, never archive or edit' } }] },
-    'Booking ID': rt(LEDGER_BID),
-    'Show on website': { checkbox: false },
-    'ID counter': rt(String(seeded)),
-  } });
-}
-const ledgerNum = (lg) => parseInt(text(lg.properties['ID counter']) || '0', 10) || 0;
-async function bumpLedger(lgId, n) {
-  await nf('/pages/' + lgId, 'PATCH', { properties: { 'ID counter': rt(String(n)) } });
-}
-async function findClash(bid, ownPageId) {
-  const j = await nf('/data_sources/' + DS_ID + '/query', 'POST', { page_size: 5, filter: { property: 'Booking ID', rich_text: { equals: bid } } });
-  return (j.results || []).find((pg) => pg.id !== ownPageId) || null;
-}
-// Allocate the next monotonic ID and create the client row with it. On a
-// concurrent-claim collision (another row won the same number), renumber our
-// own fresh row upward and retry; existing rows are never renumbered.
-async function allocateBookingId(propsFor) {
-  const lg = await ensureLedger();
-  let n = Math.max(ledgerNum(lg), await visibleMaxBookingNum());
-  let page = null;
-  for (let attempt = 0; attempt < 6; attempt++) {
-    n += 1;
+async function reserveBookingId(token, clientName) {
+  const floor = Math.max(ID_SEED, await visibleMaxBookingNum());
+  let minNext = floor + 1;
+  for (let attempt = 0; attempt < 10; attempt++) {
+    const tx = await fsFetch(':beginTransaction', 'POST', { options: { readWrite: {} } }, token);
+    if (tx.status !== 200 || !tx.body.transaction) throw new Error('firestore tx begin ' + tx.status);
+    const t = tx.body.transaction;
+    const cur = await fsFetch('/draftPages/_idLedger?transaction=' + encodeURIComponent(t), 'GET', null, token);
+    if (cur.status === 401 || cur.status === 403) throw new Error('firestore permission ' + cur.status);
+    let counter = 0;
+    if (cur.status === 200 && cur.body.fields && cur.body.fields.value) counter = parseInt(cur.body.fields.value.integerValue, 10) || 0;
+    const n = Math.max(counter + 1, minNext);
     const candidate = 'ERR-' + String(n).padStart(3, '0');
-    if (!page) page = await nf('/pages', 'POST', { parent: { data_source_id: DS_ID }, properties: propsFor(candidate) });
-    else await nf('/pages/' + page.id, 'PATCH', { properties: { 'Booking ID': rt(candidate) } });
-    await bumpLedger(lg.id, n);
-    // Let Notion's query index settle, then confirm no concurrent claim holds this ID.
-    await new Promise((r) => setTimeout(r, 1200));
-    if (!(await findClash(candidate, page.id))) return { bookingId: candidate, page };
-    const lg2 = await nf('/pages/' + lg.id);
-    n = Math.max(n, ledgerNum(lg2));
+    const docBase = 'projects/' + PROJECT + '/databases/(default)/documents/draftPages/';
+    const commit = await fsFetch(':commit', 'POST', {
+      transaction: t,
+      writes: [
+        { update: { name: docBase + '_idLedger', fields: {
+          value: { integerValue: String(n) },
+          note: { stringValue: 'Booking ID high-water mark. Only moves forward. Never edit or delete.' },
+        } } },
+        { update: { name: docBase + 'idlock_' + candidate, fields: {
+          bookingId: { stringValue: candidate },
+          clientName: { stringValue: String(clientName || '').slice(0, 80) },
+          reservedAt: { timestampValue: new Date().toISOString() },
+        } }, currentDocument: { exists: false } },
+      ],
+    }, token);
+    if (commit.status === 200) return candidate;
+    if (commit.status === 401 || commit.status === 403) throw new Error('firestore permission ' + commit.status);
+    // Aborted (concurrent transaction) or already-exists (number burned): move
+    // forward and retry in a fresh transaction.
+    minNext = n + 1;
   }
   throw new Error('id allocation contention');
+}
+// Reserve the next ID atomically, then create the client row with it. If the
+// Notion write fails after reservation the number stays burned: a gap, never
+// a reuse.
+async function allocateBookingId(propsFor, token, clientName) {
+  const bookingId = await reserveBookingId(token, clientName);
+  const page = await nf('/pages', 'POST', { parent: { data_source_id: DS_ID }, properties: propsFor(bookingId) });
+  return { bookingId, page };
 }
 async function ensureSetupColumns() {
   const ds = await nf('/data_sources/' + DS_ID);
@@ -208,6 +221,7 @@ module.exports = async (req, res) => {
         bookingId = text(page.properties['Booking ID']).toUpperCase();
         if (!/^ERR-[A-Z0-9-]{1,16}$/.test(bookingId)) return send(200, { ok: false, message: 'Existing client record has no Booking ID yet. Add it in the tracker first.' });
       } else {
+        const bearer = (/^Bearer (.+)$/.exec(String(req.headers.authorization || '')) || [])[1] || '';
         const alloc = await allocateBookingId((candidate) => {
           const props = {
             'Shoot': { title: [{ type: 'text', text: { content: clientName } }] },
@@ -217,7 +231,7 @@ module.exports = async (req, res) => {
           if (phone) props['Phone'] = { phone_number: phone };
           if (eventDate) props['Date'] = { date: { start: eventDate } };
           return props;
-        });
+        }, bearer, clientName);
         bookingId = alloc.bookingId;
         page = alloc.page;
         created = true;
@@ -254,14 +268,7 @@ module.exports = async (req, res) => {
       if (!/^ERR-[A-Z0-9-]{1,16}$/.test(bid)) return send(200, { ok: false, message: 'Unknown Booking ID.' });
       const page = await findByBookingId(bid);
       if (!page) return send(200, { ok: false, message: 'No tracker record for ' + bid + '.' });
-      // Preserve the high-water mark before the row leaves query results.
-      await ensureSetupColumns();
-      const m = /^ERR-0*(\d+)$/.exec(bid);
-      if (m) {
-        const lg = await ensureLedger();
-        const n = parseInt(m[1], 10);
-        if (n > ledgerNum(lg)) await bumpLedger(lg.id, n);
-      }
+      // Reserved numbers stay burned after archive; nothing to update here.
       await nf('/pages/' + page.id, 'PATCH', { archived: true });
       return send(200, { ok: true, archived: bid });
     }
