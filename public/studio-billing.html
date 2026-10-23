@@ -95,7 +95,7 @@
   @page{size:A4;margin:12mm 0}
   @media print{
     html,body{background:#fff !important;padding:0 !important;margin:0 !important}
-    body *{visibility:hidden}
+    body>*{position:absolute !important;visibility:hidden !important;top:0;left:0}
     .doc.printme, .doc.printme *{visibility:visible;-webkit-print-color-adjust:exact;print-color-adjust:exact}
     .doc.printme{position:absolute;left:0;right:0;top:0;width:auto;max-width:170mm;margin:0 auto;box-shadow:none;border:1px solid #e6dfd0}
     .doc.printme .doc-head{padding:20px 28px;break-inside:avoid}
