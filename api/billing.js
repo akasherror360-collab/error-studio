@@ -97,12 +97,14 @@ async function visibleMaxBookingNum() {
 // concurrent converts must never share one. Notion has no transactions and its
 // query index lags writes, so the durable reservation lives in Firestore (this
 // project's existing client-data store, reachable with the caller's verified
-// owner ID token). One Firestore transaction reads the counter doc, increments
-// it, and creates a reservation doc named for the candidate ID with an
-// exists:false precondition. A conflicting concurrent transaction aborts and
-// retries; a reused number fails the precondition. Both writes commit or
-// neither does. idlock_* docs and _idLedger are the permanent record: never
-// delete them, even when the matching tracker row is archived.
+// owner ID token). Uniqueness is an atomic compare-and-set: documents.create
+// for idlock_<candidate> fails with ALREADY_EXISTS if that number was ever
+// reserved, and Firestore applies the create at most once, so two overlapping
+// requests can never hold the same number. _idLedger is only a high-water
+// hint to start probing from; a stale or missing counter self-heals because
+// burned numbers keep failing the create. idlock_* docs and _idLedger are the
+// permanent record: never delete them, even when the matching tracker row is
+// archived.
 const FS_DOCS = 'https://firestore.googleapis.com/v1/projects/' + PROJECT + '/databases/(default)/documents';
 const ID_SEED = 24; // high-water mark at migration: covers archived ERR-018 and ERR-020..024
 async function fsFetch(path, method, body, token) {
@@ -116,37 +118,27 @@ async function fsFetch(path, method, body, token) {
 }
 async function reserveBookingId(token, clientName) {
   const floor = Math.max(ID_SEED, await visibleMaxBookingNum());
-  let minNext = floor + 1;
-  for (let attempt = 0; attempt < 10; attempt++) {
-    const tx = await fsFetch(':beginTransaction', 'POST', { options: { readWrite: {} } }, token);
-    if (tx.status !== 200 || !tx.body.transaction) throw new Error('firestore tx begin ' + tx.status);
-    const t = tx.body.transaction;
-    const cur = await fsFetch('/draftPages/_idLedger?transaction=' + encodeURIComponent(t), 'GET', null, token);
-    if (cur.status === 401 || cur.status === 403) throw new Error('firestore permission ' + cur.status);
-    let counter = 0;
-    if (cur.status === 200 && cur.body.fields && cur.body.fields.value) counter = parseInt(cur.body.fields.value.integerValue, 10) || 0;
-    const n = Math.max(counter + 1, minNext);
+  let n = floor;
+  for (let attempt = 0; attempt < 15; attempt++) {
+    if (attempt % 4 === 0) {
+      const cur = await fsFetch('/draftPages/_idLedger', 'GET', null, token);
+      if (cur.status === 401 || cur.status === 403) throw new Error('firestore permission ' + cur.status);
+      if (cur.status === 200 && cur.body.fields && cur.body.fields.value) n = Math.max(n, parseInt(cur.body.fields.value.integerValue, 10) || 0);
+    }
+    n += 1;
     const candidate = 'ERR-' + String(n).padStart(3, '0');
-    const docBase = 'projects/' + PROJECT + '/databases/(default)/documents/draftPages/';
-    const commit = await fsFetch(':commit', 'POST', {
-      transaction: t,
-      writes: [
-        { update: { name: docBase + '_idLedger', fields: {
-          value: { integerValue: String(n) },
-          note: { stringValue: 'Booking ID high-water mark. Only moves forward. Never edit or delete.' },
-        } } },
-        { update: { name: docBase + 'idlock_' + candidate, fields: {
-          bookingId: { stringValue: candidate },
-          clientName: { stringValue: String(clientName || '').slice(0, 80) },
-          reservedAt: { timestampValue: new Date().toISOString() },
-        } }, currentDocument: { exists: false } },
-      ],
-    }, token);
-    if (commit.status === 200) return candidate;
-    if (commit.status === 401 || commit.status === 403) throw new Error('firestore permission ' + commit.status);
-    // Aborted (concurrent transaction) or already-exists (number burned): move
-    // forward and retry in a fresh transaction.
-    minNext = n + 1;
+    const lock = await fsFetch('/draftPages?documentId=' + encodeURIComponent('idlock_' + candidate), 'POST', { fields: {
+      bookingId: { stringValue: candidate },
+      clientName: { stringValue: String(clientName || '').slice(0, 80) },
+      reservedAt: { timestampValue: new Date().toISOString() },
+    } }, token);
+    if (lock.status === 401 || lock.status === 403) throw new Error('firestore permission ' + lock.status);
+    if (lock.status !== 200) continue; // 409: number already reserved (burned) - probe the next one
+    await fsFetch('/draftPages/_idLedger', 'PATCH', { fields: {
+      value: { integerValue: String(n) },
+      note: { stringValue: 'Booking ID high-water mark. Only moves forward. Never edit or delete.' },
+    } }, token);
+    return candidate;
   }
   throw new Error('id allocation contention');
 }
