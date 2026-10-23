@@ -165,11 +165,20 @@ module.exports = async (req, res) => {
         page = await nf('/pages', 'POST', { parent: { data_source_id: DS_ID }, properties: props });
         created = true;
       }
-      const s = newSetup();
-      await setSetupToken(page.id, s.hash, s.expiry);
       const accessActive = !!text(page.properties['Access hash']);
       const visible = !!(page.properties['Show on website'] && page.properties['Show on website'].checkbox);
-      return send(200, { ok: true, bookingId, created, accessActive, visible, setupUrl: BASE + '/setup-access.html?id=' + encodeURIComponent(bookingId) + '&k=' + s.token });
+      const prevHash = text(page.properties['Setup token hash']);
+      const prevExp = Date.parse(text(page.properties['Setup token expiry'])) || 0;
+      // Never revoke a link the owner may already have shared: mint only when no
+      // password is set and no unexpired setup token exists. Reset stays the
+      // explicit renewal path.
+      let setupUrl = null;
+      if (!accessActive && !(prevHash && prevExp > Date.now())) {
+        const s = newSetup();
+        await setSetupToken(page.id, s.hash, s.expiry);
+        setupUrl = BASE + '/setup-access.html?id=' + encodeURIComponent(bookingId) + '&k=' + s.token;
+      }
+      return send(200, { ok: true, bookingId, created, accessActive, visible, setupPending: !accessActive && !setupUrl, setupUrl });
     }
 
     if (action === 'reset') {
