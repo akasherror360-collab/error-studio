@@ -77,7 +77,7 @@ async function findByBookingId(bid) {
 async function findByPhone(phone) {
   const p = last10(phone);
   if (p.length < 10) return null;
-  const j = await nf('/data_sources/' + DS_ID + '/query', 'POST', { page_size: 5, filter: { property: 'Phone', rich_text: { contains: p } } });
+  const j = await nf('/data_sources/' + DS_ID + '/query', 'POST', { page_size: 5, filter: { property: 'Phone', phone_number: { contains: p } } });
   return (j.results || [])[0] || null;
 }
 async function nextBookingId() {
@@ -160,7 +160,7 @@ module.exports = async (req, res) => {
           'Booking ID': rt(bookingId),
           'Show on website': { checkbox: false },
         };
-        if (phone) props['Phone'] = rt(phone);
+        if (phone) props['Phone'] = { phone_number: phone };
         if (eventDate) props['Date'] = { date: { start: eventDate } };
         page = await nf('/pages', 'POST', { parent: { data_source_id: DS_ID }, properties: props });
         created = true;
