@@ -158,7 +158,7 @@ module.exports = async (req, res) => {
         const props = {
           'Shoot': { title: [{ type: 'text', text: { content: clientName } }] },
           'Booking ID': rt(bookingId),
-          'Show on website': { checkbox: false },
+          'Show on website': { checkbox: true },
         };
         if (phone) props['Phone'] = { phone_number: phone };
         if (eventDate) props['Date'] = { date: { start: eventDate } };
