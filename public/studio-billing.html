@@ -95,9 +95,9 @@
   @page{size:A4;margin:12mm 0}
   @media print{
     html,body{background:#fff !important;padding:0 !important;margin:0 !important}
-    body>*{position:absolute !important;visibility:hidden !important;top:0;left:0}
+    body>*{display:none !important}
     .doc.printme, .doc.printme *{visibility:visible;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .doc.printme{position:absolute;left:0;right:0;top:0;width:auto;max-width:170mm;margin:0 auto;box-shadow:none;border:1px solid #e6dfd0}
+    body>.doc.printme{display:block !important;position:static;width:auto;max-width:170mm;margin:0 auto;box-shadow:none;border:1px solid #e6dfd0}
     .doc.printme .doc-head{padding:20px 28px;break-inside:avoid}
     .doc.printme .doc-head .dh-title{font-size:28px}
     .doc.printme .doc-head img{height:48px;margin-bottom:4px}
@@ -292,6 +292,14 @@ function docHTML(q, inv, bookingId, setupUrl){
   '</div>';
 }
 
+function printDoc(){
+  const w=$('docwrap'); const d=w&&w.querySelector('.doc');
+  if(!d){ window.print(); return; }
+  document.body.appendChild(d);
+  const back=()=>{ w.prepend(d); window.removeEventListener('afterprint',back); };
+  window.addEventListener('afterprint',back);
+  window.print();
+}
 function renderQuote(q, savedId){
   $('docstage').style.display='block'; $('docstage').textContent='Quotation — no T&C, no login details';
   $('docwrap').innerHTML = docHTML(q,false) +
@@ -301,7 +309,7 @@ function renderQuote(q, savedId){
     '<button class="btn" id="gen" style="border:none;cursor:pointer;font-family:Manrope;margin-top:10px">Generate Invoice — booking confirmed</button>'+
     '<div class="small" style="margin-top:8px">Converts this quotation into an invoice without re-entering details. Only the invoice carries T&C and creates the client tracking login (linked to the same tracker record).</div>'+
     '<div class="err" id="generr"></div></div>';
-  $('print').onclick=()=>window.print();
+  $('print').onclick=printDoc;
   $('gen').onclick=()=>genInvoice(q, savedId);
   $('docwrap').scrollIntoView({behavior:'smooth'});
 }
@@ -339,7 +347,7 @@ async function genInvoice(q, savedId){
       $('clink').onclick=()=>navigator.clipboard.writeText(setupUrl);
       $('cmsg').onclick=()=>navigator.clipboard.writeText('Error Studio — your booking is confirmed. Your Tracking ID is '+bookingId+'. Set your password once from this secure link to track your work anytime: '+setupUrl+' — Error Studio, Cuddalore (99440 36606)');
     }
-    $('print2').onclick=()=>window.print();
+    $('print2').onclick=printDoc;
     loadLog(); loadAccess();
   }catch(e){ $('generr').textContent='Network error. Try again.'; $('gen').disabled=false; $('gen').textContent='Generate Invoice — booking confirmed'; }
 }
