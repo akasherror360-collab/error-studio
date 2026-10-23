@@ -106,6 +106,8 @@
     .doc.printme .doc-pkg{font-size:23px;margin:10px 0 4px}
     .doc.printme h3{margin:15px 0 6px;break-after:avoid}
     .doc.printme li,.doc.printme .price-row,.doc.printme .total-band,.doc.printme .trackbox{break-inside:avoid}
+    .doc.printme .terms-h{break-before:page;margin-top:0}
+    .doc.printme .terms{font-size:11.5px;color:#3a352c;line-height:1.6}
     .doc.printme .doc-foot{margin-top:20px;padding:14px 30px 0;break-inside:avoid}
   }
 </style>
@@ -278,7 +280,7 @@ function docHTML(q, inv, bookingId, setupUrl){
     '<li><span>2.</span>'+fmt(p.mid)+' — before the event (60% of the remaining balance)</li>'+
     '<li><span>3.</span>'+fmt(p.end)+' — on / before the event (balance)</li></ul>';
   if (inv){
-    inner += '<h3>TERMS &amp; CONDITIONS</h3><ul class="terms">'+TERMS.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>'+
+    inner += '<h3 class="terms-h">TERMS &amp; CONDITIONS</h3><ul class="terms">'+TERMS.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>'+
       '<h3>CLIENT TRACKING ACCESS</h3><div class="trackbox">Tracking ID: <strong>'+esc(bookingId)+'</strong> — track work status anytime at errorstudio.in/track. The client sets their own password through a secure one-time setup link; no password is printed here. Access can be reset anytime by the studio.</div>';
   }
   return '<div class="doc printme">'+
