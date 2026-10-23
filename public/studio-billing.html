@@ -149,7 +149,7 @@
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
-import { getFirestore, collection, doc, setDoc, getDocs, query, where, orderBy } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+import { getFirestore, collection, doc, setDoc, deleteDoc, getDocs, query, where, orderBy } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 
 const OWNER = 'akasherror360@gmail.com';
 const app = initializeApp({ apiKey:'AIzaSyD2O-wQkrtXRZRl_Sxq6plTtYcidK7njaI', authDomain:'www.errorstudio.in', projectId:'error-studio-fd96c' });
@@ -340,7 +340,10 @@ async function loadLog(){
       r.innerHTML='<div><strong>'+esc(q.clientName)+'</strong> · '+esc(q.pkg.split(' (')[0])+' · '+fmt((q.total||0)-(q.discount||0))+'<br><span class="small">'+new Date(q.created).toLocaleDateString('en-IN')+'</span></div>';
       const o=document.createElement('span'); o.className='open'; o.textContent='OPEN';
       o.onclick=()=>{ current=q; renderQuote(q,id); };
-      r.appendChild(o); $('log').appendChild(r);
+      r.appendChild(o);
+      const del=document.createElement('span'); del.className='open'; del.textContent='DELETE'; del.style.color='#b06a6a';
+      del.onclick=async()=>{ if(!confirm('Delete this quotation for '+q.clientName+'?'))return; await deleteDoc(doc(db,'draftPages',id)); loadLog(); };
+      r.appendChild(del); $('log').appendChild(r);
     });
   }catch(e){ $('log').innerHTML='<div class="small">Could not load saved quotations.</div>'; }
 }
@@ -357,7 +360,10 @@ async function loadAccess(){
       r.innerHTML='<div><strong>'+esc(a.clientName)+'</strong> · '+esc(a.bookingId)+' <span class="pill" data-bid="'+esc(a.bookingId)+'">…</span></div>';
       const o=document.createElement('span'); o.className='open'; o.textContent='RESET ACCESS';
       o.onclick=()=>resetAccess(a.bookingId);
-      r.appendChild(o); $('access').appendChild(r);
+      r.appendChild(o);
+      const del=document.createElement('span'); del.className='open'; del.textContent='REMOVE'; del.style.color='#b06a6a';
+      del.onclick=()=>removeAccess(a.bookingId);
+      r.appendChild(del); $('access').appendChild(r);
     });
     refreshStatus();
   }catch(e){ $('access').innerHTML='<div class="small">Could not load access records.</div>'; }
@@ -378,6 +384,16 @@ async function refreshStatus(){
   }catch(e){}
 }
 $('refreshstatus').onclick=refreshStatus;
+async function removeAccess(bid){
+  if(!confirm('Remove tracking access for '+bid+'? The client login stops working and the tracker record is archived. Use only for mistakes or test records.'))return;
+  try{
+    const r=await fetch('/api/billing',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+IDTOKEN},body:JSON.stringify({action:'archive',bookingId:bid})});
+    const j=await r.json();
+    if(!j.ok){ alert(j.message||'Could not archive the tracker record.'); return; }
+    await deleteDoc(doc(db,'draftPages','acc_'+bid));
+    loadAccess();
+  }catch(e){ alert('Network error.'); }
+}
 async function resetAccess(bid){
   if(!confirm('Reset access for '+bid+'? The old password and old link stop working; you get a fresh setup link to share.'))return;
   try{
