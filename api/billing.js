@@ -208,6 +208,7 @@ module.exports = async (req, res) => {
     return send(200, { ok: false, message: 'Unknown action.' });
   } catch (e) {
     const ro = e && e.status === 403;
-    return send(200, { ok: false, message: ro ? 'Tracker connection is read-only right now; write access is needed.' : 'Something went wrong. Please try again.', notion403: !!ro });
+    const detail = e && e.body && e.body.message ? String(e.body.message).slice(0, 300) : '';
+    return send(200, { ok: false, message: ro ? 'Tracker connection is read-only right now; write access is needed.' : 'Something went wrong. Please try again.', notion403: !!ro, detail });
   }
 };
