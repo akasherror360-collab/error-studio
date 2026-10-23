@@ -395,7 +395,7 @@ async function removeAccess(bid){
   }catch(e){ alert('Network error.'); }
 }
 async function resetAccess(bid){
-  if(!confirm('Reset access for '+bid+'? The old password and old link stop working; you get a fresh setup link to share.'))return;
+  if(!confirm('Reset access for '+bid+'? The old link stops working and you get a fresh setup link to share; the current password keeps working until the client sets a new one.'))return;
   try{
     const r=await fetch('/api/billing',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+IDTOKEN},body:JSON.stringify({action:'reset',bookingId:bid})});
     const j=await r.json();
