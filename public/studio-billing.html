@@ -301,19 +301,29 @@ async function genInvoice(q, savedId){
     if(!j.ok){ $('generr').textContent=(j.message||'Could not create the invoice access.')+(j.detail?' — '+j.detail:''); $('gen').disabled=false; $('gen').textContent='Generate Invoice — booking confirmed'; return; }
     const bookingId=j.bookingId, setupUrl=j.setupUrl;
     const inv=Object.assign({},q,{type:'invoice',bookingId,convertedAt:Date.now()});
-    await setDoc(doc(db,'draftPages','inv_'+bookingId+'_'+Date.now()),inv);
+    await setDoc(doc(db,'draftPages','inv_'+bookingId),inv);
     await setDoc(doc(db,'draftPages','acc_'+bookingId),{type:'access',bookingId,clientName:q.clientName,created:Date.now()});
     $('docstage').textContent='Invoice — carries T&C and tracking access';
+    let accessBlock='';
+    if(setupUrl){
+      accessBlock='<div class="warnbox">Send the client <strong>only this setup link</strong> (one-time, expires in 7 days):<br><span style="word-break:break-all">'+esc(setupUrl)+'</span></div>'+
+      '<div class="copyrow"><button class="btn2" id="clink" style="border:1px solid var(--black);cursor:pointer;font-family:Manrope">Copy setup link</button>'+
+      '<button class="btn2" id="cmsg" style="border:1px solid var(--black);cursor:pointer;font-family:Manrope">Copy WhatsApp message</button></div>';
+    } else if(j.accessActive){
+      accessBlock='<div class="warnbox">This client\'s tracking login is <strong>already active</strong> — no new setup link needed, their password keeps working. Use RESET ACCESS in Client Tracking Access below only if they forgot it.</div>';
+    } else {
+      accessBlock='<div class="warnbox">A setup link for this booking was <strong>already issued and is still valid</strong> — re-share that same link; regenerating this invoice does not change it. Lost it? Use RESET ACCESS below to mint a fresh one (that invalidates the old link).</div>';
+    }
     $('docwrap').innerHTML = docHTML(inv,true,bookingId,setupUrl)+
       '<div class="card" style="margin-top:14px">'+
-      '<div class="warnbox">Send the client <strong>only this setup link</strong> (one-time, expires in 7 days):<br><span style="word-break:break-all">'+esc(setupUrl)+'</span></div>'+
-      '<div class="copyrow"><button class="btn2" id="clink" style="border:1px solid var(--black);cursor:pointer;font-family:Manrope">Copy setup link</button>'+
-      '<button class="btn2" id="cmsg" style="border:1px solid var(--black);cursor:pointer;font-family:Manrope">Copy WhatsApp message</button>'+
-      '<button class="btn2" id="print2" style="border:1px solid var(--black);cursor:pointer;font-family:Manrope">Print / Save PDF</button></div>'+
+      accessBlock+
+      '<div class="copyrow"><button class="btn2" id="print2" style="border:1px solid var(--black);cursor:pointer;font-family:Manrope">Print / Save PDF</button></div>'+
       '<div class="okmsg">Invoice saved. Tracking ID '+esc(bookingId)+(j.created?' (new tracker record created)':' (existing tracker record reused)')+'.</div>'+
       ((!j.created&&j.visible===false)?'<div class="warnbox" style="margin-top:8px"><strong>Heads up:</strong> this client\'s existing tracker record is still hidden from the website (Show on website is unticked on their Notion card). They can set a password from the link but cannot log in until you tick it.</div>':'')+'</div>';
-    $('clink').onclick=()=>navigator.clipboard.writeText(setupUrl);
-    $('cmsg').onclick=()=>navigator.clipboard.writeText('Error Studio — your booking is confirmed. Your Tracking ID is '+bookingId+'. Set your password once from this secure link to track your work anytime: '+setupUrl+' — Error Studio, Cuddalore (99440 36606)');
+    if(setupUrl){
+      $('clink').onclick=()=>navigator.clipboard.writeText(setupUrl);
+      $('cmsg').onclick=()=>navigator.clipboard.writeText('Error Studio — your booking is confirmed. Your Tracking ID is '+bookingId+'. Set your password once from this secure link to track your work anytime: '+setupUrl+' — Error Studio, Cuddalore (99440 36606)');
+    }
     $('print2').onclick=()=>window.print();
     loadLog(); loadAccess();
   }catch(e){ $('generr').textContent='Network error. Try again.'; $('gen').disabled=false; $('gen').textContent='Generate Invoice — booking confirmed'; }
