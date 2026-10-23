@@ -182,6 +182,15 @@ module.exports = async (req, res) => {
       return send(200, { ok: true, bookingId: bid, setupUrl: BASE + '/setup-access.html?id=' + encodeURIComponent(bid) + '&k=' + s.token });
     }
 
+    if (action === 'archive') {
+      const bid = String(body.bookingId || '').trim().toUpperCase();
+      if (!/^ERR-[A-Z0-9-]{1,16}$/.test(bid)) return send(200, { ok: false, message: 'Unknown Booking ID.' });
+      const page = await findByBookingId(bid);
+      if (!page) return send(200, { ok: false, message: 'No tracker record for ' + bid + '.' });
+      await nf('/pages/' + page.id, 'PATCH', { archived: true });
+      return send(200, { ok: true, archived: bid });
+    }
+
     if (action === 'status') {
       const ids = Array.isArray(body.bookingIds) ? body.bookingIds.slice(0, 50) : [];
       const out = {};
