@@ -80,7 +80,7 @@ async function findByPhone(phone) {
   const j = await nf('/data_sources/' + DS_ID + '/query', 'POST', { page_size: 5, filter: { property: 'Phone', phone_number: { contains: p } } });
   return (j.results || [])[0] || null;
 }
-async function nextBookingId() {
+async function visibleMaxBookingNum() {
   let cursor, max = 0;
   do {
     const j = await nf('/data_sources/' + DS_ID + '/query', 'POST', { page_size: 100, start_cursor: cursor, filter: { property: 'Booking ID', rich_text: { is_not_empty: true } } });
@@ -90,7 +90,60 @@ async function nextBookingId() {
     }
     cursor = j.has_more ? j.next_cursor : null;
   } while (cursor);
-  return 'ERR-' + String(max + 1).padStart(3, '0');
+  return max;
+}
+
+// Booking IDs must never be reissued, even after a record is archived. Notion
+// queries never return archived rows, so the durable high-water mark lives in a
+// dedicated ledger row (ERR-000) that is never archived. The ledger is seeded
+// once (currently 20, covering ERR-018/020 issued before it existed) and bumped
+// on every allocation and every archive of a numbered record.
+const LEDGER_BID = 'ERR-000';
+async function findLedger() {
+  const j = await nf('/data_sources/' + DS_ID + '/query', 'POST', { page_size: 1, filter: { property: 'Booking ID', rich_text: { equals: LEDGER_BID } } });
+  return (j.results || [])[0] || null;
+}
+async function ensureLedger() {
+  const lg = await findLedger();
+  if (lg) return lg;
+  // Fallback seed only: normally the ledger is created once by hand with the
+  // correct historical high-water mark. Visible max can miss archived IDs.
+  const seeded = await visibleMaxBookingNum();
+  return await nf('/pages', 'POST', { parent: { data_source_id: DS_ID }, properties: {
+    'Shoot': { title: [{ type: 'text', text: { content: 'ID LEDGER — internal, never archive or edit' } }] },
+    'Booking ID': rt(LEDGER_BID),
+    'Show on website': { checkbox: false },
+    'ID counter': rt(String(seeded)),
+  } });
+}
+const ledgerNum = (lg) => parseInt(text(lg.properties['ID counter']) || '0', 10) || 0;
+async function bumpLedger(lgId, n) {
+  await nf('/pages/' + lgId, 'PATCH', { properties: { 'ID counter': rt(String(n)) } });
+}
+async function findClash(bid, ownPageId) {
+  const j = await nf('/data_sources/' + DS_ID + '/query', 'POST', { page_size: 5, filter: { property: 'Booking ID', rich_text: { equals: bid } } });
+  return (j.results || []).find((pg) => pg.id !== ownPageId) || null;
+}
+// Allocate the next monotonic ID and create the client row with it. On a
+// concurrent-claim collision (another row won the same number), renumber our
+// own fresh row upward and retry; existing rows are never renumbered.
+async function allocateBookingId(propsFor) {
+  const lg = await ensureLedger();
+  let n = Math.max(ledgerNum(lg), await visibleMaxBookingNum());
+  let page = null;
+  for (let attempt = 0; attempt < 6; attempt++) {
+    n += 1;
+    const candidate = 'ERR-' + String(n).padStart(3, '0');
+    if (!page) page = await nf('/pages', 'POST', { parent: { data_source_id: DS_ID }, properties: propsFor(candidate) });
+    else await nf('/pages/' + page.id, 'PATCH', { properties: { 'Booking ID': rt(candidate) } });
+    await bumpLedger(lg.id, n);
+    // Let Notion's query index settle, then confirm no concurrent claim holds this ID.
+    await new Promise((r) => setTimeout(r, 1200));
+    if (!(await findClash(candidate, page.id))) return { bookingId: candidate, page };
+    const lg2 = await nf('/pages/' + lg.id);
+    n = Math.max(n, ledgerNum(lg2));
+  }
+  throw new Error('id allocation contention');
 }
 async function ensureSetupColumns() {
   const ds = await nf('/data_sources/' + DS_ID);
@@ -98,6 +151,7 @@ async function ensureSetupColumns() {
   const add = {};
   if (!props['Setup token hash']) add['Setup token hash'] = { rich_text: {} };
   if (!props['Setup token expiry']) add['Setup token expiry'] = { rich_text: {} };
+  if (!props['ID counter']) add['ID counter'] = { rich_text: {} };
   if (Object.keys(add).length) await nf('/data_sources/' + DS_ID, 'PATCH', { properties: add });
 }
 async function setSetupToken(pageId, hash, expiryIso) {
@@ -154,15 +208,18 @@ module.exports = async (req, res) => {
         bookingId = text(page.properties['Booking ID']).toUpperCase();
         if (!/^ERR-[A-Z0-9-]{1,16}$/.test(bookingId)) return send(200, { ok: false, message: 'Existing client record has no Booking ID yet. Add it in the tracker first.' });
       } else {
-        bookingId = await nextBookingId();
-        const props = {
-          'Shoot': { title: [{ type: 'text', text: { content: clientName } }] },
-          'Booking ID': rt(bookingId),
-          'Show on website': { checkbox: true },
-        };
-        if (phone) props['Phone'] = { phone_number: phone };
-        if (eventDate) props['Date'] = { date: { start: eventDate } };
-        page = await nf('/pages', 'POST', { parent: { data_source_id: DS_ID }, properties: props });
+        const alloc = await allocateBookingId((candidate) => {
+          const props = {
+            'Shoot': { title: [{ type: 'text', text: { content: clientName } }] },
+            'Booking ID': rt(candidate),
+            'Show on website': { checkbox: true },
+          };
+          if (phone) props['Phone'] = { phone_number: phone };
+          if (eventDate) props['Date'] = { date: { start: eventDate } };
+          return props;
+        });
+        bookingId = alloc.bookingId;
+        page = alloc.page;
         created = true;
       }
       const accessActive = !!text(page.properties['Access hash']);
@@ -197,6 +254,14 @@ module.exports = async (req, res) => {
       if (!/^ERR-[A-Z0-9-]{1,16}$/.test(bid)) return send(200, { ok: false, message: 'Unknown Booking ID.' });
       const page = await findByBookingId(bid);
       if (!page) return send(200, { ok: false, message: 'No tracker record for ' + bid + '.' });
+      // Preserve the high-water mark before the row leaves query results.
+      await ensureSetupColumns();
+      const m = /^ERR-0*(\d+)$/.exec(bid);
+      if (m) {
+        const lg = await ensureLedger();
+        const n = parseInt(m[1], 10);
+        if (n > ledgerNum(lg)) await bumpLedger(lg.id, n);
+      }
       await nf('/pages/' + page.id, 'PATCH', { archived: true });
       return send(200, { ok: true, archived: bid });
     }
