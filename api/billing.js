@@ -168,7 +168,8 @@ module.exports = async (req, res) => {
       const s = newSetup();
       await setSetupToken(page.id, s.hash, s.expiry);
       const accessActive = !!text(page.properties['Access hash']);
-      return send(200, { ok: true, bookingId, created, accessActive, setupUrl: BASE + '/setup-access.html?id=' + encodeURIComponent(bookingId) + '&k=' + s.token });
+      const visible = !!(page.properties['Show on website'] && page.properties['Show on website'].checkbox);
+      return send(200, { ok: true, bookingId, created, accessActive, visible, setupUrl: BASE + '/setup-access.html?id=' + encodeURIComponent(bookingId) + '&k=' + s.token });
     }
 
     if (action === 'reset') {
