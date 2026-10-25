@@ -14,6 +14,7 @@ import post4 from "../../assets/images/website/portfolio/8-(5).webp";
 import post5 from "../../assets/images/website/portfolio/00-(6).webp";
 import post6 from "../../assets/images/website/portfolio/12X36/18.webp";
 import post7 from "../../assets/images/website/portfolio/13-(2).webp";
+import post8 from "../../assets/images/website/portfolio/9-(5).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -87,6 +88,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/engagement-reception-coverage-tips",
+  },
+  {
+    thumb: post8,
+    title: "Wedding and pre-wedding shoot locations in Villupuram and Pondicherry",
+    subtitle:
+      "White Town mornings, Rock Beach at sunrise, quieter beaches, Auroville permissions and mandapam planning - a practical guide from a team that shoots in both.",
+    date: "25 Oct 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/villupuram-pondicherry-shoot-locations",
   },
 ];
 
