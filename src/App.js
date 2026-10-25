@@ -8,6 +8,7 @@ import BlogDetails2 from './components/Pages/BlogDetails2';
 import BlogDetails5 from './components/Pages/BlogDetails5';
 import BlogDetails6 from './components/Pages/BlogDetails6';
 import BlogDetails7 from './components/Pages/BlogDetails7';
+import BlogDetails8 from './components/Pages/BlogDetails8';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
 import Home from './components/Pages/Home';
@@ -80,6 +81,10 @@ function App() {
           <Route
             path="blog/engagement-reception-coverage-tips"
             element={<BlogDetails7 />}
+          />
+          <Route
+            path="blog/villupuram-pondicherry-shoot-locations"
+            element={<BlogDetails8 />}
           />
           <Route path="contact" element={<ContactPage />} />
           <Route path="faq" element={<FaqPage />} />
