@@ -15,6 +15,7 @@ import post5 from "../../assets/images/website/portfolio/00-(6).webp";
 import post6 from "../../assets/images/website/portfolio/12X36/18.webp";
 import post7 from "../../assets/images/website/portfolio/13-(2).webp";
 import post8 from "../../assets/images/website/portfolio/9-(5).webp";
+import post9 from "../../assets/images/website/portfolio/8-(5).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -98,6 +99,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/villupuram-pondicherry-shoot-locations",
+  },
+  {
+    thumb: post9,
+    title: "How to choose a wedding photographer in Cuddalore: what to check before you book",
+    subtitle:
+      "Full galleries over highlights, who actually shows up, delivery timelines in writing, backup plans and why local knowledge wins - a practical checklist before you book.",
+    date: "27 Oct 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/how-to-choose-wedding-photographer-cuddalore",
   },
 ];
 
