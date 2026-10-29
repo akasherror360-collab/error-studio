@@ -10,6 +10,7 @@ import BlogDetails6 from './components/Pages/BlogDetails6';
 import BlogDetails7 from './components/Pages/BlogDetails7';
 import BlogDetails8 from './components/Pages/BlogDetails8';
 import BlogDetails9 from './components/Pages/BlogDetails9';
+import BlogDetails10 from './components/Pages/BlogDetails10';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
 import Home from './components/Pages/Home';
@@ -90,6 +91,10 @@ function App() {
           <Route
             path="blog/how-to-choose-wedding-photographer-cuddalore"
             element={<BlogDetails9 />}
+          />
+          <Route
+            path="blog/cinematic-wedding-films-explained"
+            element={<BlogDetails10 />}
           />
           <Route path="contact" element={<ContactPage />} />
           <Route path="faq" element={<FaqPage />} />
