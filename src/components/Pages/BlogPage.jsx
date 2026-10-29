@@ -16,6 +16,7 @@ import post6 from "../../assets/images/website/portfolio/12X36/18.webp";
 import post7 from "../../assets/images/website/portfolio/13-(2).webp";
 import post8 from "../../assets/images/website/portfolio/9-(5).webp";
 import post9 from "../../assets/images/website/portfolio/8-(5).webp";
+import post10 from "../../assets/images/website/portfolio/13-(7).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -109,6 +110,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/how-to-choose-wedding-photographer-cuddalore",
+  },
+  {
+    thumb: post10,
+    title: "Cinematic wedding films: what they are and how they differ from regular wedding video",
+    subtitle:
+      "Traditional record vs cinematic story, what actually decides film quality, and the questions to ask before you book a film team.",
+    date: "29 Oct 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/cinematic-wedding-films-explained",
   },
 ];
 
