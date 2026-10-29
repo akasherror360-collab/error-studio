@@ -1,5 +1,5 @@
 .ev-admin{grid-column:1/-1;padding:20px;overflow:auto;max-width:1200px;width:100%;margin:0 auto}
-.ev-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.ev-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
 .ev-top h2{margin:0;font-size:22px}
 .ev-form{border:1px solid #303038;border-radius:14px;padding:18px;background:var(--admin-panel);margin-bottom:20px}
 .ev-form h3{margin:0 0 14px}
@@ -27,7 +27,7 @@
 .admin-tabs{display:flex;gap:6px}
 .admin-tabs button{background:#2a2a32}
 .admin-tabs button.active{background:var(--admin-accent)}
-.admin-shell.events-mode{grid-template:64px 1fr/1fr;height:auto;min-height:100vh}
+.admin-shell.events-mode{grid-template:auto 1fr/1fr;height:auto;min-height:100vh}
 .sw-upload{display:inline-flex !important;align-items:center;border-radius:9px;padding:10px 14px !important;background:var(--admin-accent);color:#fff;font-weight:700;cursor:pointer;margin:0 !important}
 .sw-upload input{display:none}
 .sw-filters{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0 16px}
