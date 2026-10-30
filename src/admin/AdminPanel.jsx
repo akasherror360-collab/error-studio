@@ -216,18 +216,19 @@ export default function AdminPanel() {
   if (user === undefined) return <main className="admin-login">Loading secure admin…</main>;
   if (!user || user.email !== OWNER_EMAIL) return <main className="admin-login" data-admin-ui><section><h1>Error Studio Admin</h1><p>Sign in with the owner Google account to edit the website.</p><button disabled={busy} onClick={signIn}>{busy ? 'Opening Google sign-in…' : 'Sign in with Google'}</button>{status && <p role="alert">{status}</p>}<small>On phones, sign-in opens as a full page and returns here automatically.</small></section></main>;
 
+const quickLinks = <div className="admin-quick"><span>Quick access</span><a href="/studio-billing.html" target="_blank" rel="noreferrer">Quotation &amp; Invoice</a><details className="admin-pkg-menu"><summary>Packages</summary><div className="admin-pkg-list"><a href="/packages" target="_blank" rel="noreferrer">Wedding Packages</a><a href="/outdoor-packages" target="_blank" rel="noreferrer">Outdoor Packages</a><a href="/cover-song-package" target="_blank" rel="noreferrer">Cover Song Package</a><a href="/p/da22f5ae3b53ce.html" target="_blank" rel="noreferrer">Maternity &amp; Events Packages</a></div></details></div>;
   const tabs = <div className="admin-tabs"><button className={tab === 'site' ? 'active' : ''} onClick={() => setTab('site')}>Website</button><button className={tab === 'works' ? 'active' : ''} onClick={() => setTab('works')}>Selected Works</button><button className={tab === 'events' ? 'active' : ''} onClick={() => setTab('events')}>Event galleries</button></div>;
   if (tab === 'works') return <main className="admin-shell events-mode" data-admin-ui>
-    <header><div><strong>Error Studio Admin</strong><small>{user.email}</small></div><nav>{tabs}<button className="secondary" onClick={() => signOut(auth)}>Sign out</button></nav></header>
+    <header><div className="admin-head-row"><div className="admin-brand"><strong>Error Studio Admin</strong><small>{user.email}</small></div><nav>{tabs}<button className="secondary" onClick={() => signOut(auth)}>Sign out</button></nav></div>{quickLinks}</header>
     <SelectedWorksAdmin />
   </main>;
   if (tab === 'events') return <main className="admin-shell events-mode" data-admin-ui>
-    <header><div><strong>Error Studio Admin</strong><small>{user.email}</small></div><nav>{tabs}<button className="secondary" onClick={() => signOut(auth)}>Sign out</button></nav></header>
+    <header><div className="admin-head-row"><div className="admin-brand"><strong>Error Studio Admin</strong><small>{user.email}</small></div><nav>{tabs}<button className="secondary" onClick={() => signOut(auth)}>Sign out</button></nav></div>{quickLinks}</header>
     <EventsAdmin user={user} />
   </main>;
 
   return <main className="admin-shell" data-admin-ui>
-    <header><div><strong>Error Studio Admin</strong><small>{user.email}</small></div><nav>{tabs}<a href={path} target="_blank" rel="noreferrer">Open public page</a><button onClick={() => signOut(auth)}>Sign out</button></nav></header>
+    <header><div className="admin-head-row"><div className="admin-brand"><strong>Error Studio Admin</strong><small>{user.email}</small></div><nav>{tabs}<a href={path} target="_blank" rel="noreferrer">Open public page</a><button onClick={() => signOut(auth)}>Sign out</button></nav></div>{quickLinks}</header>
     <aside>
       <label>Page<select value={path} onChange={e => setPath(e.target.value)}>{pages.map(([name,url]) => <option key={url} value={url}>{name}</option>)}</select></label>
       <p className="hint">Click highlighted text or an image in the preview.</p>
