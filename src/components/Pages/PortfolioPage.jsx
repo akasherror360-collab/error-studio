@@ -20,7 +20,6 @@ import client_b3175fbd from "../../assets/images/client-2026-09/b3175fbd.webp";
 import client_ca15442e from "../../assets/images/client-2026-09/ca15442e.webp";
 import client_ecc79736 from "../../assets/images/client-2026-09/ecc79736.webp";
 import client_f029984b from "../../assets/images/client-2026-09/f029984b.webp";
-import portfolio_0_2 from "../../assets/images/website/portfolio/0-(2).webp";
 import portfolio_00_2 from "../../assets/images/website/portfolio/00-(2).webp";
 import portfolio_00_6 from "../../assets/images/website/portfolio/00-(6).webp";
 import portfolio_1_1 from "../../assets/images/website/portfolio/1-(1).webp";
@@ -28,9 +27,6 @@ import portfolio_1_2 from "../../assets/images/website/portfolio/1-(2).webp";
 import portfolio_1_3 from "../../assets/images/website/portfolio/1-(3).webp";
 import portfolio_1_4 from "../../assets/images/website/portfolio/1-(4).webp";
 import portfolio_1_6 from "../../assets/images/website/portfolio/1-(6).webp";
-import portfolio_10_5 from "../../assets/images/website/portfolio/10-(5).webp";
-import portfolio_12_1 from "../../assets/images/website/portfolio/12-(1).webp";
-import portfolio_12_3 from "../../assets/images/website/portfolio/12-(3).webp";
 import portfolio_13_1 from "../../assets/images/website/portfolio/13-(1).webp";
 import portfolio_13_2 from "../../assets/images/website/portfolio/13-(2).webp";
 import portfolio_13_7 from "../../assets/images/website/portfolio/13-(7).webp";
@@ -40,10 +36,6 @@ import portfolio_15_6 from "../../assets/images/website/portfolio/15-(6).webp";
 import portfolio_15_8 from "../../assets/images/website/portfolio/15-(8).webp";
 import portfolio_18_10 from "../../assets/images/website/portfolio/18-(10).webp";
 import portfolio_18_2 from "../../assets/images/website/portfolio/18-(2).webp";
-import portfolio_2_1 from "../../assets/images/website/portfolio/2-(1).webp";
-import portfolio_2_2 from "../../assets/images/website/portfolio/2-(2).webp";
-import portfolio_3_1 from "../../assets/images/website/portfolio/3-(1).webp";
-import portfolio_6_2 from "../../assets/images/website/portfolio/6-(2).webp";
 import portfolio_8_1 from "../../assets/images/website/portfolio/8-(1).webp";
 import portfolio_8_5 from "../../assets/images/website/portfolio/8-(5).webp";
 import portfolio_9_5 from "../../assets/images/website/portfolio/9-(5).webp";
@@ -210,4 +202,4 @@ export default function PortfolioPage() {
       />
     </>
   );
-  }
+}
