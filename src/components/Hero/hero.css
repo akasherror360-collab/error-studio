@@ -1268,3 +1268,19 @@
   .cs-home_intro_mobile { display: block; padding-top: 40px; }
   .cs-home_intro_mobile p { font-size: 17px; line-height: 1.9em; color: #fefefe; max-width: 500px; margin: 0; }
 }
+
+/* Optional small line above the main hero H1 */
+.cs-hero.cs-style1 .cs-hero_eyebrow {
+  font-size: 18px;
+  line-height: 1.6em;
+  color: var(--accent);
+  text-align: end;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+@media (max-width: 575px) {
+  .cs-hero.cs-style1 .cs-hero_eyebrow {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+}

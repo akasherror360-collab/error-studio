@@ -65,7 +65,8 @@ export default function Home() {
     <>
       {/* Start Hero Section */}
       <Hero
-        title="Capturing Moments. <br/>Editing Stories."
+        eyebrow="Capturing Moments. Editing Stories."
+        title="Candid Wedding Photography &amp; <br/>Cinematic Films in Cuddalore &amp; Pondicherry"
         subtitle={heroIntro}
         btnText="Book Your Shoot"
         btnLink="/contact"

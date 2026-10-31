@@ -7,6 +7,7 @@ import VerticalLinks from "../VerticalLinks";
 import carousel5 from "../../assets/images/website/carousel/01.jpg";
 
 export default function Hero({
+  eyebrow,
   title,
   subtitle,
   btnText,
@@ -28,6 +29,7 @@ export default function Hero({
       <Div className="container h-full relative z-10">
         <Div className="cs-hero_text h-full">
           <div className="flex justify-between flex-col h-full">
+            {eyebrow && <div className="cs-hero_eyebrow">{eyebrow}</div>}
             <h1 className="cs-hero_title">{parse(title)}</h1>
             <Div className="cs-hero_info">
               <Div className="cs-hero_info_text">

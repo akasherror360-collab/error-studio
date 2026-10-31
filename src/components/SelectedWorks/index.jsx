@@ -54,7 +54,7 @@ export default function SelectedWorks() {
       <div className="es-works_grid">
         {shown.map((item, index) => (
           <button type="button" className="es-works_item" key={item.id} onClick={() => setOpen(index)} aria-label={item.caption || 'Open Error Studio work'}>
-            <img src={item.src} alt={item.caption || 'Error Studio poster design'} loading="lazy" decoding="async" />
+            <img src={item.src} alt={item.alt || item.caption || 'Error Studio poster design'} loading="lazy" decoding="async" />
             {item.caption && <span className="es-works_caption">{item.caption}</span>}
           </button>
         ))}
@@ -70,7 +70,7 @@ export default function SelectedWorks() {
         <div className="es-works_lightbox" role="dialog" aria-modal="true" onClick={close}>
           <button type="button" className="es-works_close" onClick={close} aria-label="Close">×</button>
           {list.length > 1 && <button type="button" className="es-works_nav es-works_prev" onClick={event => { event.stopPropagation(); step(-1); }} aria-label="Previous">‹</button>}
-          <img src={list[open].src} alt={list[open].caption || 'Error Studio poster design'} onClick={event => event.stopPropagation()} />
+          <img src={list[open].src} alt={list[open].alt || list[open].caption || 'Error Studio poster design'} onClick={event => event.stopPropagation()} />
           {list.length > 1 && <button type="button" className="es-works_nav es-works_next" onClick={event => { event.stopPropagation(); step(1); }} aria-label="Next">›</button>}
         </div>
       )}

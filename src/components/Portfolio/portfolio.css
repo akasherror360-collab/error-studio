@@ -354,3 +354,13 @@
 .cs_portfolio_grid_2 .cs-portfolio.cs-style1 {
   border-radius: 0;
 }
+
+/* Real <img> inside portfolio cards: fill the card exactly like the old CSS background */
+.cs-portfolio.cs-style1 img.cs-portfolio_img {
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+                                         }
