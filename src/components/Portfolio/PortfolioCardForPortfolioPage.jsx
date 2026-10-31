@@ -5,6 +5,7 @@ import "./portfolio.css";
 
 export default function PortfolioCardForPortfolioPage({
   src,
+  alt,
   variant,
   onClick,
 }) {
@@ -15,9 +16,12 @@ export default function PortfolioCardForPortfolioPage({
     >
       <>
         <Div className="cs-portfolio_hover" />
-        <Div
-          className="cs-portfolio_bg cs-bg"
-          style={{ backgroundImage: `url("${src}")` }}
+        <img
+          src={src}
+          alt={alt || "Error Studio portfolio photograph"}
+          className="cs-portfolio_bg cs-portfolio_img"
+          loading="lazy"
+          decoding="async"
         />
         <Div className="cs-portfolio_info">
           {/* <Div className="cs-portfolio_info_bg bg-[#F9A30A]" />
