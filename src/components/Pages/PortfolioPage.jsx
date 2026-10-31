@@ -62,12 +62,7 @@ export const portfolioData = [
   { src: client_7196946d, category: "portraits", alt: "Portrait of a woman in a green saree adjusting her hair outdoors, by Error Studio" },
   { src: client_83b84cb3, category: "portraits", alt: "Studio portrait of a man in a suit, by Error Studio" },
   { src: client_992275cb, category: "portraits", alt: "Bridal portrait in a blue saree with traditional jewellery, by Error Studio" },
-  { src: portfolio_12_1, category: "portraits", alt: "Woman holding a bouquet against a purple backdrop" },
-  { src: portfolio_12_3, category: "portraits", alt: "Bride in a white gown and veil holding a bouquet" },
   { src: portfolio_15_6, category: "portraits", alt: "Collage of bridal close-ups showing smile, earrings and necklace, by Error Studio" },
-  { src: portfolio_2_1, category: "portraits", alt: "Mother and baby portrait poster titled Motherhood, by Error Studio" },
-  { src: portfolio_2_2, category: "portraits", alt: "Baby asleep on a miniature sofa, styled poster" },
-  { src: portfolio_3_1, category: "portraits", alt: "Bharatanatyam dancer performing on stage" },
   { src: client_ca15442e, category: "couples", alt: "Backlit portrait of a couple, by Error Studio" },
   { src: client_11c32d9e, category: "couples", alt: "Close-up of a couple holding hands with bangles, by Error Studio" },
   { src: portfolio_1_4, category: "couples", alt: "Silhouette of a couple inside a circular frame, by Error Studio" },
@@ -78,12 +73,10 @@ export const portfolioData = [
   { src: client_ecc79736, category: "pre-wedding", alt: "Couple standing in the shallows at the beach, pre-wedding shoot by Error Studio" },
   { src: client_68828210, category: "pre-wedding", alt: "Silhouettes of a couple in a corridor, pre-wedding shoot by Error Studio" },
   { src: client_b3175fbd, category: "pre-wedding", alt: "Couple at Gangaikonda Cholapuram temple, Error Studio shoot" },
-  { src: portfolio_0_2, category: "pre-wedding", alt: "Pre-wedding collage of a couple in yellow and green outfits" },
   { src: portfolio_1_1, category: "pre-wedding", alt: "Couple portraits at a traditional home, collage by Error Studio" },
   { src: portfolio_1_2, category: "pre-wedding", alt: "Couple seated on decorated venue steps, by Error Studio" },
   { src: portfolio_1_3, category: "pre-wedding", alt: "Couple collage with waterside photos, by Error Studio" },
   { src: portfolio_1_6, category: "pre-wedding", alt: "Couple embracing among green leaves, by Error Studio" },
-  { src: portfolio_10_5, category: "pre-wedding", alt: "Couple standing in a field holding a yellow cloth" },
   { src: portfolio_13_1, category: "pre-wedding", alt: "Couple in matching shirts against an orange circle design, by Error Studio" },
   { src: portfolio_13_2, category: "pre-wedding", alt: "Couple dancing outside a yellow building, collage by Error Studio" },
   { src: portfolio_13_7, category: "pre-wedding", alt: "Couple beside a street lamp post, by Error Studio" },
@@ -94,12 +87,11 @@ export const portfolioData = [
   { src: client_02a83c7d, category: "tamil-weddings", alt: "Couple in wedding attire in a wide dark frame, by Error Studio" },
   { src: client_f029984b, category: "tamil-weddings", alt: "Family group moments at a wedding, by Error Studio" },
   { src: portfolio_00_2, category: "tamil-weddings", alt: "Smiling bride wearing garlands, photographed by Error Studio" },
-  { src: portfolio_6_2, category: "tamil-weddings", alt: "Couple in wedding attire with garlands and sunglasses" }
 ];
 
 // Category order as set by the owner.
 const categoryMenu = [
-  { title: "All Photographs", category: "all-photos", thumb: portfolio_10_5 },
+  { title: "All Photographs", category: "all-photos", thumb: portfolio_9_5 },
   { title: "Portraits", category: "portraits", thumb: portfolio_15_8 },
   { title: "Couples", category: "couples", thumb: client_ca15442e },
   { title: "Pre-Wedding", category: "pre-wedding", thumb: client_ecc79736 },
@@ -218,4 +210,4 @@ export default function PortfolioPage() {
       />
     </>
   );
-}
+  }
