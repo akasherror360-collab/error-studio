@@ -17,6 +17,7 @@ import post7 from "../../assets/images/website/portfolio/13-(2).webp";
 import post8 from "../../assets/images/website/portfolio/9-(5).webp";
 import post9 from "../../assets/images/website/portfolio/8-(5).webp";
 import post10 from "../../assets/images/website/portfolio/13-(7).webp";
+import post11 from "../../assets/images/website/carousel/02.jpg";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -120,6 +121,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/cinematic-wedding-films-explained",
+  },
+  {
+    thumb: post11,
+    title: "Reception stage and venue prep: how decor and lighting change your wedding photos",
+    subtitle:
+      "Stage lighting colour, LED wall flicker, backdrop clutter and hall layout - the small venue decisions that decide how your reception photos look.",
+    date: "31 Oct 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/reception-stage-venue-prep-photos",
   },
 ];
 
