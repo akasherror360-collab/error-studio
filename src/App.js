@@ -11,6 +11,7 @@ import BlogDetails7 from './components/Pages/BlogDetails7';
 import BlogDetails8 from './components/Pages/BlogDetails8';
 import BlogDetails9 from './components/Pages/BlogDetails9';
 import BlogDetails10 from './components/Pages/BlogDetails10';
+import BlogDetails11 from './components/Pages/BlogDetails11';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
 import Home from './components/Pages/Home';
@@ -95,6 +96,10 @@ function App() {
           <Route
             path="blog/cinematic-wedding-films-explained"
             element={<BlogDetails10 />}
+          />
+          <Route
+            path="blog/reception-stage-venue-prep-photos"
+            element={<BlogDetails11 />}
           />
           <Route path="contact" element={<ContactPage />} />
           <Route path="faq" element={<FaqPage />} />
