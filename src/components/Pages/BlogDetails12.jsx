@@ -43,7 +43,7 @@ export default function BlogDetails12() {
                   Planning Wedding Photos in Cuddalore's Monsoon Season
                 </h2>
                 <p>
-                  If your wedding falls between October and December, you are getting married in Tamil Nadu's northeast monsoon - the season that brings most of the year's rain to coastal districts like Cuddalore. The IMD announced this year's northeast monsoon onset over Tamil Nadu on 15 October (<a href="https://mausam.imd.gov.in/Forecast/mcmarq/mcmarq_data/press%2015102026.pdf" target="_blank" rel="noopener noreferrer">IMD press release</a>). A monsoon wedding is not a problem for photography. It only needs a little extra planning. Here is what we have seen work, season after season.
+                  If your wedding falls between October and December, you are getting married in Tamil Nadu's northeast monsoon - the state's chief rainy season, when about 48% of the year's rain falls (<a href="https://mausam.imd.gov.in/chennai/mcdata/ne_monsoon_2019.pdf" target="_blank" rel="noopener noreferrer">IMD</a>). The IMD announced this year's northeast monsoon onset over Tamil Nadu on 15 October (<a href="https://mausam.imd.gov.in/Forecast/mcmarq/mcmarq_data/press%2015102026.pdf" target="_blank" rel="noopener noreferrer">IMD press release</a>). A monsoon wedding is not a problem for photography. It only needs a little extra planning. Here is what we have seen work, season after season.
                 </p>
 
                 <h3>1. Understand the rain pattern, not the forecast panic</h3>
