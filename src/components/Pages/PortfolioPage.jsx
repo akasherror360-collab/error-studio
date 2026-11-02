@@ -20,7 +20,6 @@ import client_b3175fbd from "../../assets/images/client-2026-09/b3175fbd.webp";
 import client_ca15442e from "../../assets/images/client-2026-09/ca15442e.webp";
 import client_ecc79736 from "../../assets/images/client-2026-09/ecc79736.webp";
 import client_f029984b from "../../assets/images/client-2026-09/f029984b.webp";
-import portfolio_00_2 from "../../assets/images/website/portfolio/00-(2).webp";
 import portfolio_00_6 from "../../assets/images/website/portfolio/00-(6).webp";
 import portfolio_1_1 from "../../assets/images/website/portfolio/1-(1).webp";
 import portfolio_1_2 from "../../assets/images/website/portfolio/1-(2).webp";
@@ -78,7 +77,6 @@ export const portfolioData = [
   { src: portfolio_00_6, category: "tamil-weddings" },
   { src: client_02a83c7d, category: "tamil-weddings" },
   { src: client_f029984b, category: "tamil-weddings" },
-  { src: portfolio_00_2, category: "tamil-weddings" },
 ];
 
 // Category order as set by the owner.
@@ -202,4 +200,4 @@ export default function PortfolioPage() {
       />
     </>
   );
-}
+                                                                        }
