@@ -18,6 +18,7 @@ import post8 from "../../assets/images/website/portfolio/9-(5).webp";
 import post9 from "../../assets/images/website/portfolio/8-(5).webp";
 import post10 from "../../assets/images/website/portfolio/13-(7).webp";
 import post11 from "../../assets/images/website/carousel/02.jpg";
+import post12 from "../../assets/images/website/portfolio/1-(3).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -131,6 +132,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/reception-stage-venue-prep-photos",
+  },
+  {
+    thumb: post12,
+    title: "Planning wedding photos in Cuddalore's monsoon season",
+    subtitle:
+      "Northeast monsoon weddings need windows, covered backups and small buffers - how to keep rain from ruling your wedding day photos.",
+    date: "02 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/monsoon-wedding-photo-planning-cuddalore",
   },
 ];
 
