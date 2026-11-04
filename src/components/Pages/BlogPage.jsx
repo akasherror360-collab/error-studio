@@ -19,6 +19,7 @@ import post9 from "../../assets/images/website/portfolio/8-(5).webp";
 import post10 from "../../assets/images/website/portfolio/13-(7).webp";
 import post11 from "../../assets/images/website/carousel/02.jpg";
 import post12 from "../../assets/images/website/portfolio/1-(3).webp";
+import post13 from "../../assets/images/website/portfolio/18-(10).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -142,6 +143,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/monsoon-wedding-photo-planning-cuddalore",
+  },
+  {
+    thumb: post13,
+    title: "Haldi and mehndi photography tips for Cuddalore weddings",
+    subtitle:
+      "Light, backdrops, mehndi close-ups, planning for the mess and twenty quiet minutes for couple portraits - how we shoot haldi and mehndi ceremonies across Cuddalore, Villupuram and Pondicherry.",
+    date: "04 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/haldi-mehndi-photography-tips",
   },
 ];
 
