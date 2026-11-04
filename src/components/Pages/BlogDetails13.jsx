@@ -109,4 +109,4 @@ export default function BlogDetails13() {
       </Div>
     </>
   );
-                  }
+}
