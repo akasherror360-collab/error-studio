@@ -87,7 +87,7 @@ export default function BlogDetails13() {
 
                 <h3>A final word from behind the camera</h3>
                 <p>
-                  Haldi and mehndi are not ceremonies you perform for the camera. They are ceremonies you enjoy, and the camera follows. A good photographer knows when to step in for a portrait and when to disappear into the crowd. If you are planning a wedding in or around Cuddalore and want your haldi and mehndi photographed this way, call or WhatsApp us on <a href="tel:+919944036606">99440 36606</a> and tell us your date. And one practical note: turmeric stains can be near-impossible to remove, so wear something you love but will not cry over.
+                  Haldi and mehndi are not ceremonies you perform for the camera. They are ceremonies you enjoy, and the camera follows. A good photographer knows when to step in for a portrait and when to disappear into the crowd. If you are planning a wedding in or around Cuddalore and want your haldi and mehndi photographed this way, call or WhatsApp us on <a href="tel:+919944036606">99440 36606</a> and tell us your date. And one practical note: wear clothes you are comfortable getting stained, and keep towels and a change of clothes nearby.
                 </p>
               </Div>
             </Div>
@@ -109,4 +109,4 @@ export default function BlogDetails13() {
       </Div>
     </>
   );
-}
+                  }
