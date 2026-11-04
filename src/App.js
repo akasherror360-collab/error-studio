@@ -13,6 +13,7 @@ import BlogDetails9 from './components/Pages/BlogDetails9';
 import BlogDetails10 from './components/Pages/BlogDetails10';
 import BlogDetails11 from './components/Pages/BlogDetails11';
 import BlogDetails12 from './components/Pages/BlogDetails12';
+import BlogDetails13 from './components/Pages/BlogDetails13';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
 import Home from './components/Pages/Home';
@@ -105,6 +106,10 @@ function App() {
           <Route
             path="blog/monsoon-wedding-photo-planning-cuddalore"
             element={<BlogDetails12 />}
+          />
+          <Route
+            path="blog/haldi-mehndi-photography-tips"
+            element={<BlogDetails13 />}
           />
           <Route path="contact" element={<ContactPage />} />
           <Route path="faq" element={<FaqPage />} />
