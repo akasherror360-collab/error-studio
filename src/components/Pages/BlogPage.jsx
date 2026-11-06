@@ -20,6 +20,7 @@ import post10 from "../../assets/images/website/portfolio/13-(7).webp";
 import post11 from "../../assets/images/website/carousel/02.jpg";
 import post12 from "../../assets/images/website/portfolio/1-(3).webp";
 import post13 from "../../assets/images/website/portfolio/18-(10).webp";
+import post14 from "../../assets/images/website/portfolio/8-(1).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -153,6 +154,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/haldi-mehndi-photography-tips",
+  },
+  {
+    thumb: post14,
+    title: "Golden hour portraits: making the most of outdoor light on your wedding day",
+    subtitle:
+      "Why the low evening light flatters portraits, how to plan a twenty-minute window around sunset, open-sky spots near your venue, and backups when the timing does not cooperate.",
+    date: "06 Nov 2026",
+    category: "Shoot Tips",
+    categoryHref: "/blog",
+    href: "/blog/golden-hour-wedding-portraits-cuddalore",
   },
 ];
 
