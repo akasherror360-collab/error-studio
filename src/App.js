@@ -15,6 +15,7 @@ import BlogDetails11 from './components/Pages/BlogDetails11';
 import BlogDetails12 from './components/Pages/BlogDetails12';
 import BlogDetails13 from './components/Pages/BlogDetails13';
 import BlogDetails14 from './components/Pages/BlogDetails14';
+import BlogDetails15 from './components/Pages/BlogDetails15';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
 import Home from './components/Pages/Home';
@@ -115,6 +116,10 @@ function App() {
           <Route
             path="blog/golden-hour-wedding-portraits-cuddalore"
             element={<BlogDetails14 />}
+          />
+          <Route
+            path="blog/family-group-photos-wedding-tips"
+            element={<BlogDetails15 />}
           />
           <Route path="contact" element={<ContactPage />} />
           <Route path="faq" element={<FaqPage />} />
