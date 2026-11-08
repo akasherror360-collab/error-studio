@@ -43,7 +43,7 @@ export default function BlogDetails15() {
                   Family Group Photos at Your Wedding: How to Get Them Done Without the Chaos
                 </h2>
                 <p>
-                  Family group photos are the one part of a wedding day that can quietly eat forty minutes and test everyone's patience. It does not have to go that way. Group photo sessions fail for boring, fixable reasons - no list, no wrangler, no plan. Here is how to get every combination you want in under twenty minutes, without anyone losing their smile.
+                  Family group photos are the one part of a wedding day that can quietly eat forty minutes and test everyone's patience. It does not have to go that way. Group photo sessions fail for boring, fixable reasons - no list, no wrangler, no plan. Here is how to keep a family group session short and calm, without anyone losing their smile.
                 </p>
 
                 <h3>1. Write the list before the wedding day</h3>
@@ -53,7 +53,7 @@ export default function BlogDetails15() {
 
                 <h3>2. Appoint one wrangler from each side</h3>
                 <p>
-                  Your photographer does not know that the man near the pillar is your uncle. Choose one person from each family who knows every face, and give them the list. Their only job during the session is to gather the next group while the current one is being shot. This one decision can halve the time.
+                  Your photographer does not know that the man near the pillar is your uncle. Choose one person from each family who knows every face, and give them the list. Their only job during the session is to gather the next group while the current one is being shot. That helps keep the next group ready and the session moving.
                 </p>
 
                 <h3>3. Pick the spot in advance</h3>
@@ -70,7 +70,7 @@ export default function BlogDetails15() {
 
                 <h3>5. Order the groups smartly</h3>
                 <p>
-                  Start with elderly grandparents and anyone who cannot stand for long, so they can sit down or leave early. Do the largest groups first while everyone is present, then peel people away into smaller combinations. Keep the couple in place and rotate family members around them - moving two people is always faster than moving twenty.
+                  Start with elderly grandparents and anyone who cannot stand for long, so they can sit down or leave early. Do the largest groups first while everyone is present, then peel people away into smaller combinations. Keep the couple in place and rotate family members around them - moving two people is usually faster than moving twenty.
                 </p>
 
                 <h3>6. Keep each group under two minutes</h3>
