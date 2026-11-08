@@ -171,7 +171,7 @@ const postData = [
     title:
       "Family group photos at your wedding: how to get them done without the chaos",
     subtitle:
-      "The written group list, two family wranglers, the right spot and order, and a two-minute rhythm - how to get every family combination in under twenty minutes.",
+      "The written group list, two family wranglers, the right spot and order, and a two-minute rhythm - how to keep family group photos short and calm.",
     date: "08 Nov 2026",
     category: "Wedding Guide",
     categoryHref: "/blog",
