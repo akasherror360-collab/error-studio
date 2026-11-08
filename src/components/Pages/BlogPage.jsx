@@ -21,6 +21,7 @@ import post11 from "../../assets/images/website/carousel/02.jpg";
 import post12 from "../../assets/images/website/portfolio/1-(3).webp";
 import post13 from "../../assets/images/website/portfolio/18-(10).webp";
 import post14 from "../../assets/images/website/portfolio/8-(1).webp";
+import post15 from "../../assets/images/website/portfolio/4-(2).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -164,6 +165,17 @@ const postData = [
     category: "Shoot Tips",
     categoryHref: "/blog",
     href: "/blog/golden-hour-wedding-portraits-cuddalore",
+  },
+  {
+    thumb: post15,
+    title:
+      "Family group photos at your wedding: how to get them done without the chaos",
+    subtitle:
+      "The written group list, two family wranglers, the right spot and order, and a two-minute rhythm - how to get every family combination in under twenty minutes.",
+    date: "08 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/family-group-photos-wedding-tips",
   },
 ];
 
