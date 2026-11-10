@@ -22,6 +22,7 @@ import post12 from "../../assets/images/website/portfolio/1-(3).webp";
 import post13 from "../../assets/images/website/portfolio/18-(10).webp";
 import post14 from "../../assets/images/website/portfolio/8-(1).webp";
 import post15 from "../../assets/images/website/portfolio/4-(2).webp";
+import post16 from "../../assets/images/website/Instagram Posters/1-(5).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -176,6 +177,17 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/family-group-photos-wedding-tips",
+  },
+  {
+    thumb: post16,
+    title:
+      "Wedding teaser vs full wedding film: what is the difference and which do you need?",
+    subtitle:
+      "What a teaser does, what a full film covers, how to choose between them, and the questions to ask before you book your wedding video.",
+    date: "10 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/wedding-teaser-vs-full-wedding-film",
   },
 ];
 
