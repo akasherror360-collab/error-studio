@@ -16,6 +16,7 @@ import BlogDetails12 from './components/Pages/BlogDetails12';
 import BlogDetails13 from './components/Pages/BlogDetails13';
 import BlogDetails14 from './components/Pages/BlogDetails14';
 import BlogDetails15 from './components/Pages/BlogDetails15';
+import BlogDetails16 from './components/Pages/BlogDetails16';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
 import Home from './components/Pages/Home';
@@ -120,6 +121,10 @@ function App() {
           <Route
             path="blog/family-group-photos-wedding-tips"
             element={<BlogDetails15 />}
+          />
+          <Route
+            path="blog/wedding-teaser-vs-full-wedding-film"
+            element={<BlogDetails16 />}
           />
           <Route path="contact" element={<ContactPage />} />
           <Route path="faq" element={<FaqPage />} />
