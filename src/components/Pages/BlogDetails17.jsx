@@ -102,4 +102,4 @@ export default function BlogDetails17() {
       </Div>
     </>
   );
-                    }
+}
