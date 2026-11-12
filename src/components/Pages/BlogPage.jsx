@@ -23,6 +23,7 @@ import post13 from "../../assets/images/website/portfolio/18-(10).webp";
 import post14 from "../../assets/images/website/portfolio/8-(1).webp";
 import post15 from "../../assets/images/website/portfolio/4-(2).webp";
 import post16 from "../../assets/images/website/Instagram Posters/1-(5).webp";
+import post17 from "../../assets/images/website/Instagram Posters/10-(2).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -188,6 +189,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/wedding-teaser-vs-full-wedding-film",
+  },
+  {
+    thumb: post17,
+    title: "What to ask your wedding photographer before you book",
+    subtitle:
+      "Deliverables, timelines, the team on the day, money terms, photo usage rights, and why to get it all in writing - the questions that prevent booking regrets.",
+    date: "12 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/what-to-ask-wedding-photographer-before-booking",
   },
 ];
 
