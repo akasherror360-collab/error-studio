@@ -24,6 +24,7 @@ import post14 from "../../assets/images/website/portfolio/8-(1).webp";
 import post15 from "../../assets/images/website/portfolio/4-(2).webp";
 import post16 from "../../assets/images/website/Instagram Posters/1-(5).webp";
 import post17 from "../../assets/images/website/Instagram Posters/10-(2).webp";
+import post18 from "../../assets/images/website/Instagram Posters/11-(2).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -199,6 +200,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/what-to-ask-wedding-photographer-before-booking",
+  },
+  {
+    thumb: post18,
+    title: "Your muhurtham time is fixed: how to plan wedding photography around it",
+    subtitle:
+      "Backward planning from the muhurtham time: makeup and travel slots, hall lighting, family photo blocks, the same-day reception gap, and one person in charge of the clock.",
+    date: "14 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/muhurtham-time-wedding-photography-planning",
   },
 ];
 
