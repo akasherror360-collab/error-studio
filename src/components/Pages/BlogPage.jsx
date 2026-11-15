@@ -25,6 +25,7 @@ import post15 from "../../assets/images/website/portfolio/4-(2).webp";
 import post16 from "../../assets/images/website/Instagram Posters/1-(5).webp";
 import post17 from "../../assets/images/website/Instagram Posters/10-(2).webp";
 import post18 from "../../assets/images/website/Instagram Posters/11-(2).webp";
+import post19 from "../../assets/images/website/Instagram Posters/14-(1).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -210,6 +211,16 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/muhurtham-time-wedding-photography-planning",
+  },
+  {
+    thumb: post19,
+    title: "December wedding in Cuddalore: weather, light and photography planning",
+    subtitle:
+      "December weather, the earlier sunset, a simple rain backup and a suggested photo flow - how to plan wedding photography for a December date in Cuddalore.",
+    date: "15 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/december-wedding-photography-planning-cuddalore",
   },
 ];
 
