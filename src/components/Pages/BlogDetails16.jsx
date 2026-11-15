@@ -43,7 +43,7 @@ export default function BlogDetails16() {
                   Wedding Teaser vs Full Wedding Film: What Is the Difference and Which Do You Need?
                 </h2>
                 <p>
-                  When you book video coverage for your wedding, you can ask for two different things: a short teaser and a full wedding film. They are not two lengths of the same video. They do different jobs, and knowing the difference before you book helps you spend on what you will actually watch.
+                  When you book video coverage for your wedding, you can ask for two different things: a short teaser and a full wedding film. They are not two lengths of the same video. They do different jobs, and knowing the difference before you book helps you spend on what you will actually watch. For a wider look at how <Link to="/blog/cinematic-wedding-films-explained">cinematic wedding films</Link> differ from regular wedding video, we have a separate guide.
                 </p>
 
                 <h3>1. What a wedding teaser is</h3>
