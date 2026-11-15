@@ -11,6 +11,8 @@ import post5 from '../../assets/images/website/portfolio/00-(6).webp'
 import post6 from '../../assets/images/website/portfolio/12X36/18.webp'
 import post2 from '../../assets/images/website/Instagram Posters/8-(2).webp'
 import post7 from '../../assets/images/website/portfolio/13-(2).webp'
+import post8 from '../../assets/images/website/portfolio/13-(7).webp'
+import post9 from '../../assets/images/website/carousel/02.jpg'
 
 export default function Sidebar() {
   const tagData = [
@@ -88,6 +90,18 @@ export default function Sidebar() {
       thumb: post7,
       href: '/blog/engagement-reception-coverage-tips',
       date: '23 Oct 2026'
+    },
+    {
+      title: "Planning wedding photos in Cuddalore's monsoon season",
+      thumb: post8,
+      href: '/blog/monsoon-wedding-photo-planning-cuddalore',
+      date: '02 Nov 2026'
+    },
+    {
+      title: 'Haldi and mehndi photography tips for Cuddalore weddings',
+      thumb: post9,
+      href: '/blog/haldi-mehndi-photography-tips',
+      date: '04 Nov 2026'
     }
   ]
   return (
