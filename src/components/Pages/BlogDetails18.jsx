@@ -48,12 +48,12 @@ export default function BlogDetails18() {
 
                 <h3>1. Start from the muhurtham time and work backward</h3>
                 <p>
-                  Once the muhurtham time is fixed, place the ceremony on a timeline and work backward. If the muhurtham is at 9 AM, decide when makeup starts, when the family should be ready, and when you want a few quiet portraits before the rituals begin. Share this timeline with your photographer early, not on the wedding morning, so the team can plan its own setup and lighting around it.
+                  Once the muhurtham time is fixed, place the ceremony on a <Link to="/blog/wedding-day-photography-timeline">timeline</Link> and work backward. If the muhurtham is at 9 AM, decide when makeup starts, when the family should be ready, and when you want a few quiet portraits before the rituals begin. Share this timeline with your photographer early, not on the wedding morning, so the team can plan its own setup and lighting around it.
                 </p>
 
                 <h3>2. Plan for the light you will actually have</h3>
                 <p>
-                  Muhurtham times can fall at any hour, including early morning before sunrise. If yours is an early one, most of your ceremony photos will depend on hall lighting rather than daylight. That is fine, but it helps to tell your photographer the expected light conditions in advance, and to check whether the hall allows additional lighting near the stage. If portraits matter to you, aim to keep a short window after the ceremony, when the light outside may be softer than at midday.
+                  Muhurtham times can fall at any hour, including early morning before sunrise. If yours is an early one, most of your ceremony photos will depend on hall lighting rather than daylight. That is fine, but it helps to tell your photographer the expected light conditions in advance, and to check whether the hall allows <Link to="/blog/reception-stage-venue-prep-photos">additional lighting near the stage</Link>. If portraits matter to you, aim to keep a short window after the ceremony, when the light outside <Link to="/blog/golden-hour-wedding-portraits-cuddalore">may be softer than at midday</Link>.
                 </p>
 
                 <h3>3. Decide where family group photos fit</h3>
@@ -75,7 +75,7 @@ export default function BlogDetails18() {
 
                 <h3>Getting married this season?</h3>
                 <p>
-                  Share your muhurtham date and time with Error Studio on WhatsApp at <a href="https://wa.me/919944036606">+91 99440 36606</a>, and we will plan the photography around your day, from the first ritual to the last reception frame. We shoot weddings across Cuddalore, Villupuram, Pondicherry and the rest of Tamil Nadu.
+                  Share your muhurtham date and time with Error Studio on WhatsApp at <a href="https://wa.me/919944036606">+91 99440 36606</a>, and we will plan the photography around your day, from the first ritual to the last reception frame. We shoot weddings across Cuddalore, <Link to="/blog/villupuram-pondicherry-shoot-locations">Villupuram, Pondicherry</Link> and the rest of Tamil Nadu.
                 </p>
               </Div>
             </Div>
