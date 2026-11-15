@@ -43,12 +43,12 @@ export default function BlogDetails17() {
                   What to Ask Your Wedding Photographer Before You Book
                 </h2>
                 <p>
-                  You have shortlisted a photographer whose work you like. Before you pay an advance, one conversation can save you from most booking regrets: the one where you ask specific questions and get the answers in writing. Here is a practical set of questions to bring to that conversation.
+                  You have <Link to="/blog/how-to-choose-wedding-photographer-cuddalore">shortlisted a photographer</Link> whose work you like. Before you pay an advance, one conversation can save you from most booking regrets: the one where you ask specific questions and get the answers in writing. Here is a practical set of questions to bring to that conversation.
                 </p>
 
                 <h3>1. Questions about what you will receive</h3>
                 <p>
-                  Start with the deliverables, because packages that sound similar can differ a lot. Ask how many edited photos you can expect, whether that is a fixed number or a range, and whether you also receive the unedited files. Ask what the video side includes: a teaser, a full film, or both, and roughly how long each will be. If an album is part of the package, ask how many pages and photos it holds and how many design revisions are included before printing.
+                  Start with the deliverables, because packages that sound similar can differ a lot. Ask how many edited photos you can expect, whether that is a fixed number or a range, and whether you also receive the unedited files. Ask what the video side includes: a teaser, <Link to="/blog/cinematic-wedding-films-explained">a full film</Link>, or both, and roughly how long each will be. If an album is part of the package, ask how many pages and photos it holds and how many design revisions are included before printing.
                 </p>
 
                 <h3>2. Questions about the timeline</h3>
