@@ -20,6 +20,7 @@ import BlogDetails16 from './components/Pages/BlogDetails16';
 import BlogDetails17 from './components/Pages/BlogDetails17';
 import BlogDetails18 from './components/Pages/BlogDetails18';
 import BlogDetails19 from './components/Pages/BlogDetails19';
+import BlogDetails20 from './components/Pages/BlogDetails20';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
 import Home from './components/Pages/Home';
@@ -140,6 +141,10 @@ function App() {
           <Route
             path="blog/december-wedding-photography-planning-cuddalore"
             element={<BlogDetails19 />}
+          />
+          <Route
+            path="blog/pongal-thai-month-wedding-photography-cuddalore"
+            element={<BlogDetails20 />}
           />
           <Route path="contact" element={<ContactPage />} />
           <Route path="faq" element={<FaqPage />} />
