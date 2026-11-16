@@ -167,7 +167,7 @@
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/((?!__(?:/|$)|api(?:/|$)|static(?:/|$)|assets(?:/|$))(?:[^.]*|.*\\.html))",
       "headers": [
         {
           "key": "Content-Security-Policy",
