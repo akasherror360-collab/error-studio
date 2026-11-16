@@ -26,6 +26,7 @@ import post16 from "../../assets/images/website/Instagram Posters/1-(5).webp";
 import post17 from "../../assets/images/website/Instagram Posters/10-(2).webp";
 import post18 from "../../assets/images/website/Instagram Posters/11-(2).webp";
 import post19 from "../../assets/images/website/Instagram Posters/14-(1).webp";
+import post20 from "../../assets/images/website/Instagram Posters/15-(1).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
@@ -222,6 +223,16 @@ const postData = [
     categoryHref: "/blog",
     href: "/blog/december-wedding-photography-planning-cuddalore",
   },
+  {
+    thumb: post20,
+    title: "Pongal-season and Thai-month weddings in Cuddalore: photography planning for January 2027",
+    subtitle:
+      "Thai Pongal falls on January 15, 2027 and Tamil muhurtham calendars list suba muhurtham dates in the Thai month - January weather, softer light and photography planning for a Pongal-season wedding.",
+    date: "16 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/pongal-thai-month-wedding-photography-cuddalore",
+  },
 ];
 
 export default function BlogPage() {
@@ -270,4 +281,4 @@ export default function BlogPage() {
       </Div>
     </>
   );
-}
+    }
