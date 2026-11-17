@@ -30,6 +30,8 @@ import post20 from "../../assets/images/website/Instagram Posters/15-(1).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 // Blog data from home page PostSlider
+import post21 from "../../assets/images/client-2026-09/ecc79736.webp";
+
 const postData = [
   {
     thumb: post1,
@@ -233,6 +235,15 @@ const postData = [
     categoryHref: "/blog",
     href: "/blog/pongal-thai-month-wedding-photography-cuddalore",
   },
+  {
+    thumb: post21,
+    title: "A Valentine's-season pre-wedding shoot in Cuddalore: planning for February 2027",
+    subtitle: "Plan a February pre-wedding shoot around dates, climate averages, location permissions, light and editing deadlines. Practical guidance from Error Studio, Cuddalore.",
+    date: "17 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/valentines-season-pre-wedding-shoot-cuddalore",
+  },
 ];
 
 export default function BlogPage() {
@@ -281,4 +292,4 @@ export default function BlogPage() {
       </Div>
     </>
   );
-    }
+}
