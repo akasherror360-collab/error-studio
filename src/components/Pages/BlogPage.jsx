@@ -32,6 +32,8 @@ import ctaBg from "../../assets/images/cta_bg.jpeg";
 // Blog data from home page PostSlider
 import post21 from "../../assets/images/client-2026-09/ecc79736.webp";
 
+import post22 from "../../assets/images/website/Instagram Posters/14-(1).webp";
+
 const postData = [
   {
     thumb: post1,
@@ -243,6 +245,15 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/valentines-season-pre-wedding-shoot-cuddalore",
+  },
+  {
+    thumb: post22,
+    title: "Do you need a second photographer at your wedding? A guide for Cuddalore couples",
+    subtitle: "One photographer or two? Compare simultaneous events, locations, still-photo roles, budget and written deliverables before choosing your wedding coverage.",
+    date: "18 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/one-or-two-wedding-photographers-cuddalore",
   },
 ];
 
