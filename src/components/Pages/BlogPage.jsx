@@ -34,6 +34,8 @@ import post21 from "../../assets/images/client-2026-09/ecc79736.webp";
 
 import post22 from "../../assets/images/website/Instagram Posters/14-(1).webp";
 
+import post23 from "../../assets/images/website/Instagram Posters/14-(1).webp";
+
 const postData = [
   {
     thumb: post1,
@@ -254,6 +256,15 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/one-or-two-wedding-photographers-cuddalore",
+  },
+  {
+    thumb: post23,
+    title: "Pre-Wedding Shoot in Pondicherry: A Planning Guide for Cuddalore Couples",
+    subtitle: "Plan a Pondicherry pre-wedding session from Cuddalore around heritage streets, the seafront, travel buffers, permissions and delivery deadlines.",
+    date: "19 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/pondicherry-pre-wedding-shoot-planning-cuddalore",
   },
 ];
 
