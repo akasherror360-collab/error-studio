@@ -23,6 +23,7 @@ import BlogDetails19 from './components/Pages/BlogDetails19';
 import BlogDetails20 from './components/Pages/BlogDetails20';
 import BlogDetails21 from './components/Pages/BlogDetails21';
 import BlogDetails22 from './components/Pages/BlogDetails22';
+import BlogDetails23 from './components/Pages/BlogDetails23';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
 import Home from './components/Pages/Home';
@@ -153,6 +154,7 @@ function App() {
             element={<BlogDetails21 />}
           />
           <Route path="blog/one-or-two-wedding-photographers-cuddalore" element={<BlogDetails22 />} />
+          <Route path="blog/pondicherry-pre-wedding-shoot-planning-cuddalore" element={<BlogDetails23 />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="faq" element={<FaqPage />} />
           {/* Retired template demo and filler pages redirect to real sections */}
