@@ -38,6 +38,8 @@ import post23 from "../../assets/images/website/Instagram Posters/14-(1).webp";
 
 import post24 from "../../assets/images/website/Instagram Posters/14-(1).webp";
 
+import post25 from "../../assets/images/website/Instagram Posters/11-(2).webp";
+
 const postData = [
   {
     thumb: post1,
@@ -276,6 +278,15 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/small-intimate-wedding-photography-cuddalore",
+  },
+  {
+    thumb: post25,
+    title: "Planning a January wedding in Cuddalore: weather, light and photography tips",
+    subtitle: "January climate averages, softer morning light, shorter daylight and simple planning tips for a Cuddalore wedding date.",
+    date: "21 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/january-wedding-photography-planning-cuddalore",
   },
 ];
 
