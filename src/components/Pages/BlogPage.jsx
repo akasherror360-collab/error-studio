@@ -40,6 +40,8 @@ import post24 from "../../assets/images/website/Instagram Posters/14-(1).webp";
 
 import post25 from "../../assets/images/website/Instagram Posters/11-(2).webp";
 
+import post26 from "../../assets/images/website/portfolio/13-(2).webp";
+
 const postData = [
   {
     thumb: post1,
@@ -287,6 +289,15 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/january-wedding-photography-planning-cuddalore",
+  },
+  {
+    thumb: post26,
+    title: "Planning your engagement (nichayathartham) photoshoot in Cuddalore",
+    subtitle: "What to cover, breathing room between rituals, light and space, group photos and quick edited photos for your announcements.",
+    date: "22 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/engagement-nichayathartham-photoshoot-cuddalore",
   },
 ];
 
