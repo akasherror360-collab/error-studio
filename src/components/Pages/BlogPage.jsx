@@ -42,7 +42,7 @@ import post25 from "../../assets/images/website/Instagram Posters/11-(2).webp";
 
 import post26 from "../../assets/images/website/portfolio/13-(2).webp";
 
-import post27 from "../../assets/images/website/Instagram Posters/0-(4).webp";
+import post27 from "../../assets/images/website/Instagram Posters/14-(1).webp";
 
 const postData = [
   {
@@ -303,8 +303,8 @@ const postData = [
   },
   {
     thumb: post27,
-    title: "Candid vs traditional wedding photography: what is the difference?",
-    subtitle: "Posed or unposed, what each style does well, how a typical wedding day mixes both, and how to decide what suits your family.",
+    title: "Choosing your wedding photography coverage style: a decision guide",
+    subtitle: "Decide your priorities, match coverage to your functions, protect time for family photos and prepare for the photographer meeting.",
     date: "23 Nov 2026",
     category: "Wedding Guide",
     categoryHref: "/blog",
