@@ -7,7 +7,7 @@ import Div from "../Div";
 import Sidebar from "../Sidebar.jsx";
 import Spacing from "../Spacing";
 import blogDetailsHeroBg from "../../assets/images/blog_details_hero_bg.jpeg";
-import postThumb from "../../assets/images/website/Instagram Posters/0-(4).webp";
+import postThumb from "../../assets/images/website/Instagram Posters/14-(1).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 export default function BlogDetails27() {
@@ -19,7 +19,7 @@ export default function BlogDetails27() {
   return (
     <>
       <PageHeading
-        title="Candid vs traditional, explained"
+        title="Choose your coverage style"
         bgSrc={blogDetailsHeroBg}
         pageLinkText="Blog Details"
       />
@@ -38,50 +38,47 @@ export default function BlogDetails27() {
                     Wedding Guide
                   </Link>
                 </Div>
-                <h2 className="cs-post_title">Candid vs Traditional Wedding Photography: What Is the Difference?</h2>
-                <p>When you start looking for a wedding photographer in Cuddalore, two words come up again and again: candid and traditional. They describe two different ways of photographing your wedding, and most wedding albums today include some of both. Here is what each one means and how to think about the mix for your day.</p>
-
-                <h3>What traditional wedding photography means</h3>
-                <p>Traditional photography is posed and directed. The photographer arranges people, frames the shot and asks everyone to look at the camera. Stage photos with family, the couple greeting guests on stage, and formal group portraits are all traditional coverage.</p>
-                <p>Its strengths:</p>
+                <h2 className="cs-post_title">Choosing Your Wedding Photography Coverage Style: A Decision Guide</h2>
+                <p>You have probably heard the words candid and traditional by now, and maybe read about what each style means. The harder question is the next one: which mix of the two is right for YOUR wedding? This guide walks through the actual decisions, so you can walk into a photographer meeting with answers instead of guesses.</p>
+                <h3>Step 1: Decide who the album is really for</h3>
+                <p>Every wedding album serves two audiences: the couple, and the family. Being honest about the balance helps everything else fall into place.</p>
                 <ul>
-                  <li>Everyone important ends up in the album, clearly and well-lit.</li>
-                  <li>Elders and relatives often expect and value these photographs.</li>
-                  <li>Group photos are organised, so large families are easier to manage.</li>
+                <li>If the album will mostly live with you and your partner, lean towards coverage that follows the two of you through the day.</li>
+                <li>If the album will be passed around at family gatherings and shown to relatives for years, make sure the coverage includes strong, complete formal photographs of the people who matter to your family.</li>
+                <li>Most weddings need both, and it helps to say out loud which audience comes first for you.</li>
                 </ul>
-
-                <h3>What candid wedding photography means</h3>
-                <p>Candid photography is unposed. The photographer watches for real moments as they happen: a laugh during the rituals, a parent's expression, friends teasing the groom, the couple's quiet minute together between events.</p>
-                <p>Its strengths:</p>
+                <h3>Step 2: Match coverage to your events, not the other way round</h3>
+                <p>List your actual functions: engagement, reception, muhurtham, home events. Then ask, for each one, what you want to remember from it.</p>
                 <ul>
-                  <li>The photos feel natural and show how the day actually felt.</li>
-                  <li>Moments happen once; candid coverage catches the ones you did not see yourself.</li>
-                  <li>These are often the images couples frame or share most.</li>
+                <li>Structured moments, such as stage time and group greetings, benefit from directed, organised coverage.</li>
+                <li>Loose moments, such as the morning prep and time with friends, benefit from quiet, observational coverage.</li>
+                <li>If an event is mostly one kind of moment, its coverage can lean that way too.</li>
                 </ul>
-
-                <h3>What a typical wedding day mix looks like</h3>
-                <p>Most couples want both styles working together:</p>
+                <h3>Step 3: Be realistic about time</h3>
+                <p>Directed photographs take scheduled minutes; observational photographs take presence, not slots. When you plan the day:</p>
                 <ul>
-                  <li>Rituals, stage events and family groups lean traditional, because those moments need structure.</li>
-                  <li>Getting-ready time, guest reactions, and the in-between moments lean candid.</li>
-                  <li>Couple portraits often blend the two: the photographer sets up a loose scene, then lets real interaction happen inside it.</li>
+                <li>If complete family group photos matter, protect a window for them in the schedule so they are not squeezed between rituals.</li>
+                <li>If you want relaxed couple portraits, they work best when the couple is not watching the clock.</li>
+                <li>Treat all timings as suggestions to discuss with your families and the people running the ceremony.</li>
                 </ul>
-                <p>There is no correct ratio. Some families want mostly traditional coverage with a few candids; others want the day documented as it unfolded with minimal posing. Both are valid choices.</p>
-
-                <h3>How to decide what suits you</h3>
+                <h3>Step 4: Know yourself in front of a camera</h3>
+                <p>Some people enjoy posing; many do not. Neither is a problem, but it changes what a photographer should do with you.</p>
                 <ul>
-                  <li>Look through sample albums and notice which images hold your attention. That tells you more than any definition.</li>
-                  <li>Think about your family. If relatives expect formal portraits, plan enough time for them.</li>
-                  <li>Think about yourselves. If you feel stiff in front of a camera, candid-heavy coverage with gentle direction may suit you better.</li>
-                  <li>Discuss the mix with your photographer before the wedding, not on the day itself.</li>
+                <li>If posing feels natural, you can lean on directed portraits.</li>
+                <li>If a camera makes you stiff, say so. A good team adjusts with lighter direction and more patience, and the photos improve because you are comfortable.</li>
                 </ul>
-
-                <h3>A note on time</h3>
-                <p>Candid moments happen on their own, but posed photos need time in the schedule. If group photos matter to you, leaving a dedicated slot for them after the ceremony or reception entry keeps the rest of the event relaxed. Treat any timing as a suggestion; your family and the flow of the function decide what actually works.</p>
-
-                <h3>Wedding photography in Cuddalore</h3>
-                <p>Error Studio is a wedding photography and filmmaking studio based in Cuddalore, Tamil Nadu. We cover weddings, receptions, engagements and pre-wedding shoots in Cuddalore, Puducherry, Villupuram and nearby towns. To talk about the style of coverage you want, call or WhatsApp us on <a href="https://wa.me/919944036606">99440 36606</a>.</p>
-                <p>For the booking side, see our <Link to="/blog/how-to-choose-wedding-photographer-cuddalore">guide to choosing a wedding photographer in Cuddalore</Link>. The photograph on this page is existing Error Studio portfolio work.</p>
+                <h3>Step 5: Use the photographer meeting well</h3>
+                <p>Bring your answers from the steps above, and bring questions:</p>
+                <ul>
+                <li>Ask to see full albums, not only highlights, so you see how an entire day was covered.</li>
+                <li>Ask how the team splits attention when two things happen at once, such as rituals on stage and family moments off stage.</li>
+                <li>Ask what they need from you: a family member to gather groups, a few minutes of protected time, a list of must-have people.</li>
+                </ul>
+                <h3>Step 6: Put the decision in writing before the wedding</h3>
+                <p>However you decide, note it down and share it with your photography team a few days before the function: the events, the must-have people, the balance you want. A short note prevents most wedding-day misunderstandings.</p>
+                <h3>Planning your coverage in Cuddalore</h3>
+                <p>ERROR STUDIO is a wedding photography and filmmaking studio based in Cuddalore, Tamil Nadu. We cover weddings, receptions, engagements and pre-wedding shoots in Cuddalore, Puducherry, Villupuram and nearby towns. To talk through the coverage style that fits your wedding, call or WhatsApp us on <a href="https://wa.me/919944036606">99440 36606</a>.</p>
+                <p>For the definitions, read our <Link to="/blog/candid-vs-traditional-wedding-photography">candid and traditional wedding photography explainer</Link>. The photograph on this page is existing Error Studio portfolio work.</p>
               </Div>
             </Div>
           </Div>
