@@ -42,6 +42,8 @@ import post25 from "../../assets/images/website/Instagram Posters/11-(2).webp";
 
 import post26 from "../../assets/images/website/portfolio/13-(2).webp";
 
+import post27 from "../../assets/images/website/Instagram Posters/0-(4).webp";
+
 const postData = [
   {
     thumb: post1,
@@ -298,6 +300,15 @@ const postData = [
     category: "Wedding Guide",
     categoryHref: "/blog",
     href: "/blog/engagement-nichayathartham-photoshoot-cuddalore",
+  },
+  {
+    thumb: post27,
+    title: "Candid vs traditional wedding photography: what is the difference?",
+    subtitle: "Posed or unposed, what each style does well, how a typical wedding day mixes both, and how to decide what suits your family.",
+    date: "23 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/candid-vs-traditional-wedding-photography-difference",
   },
 ];
 
