@@ -13,7 +13,7 @@ import serviceHeroBg from '../../assets/images/service_hero_bg.jpeg'
 import service_icon_1 from '../../assets/images/icons/service_icon_1.svg'
 import service_icon_2 from '../../assets/images/icons/service_icon_2.svg'
 import service_icon_3 from '../../assets/images/icons/service_icon_3.svg'
-import editing_img from '../../assets/images/website/Instagram Posters/00-(4).webp'
+import editing_img from '../../assets/images/website/portfolio/14-(1).webp'
 import ctaBg from '../../assets/images/cta_bg.jpeg'
 
 export default function VideoEditing() {
