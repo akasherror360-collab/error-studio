@@ -44,7 +44,19 @@ import post26 from "../../assets/images/website/portfolio/13-(2).webp";
 
 import post27 from "../../assets/images/website/Instagram Posters/14-(1).webp";
 
+import post28 from "../../assets/images/website/Instagram Posters/8-(1).webp";
+
 const postData = [
+  {
+    thumb: post28,
+    title: "Margazhi Month Without Weddings: How Engaged Couples Near Cuddalore Can Use the Pause",
+    subtitle: "Use the Margazhi pause for shoot planning, photographer bookings, engagement preparation and albums, while respecting your family custom.",
+    date: "24 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/margazhi-month-wedding-planning-cuddalore",
+  },
+
   {
     thumb: post1,
     title: "Wedding venues in and around Cuddalore: a couple's guide",
