@@ -9,7 +9,7 @@ import Spacing from "../Spacing";
 import blogDetailsHeroBg from "../../assets/images/blog_details_hero_bg.jpeg";
 import postThumb from "../../assets/images/client-2026-09/ecc79736.webp";
 import inlineBeach from "../../assets/images/website/portfolio/9-(5).webp";
-import inlineField from "../../assets/images/website/portfolio/10-(5).webp";
+import inlineField from "../../assets/images/website/portfolio/1-(6).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 export default function BlogDetails3() {
@@ -81,7 +81,7 @@ export default function BlogDetails3() {
                 <p>
                   Practical tip: boats get crowded on weekends and holidays, sometimes with long ticket queues by noon. Reach early, or plan a weekday.
                 </p>
-                <img src={inlineField} alt="Couple in pastel outfits in an open field, pre-wedding shoot by Error Studio" className="w-100 cs-radius_15" />
+                <img src={inlineField} alt="Couple surrounded by green foliage, pre-wedding portrait by Error Studio" className="w-100 cs-radius_15" />
                 <Spacing lg="40" md="30" />
 
                 <h3>How to choose</h3>
