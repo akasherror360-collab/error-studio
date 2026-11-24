@@ -6,7 +6,7 @@ import Div from '../Div';
 import Spacing from '../Spacing';
 import testimonial1 from '../../assets/images/website/Instagram Posters/0-(1).webp';
 import testimonial2 from '../../assets/images/website/Instagram Posters/14-(8).webp';
-import testimonial3 from '../../assets/images/website/Instagram Posters/00-(4).webp';
+import testimonial3 from '../../assets/images/website/portfolio/14-(1).webp';
 import testimonial4 from '../../assets/images/website/Instagram Posters/13-(1).webp';
 import shape1 from '../../assets/images/shape_1.svg';
 
