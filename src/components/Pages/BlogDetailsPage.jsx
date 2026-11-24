@@ -8,7 +8,7 @@ import Div from "../Div";
 import Sidebar from "../Sidebar.jsx";
 import Spacing from "../Spacing";
 import blogDetailsHeroBg from "../../assets/images/blog_details_hero_bg.jpeg";
-import post1 from "../../assets/images/website/Instagram Posters/0-(4).webp";
+import post1 from "../../assets/images/website/portfolio/14-(1).webp";
 import blogDetailsImg1 from "../../assets/images/blog_details_img_1.jpeg";
 import blogDetailsImg2 from "../../assets/images/blog_details_img_2.jpeg";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
