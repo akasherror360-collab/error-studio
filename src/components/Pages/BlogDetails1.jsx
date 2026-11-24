@@ -7,7 +7,7 @@ import Div from "../Div";
 import Sidebar from "../Sidebar.jsx";
 import Spacing from "../Spacing";
 import blogDetailsHeroBg from "../../assets/images/blog_details_hero_bg.jpeg";
-import postThumb from "../../assets/images/website/Instagram Posters/0-(4).webp";
+import postThumb from "../../assets/images/website/portfolio/14-(1).webp";
 import ctaBg from "../../assets/images/cta_bg.jpeg";
 
 export default function BlogDetails1() {
