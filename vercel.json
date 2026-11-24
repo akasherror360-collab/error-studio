@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/blog/margazhi-month-wedding-planning-cuddalore",
+      "destination": "/blog/margazhi-month-wedding-planning-cuddalore.html"
+    },
+    {
       "source": "/cover-song-package",
       "destination": "/p/4c14a23f831d.html"
     },
