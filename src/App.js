@@ -29,6 +29,7 @@ import BlogDetails25 from './components/Pages/BlogDetails25';
 import BlogDetails26 from './components/Pages/BlogDetails26';
 import BlogDetails27 from './components/Pages/BlogDetails27';
 import BlogDetails28 from './components/Pages/BlogDetails28';
+import BlogDetails29 from './components/Pages/BlogDetails29';
 import ContactPage from './components/Pages/ContactPage';
 import ErrorPage from './components/Pages/ErrorPage';
 import Home from './components/Pages/Home';
@@ -75,6 +76,7 @@ function App() {
           <Route path="portfolio" element={<PortfolioPage />} />
           <Route path="blog" element={<BlogPage />} />
           <Route path="blog/margazhi-month-wedding-planning-cuddalore" element={<BlogDetails28 />} />
+          <Route path="blog/new-year-engagement-wedding-photography-steps-cuddalore" element={<BlogDetails29 />} />
           <Route
             path="blog/wedding-venues-in-and-around-cuddalore"
             element={<BlogDetails1 />}
