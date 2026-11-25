@@ -46,7 +46,18 @@ import post27 from "../../assets/images/website/Instagram Posters/14-(1).webp";
 
 import post28 from "../../assets/images/website/Instagram Posters/8-(1).webp";
 
+import post29 from "../../assets/images/website/Instagram Posters/13-(1).webp";
+
 const postData = [
+  {
+    thumb: post29,
+    title: "Engaged This New Year? First Wedding Photography Steps for Cuddalore Couples",
+    subtitle: "Just engaged around New Year? Fix your date direction, plan an announcement shoot, list your functions, decide on films and albums, and start photographer talks early.",
+    date: "25 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/new-year-engagement-wedding-photography-steps-cuddalore",
+  },
   {
     thumb: post28,
     title: "Margazhi Month Without Weddings: How Engaged Couples Near Cuddalore Can Use the Pause",
