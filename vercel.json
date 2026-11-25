@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/blog/new-year-engagement-wedding-photography-steps-cuddalore",
+      "destination": "/blog/new-year-engagement-wedding-photography-steps-cuddalore.html"
+    },
+    {
       "source": "/blog/margazhi-month-wedding-planning-cuddalore",
       "destination": "/blog/margazhi-month-wedding-planning-cuddalore.html"
     },
