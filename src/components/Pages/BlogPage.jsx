@@ -48,7 +48,18 @@ import post28 from "../../assets/images/website/Instagram Posters/8-(1).webp";
 
 import post29 from "../../assets/images/website/Instagram Posters/13-(1).webp";
 
+import post30 from "../../assets/images/website/Instagram Posters/18-(10).webp";
+
 const postData = [
+  {
+    thumb: post30,
+    title: "Engagement vs Reception: Are They the Same Event? A Simple Guide for Tamil Weddings",
+    subtitle: "Engagement and reception are not the same event. The simple difference, when each one happens in a Tamil wedding, and what it means for your photography planning.",
+    date: "26 Nov 2026",
+    category: "Wedding Guide",
+    categoryHref: "/blog",
+    href: "/blog/engagement-vs-reception-difference-tamil-wedding",
+  },
   {
     thumb: post29,
     title: "Engaged This New Year? First Wedding Photography Steps for Cuddalore Couples",

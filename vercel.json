@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/blog/engagement-vs-reception-difference-tamil-wedding",
+      "destination": "/blog/engagement-vs-reception-difference-tamil-wedding.html"
+    },
+    {
       "source": "/blog/new-year-engagement-wedding-photography-steps-cuddalore",
       "destination": "/blog/new-year-engagement-wedding-photography-steps-cuddalore.html"
     },
