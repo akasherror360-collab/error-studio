@@ -52,6 +52,15 @@ import post30 from "../../assets/images/website/Instagram Posters/18-(10).webp";
 
 const postData = [
   {
+    thumb: blogHeroBg,
+    title: "Baby Photoshoot Planning: When to Schedule and What to Expect (A Guide for Cuddalore Parents)",
+    subtitle: "Planning a baby photoshoot? A simple guide to the newborn window, the sitter stage around 6 to 8 months, and how to prepare, for parents in and around Cuddalore.",
+    date: "27 Nov 2026",
+    category: "Shoot Tips",
+    categoryHref: "/blog",
+    href: "/blog/baby-photoshoot-planning-when-to-schedule-cuddalore",
+  },
+  {
     thumb: post30,
     title: "Engagement vs Reception: Are They the Same Event? A Simple Guide for Tamil Weddings",
     subtitle: "Engagement and reception are not the same event. The simple difference, when each one happens in a Tamil wedding, and what it means for your photography planning.",

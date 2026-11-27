@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/blog/baby-photoshoot-planning-when-to-schedule-cuddalore",
+      "destination": "/blog/baby-photoshoot-planning-when-to-schedule-cuddalore.html"
+    },
+    {
       "source": "/blog/engagement-vs-reception-difference-tamil-wedding",
       "destination": "/blog/engagement-vs-reception-difference-tamil-wedding.html"
     },
